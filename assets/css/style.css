@@ -49,10 +49,7 @@ img {
 
 .img-banner {
     position: relative;
-}
-
-.img-banner img {  
-    height: 100vh; 
+    height: 100vh;
 }
 
 .header-wrapper {
@@ -62,7 +59,7 @@ img {
     align-items: center;
     text-align: center;
 
-    width: 100%;
+    /* width: 100%; */
 
     padding-top: 28px;
 
@@ -110,10 +107,11 @@ img {
     position: absolute;
     z-index: 999;
 
-    transform: translateY(40%);
+    transform: translateY(25%);
     top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
 }
 
 .banner-content h2 {
@@ -211,7 +209,6 @@ img {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    gap: 139px;
     flex-wrap: wrap;
 
     position: relative;
@@ -273,6 +270,8 @@ img {
 
     position: absolute;
     right: 0;
+
+    width: 50%;
 }
 
 .info-content__right {
