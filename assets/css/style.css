@@ -347,17 +347,9 @@ img {
     position: absolute;
     top: 50%;
     bottom: 0;
-    /* right: 0; */
-    left: -80px;
-
-    /* display: flex;
-    align-items: center;
-    gap: 16px; */
+    left: -90px;
 
     transform: rotate(270deg);  
-    /* transform-origin: left bottom;
-
-    z-index: 100000; */
 }
 
 .accordion-el p {
@@ -536,6 +528,341 @@ img {
     font-family: Roboto; 
     font-weight: 300; 
     letter-spacing: 0.10px;
+}
+
+.news-footer {
+    position: relative;
+}
+
+.news-footer__line {
+    width: 100%;
+    height: 2px;
+    background-color: #d9d9d9;
+    border-radius: 3px;
+
+    margin-top: 75px;
+}
+
+.news-footer::after {
+    content: "";
+    display: block;
+    width: 400px;
+    height: 4px;
+    background: #164734;
+    border-radius: 3px;
+    z-index: 999;
+    margin-top: -3px;
+}
+
+.freedback-wrapper {
+    margin-top: 120px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: left;
+    gap: 139px;
+    flex-wrap: wrap;
+
+    position: relative;
+}
+
+.freedback-wrapper__col p {
+    color: #000; 
+    font-size: 24px;  
+    font-weight: 200; 
+    letter-spacing: 0.10px;
+}
+
+.freedback-wrapper__main {
+    margin-top: 32px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* align-items: center; */
+    gap: 14px;
+}
+
+.freedback-wrapper__main hr {
+    border: 2px solid #000;
+    transform: rotate(180deg);
+}
+
+.freedback-wrapper__main h2 {
+    color: #000; 
+    font-size: 16px; 
+    font-weight: 500;
+}
+
+.freedback-wrapper__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 32px;
+}
+
+.freedback-wrapper__footer button {
+    padding: 16px 32px;
+    background: #164734; 
+    border-radius: 50px;
+
+    color: #fff; 
+    font-size: 16px; 
+    font-weight: 400; 
+    letter-spacing: 0.10px;
+    outline: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.freedback-wrapper__footer button:hover {
+    background-color: transparent;
+    border: 1px solid #164734;
+    color: #164734;
+}
+
+.freedback-wrapper__footerDate {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.freedback-wrapper__footerDate p {
+    color: #000; 
+    font-size: 16px; 
+    font-style: italic; 
+    font-weight: 300; 
+    letter-spacing: 0.10px;
+}
+
+.freedback-wrapper__footerDate a {
+    color: #000; 
+    font-size: 14px; 
+    font-weight: 300; 
+    text-decoration: underline; 
+    letter-spacing: 0.10px;
+}
+
+.freedback-el {
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    top: 70%;
+    bottom: 0;
+    left: -100px;
+
+    transform: rotate(270deg);
+}
+
+.freedback-el p {
+    color: #272727; 
+    font-size: 14px; 
+    font-weight: 300; 
+}
+
+.freedback-el::after {  
+    content: ""; /* Создаем пустой контент */  
+    display: block; /* Устанавливаем блоковый элемент */  
+    width: 100%; /* Ширина линии на всю ширину контейнера */  
+    height: 2px; /* Высота линии */  
+    background-color: #a9a9a9; /* Цвет линии */  
+    position: absolute; /* Абсолютное позиционирование */  
+    top: 50%; /* Устанавливаем линию на дно контейнера */  
+    left: 110%; /* Прижимаем линию к левому краю */  
+} 
+
+.photo-wrapper{
+    position: relative;
+
+    margin-top: 194px;
+}
+
+.photo-content {
+    position: absolute;
+    top: 58px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.photo-content h2 {
+    color: #fff; 
+    font-size: 180px; 
+    font-weight: 400; 
+    text-transform: uppercase; 
+    letter-spacing: 0.10px;
+}
+
+.photo-content p {
+    color: #fff; 
+    font-size: 16px; 
+    font-weight: 200; 
+    letter-spacing: 0.10px;
+
+    margin-top: 16px;
+
+    max-width: 553px;
+}
+
+.photo-content button {
+    padding: 16px 32px;
+    background: #164734; 
+    border-radius: 50px;
+
+    color: #fff; 
+    font-size: 16px; 
+    font-weight: 400; 
+    letter-spacing: 0.10px;
+    outline: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    margin-top: 32px;
+}
+
+.photo-content button:hover {
+    background-color: transparent;
+    border: 1px solid #164734;
+    color: #fff;
+}
+
+.photo-el {
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    top: 350px;
+    bottom: 0;
+    left: -90px;
+    right: 0;
+
+    transform: rotate(270deg);
+}
+
+.photo-el p {
+    color: #FFFFFF; 
+    font-size: 14px; 
+    font-weight: 300; 
+}
+
+.photo-el::after {  
+    content: ""; /* Создаем пустой контент */  
+    display: block; /* Устанавливаем блоковый элемент */  
+    width: 199px; /* Ширина линии на всю ширину контейнера */  
+    height: 2px; /* Высота линии */  
+    background-color: #a9a9a9; /* Цвет линии */  
+    position: absolute; /* Абсолютное позиционирование */  
+    top: 72%; /* Устанавливаем линию на дно контейнера */  
+    left: 110%; /* Прижимаем линию к левому краю */  
+} 
+
+.subcription-wrapper {
+    position: absolute;
+    /* top: 0; */
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    /* max-height: 180px; */
+
+    background-color: #164734;
+
+    padding: 69px 115px;
+}
+
+.subcription-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.subcription-content p {
+    color: #fff; 
+    font-size: 18px; 
+    font-weight: 400; 
+    letter-spacing: 0.10px;
+    margin-right: 24px;
+}
+
+.subcription-form {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}
+
+.subcription-input input {
+    width: 317px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+
+    border-bottom: 1px solid #fff;
+    padding-bottom: 13px;
+
+    color: #fff; 
+    font-size: 16px; 
+    font-weight: 300;
+}
+
+.subcription-input input::placeholder {
+    margin: 13px;
+    color: #fff; 
+    font-size: 16px; 
+    font-weight: 300;
+}
+
+.subcription-form button {
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.10); 
+    border-radius: 50px; 
+    border: 1px white solid;
+
+    color: #F1F1F1; 
+    font-size: 14px; 
+    font-weight: 400; 
+    letter-spacing: 0.10px;
+    margin-right: 32px;
+    cursor: pointer;
+}
+
+.subcription-form button:hover {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.subcription-button {
+    padding: 12px 24px;
+    border-radius: 50px; 
+    border: 1px white solid;
+    background-color: transparent;
+
+    color: #F1F1F1; 
+    font-size: 14px; 
+    font-weight: 400; 
+    letter-spacing: 0.10px;
+    margin-right: 32px;
+    cursor: pointer;
+}
+
+.subcription-button:hover {
+    background-color: #fff;
+    border: 1px solid transparent;
+    color: #164734;
+}
+
+.footer-wrapper {
+    background-color: #1A1A1A;
+    position: relative;
+}
+
+.footer-wrapper hr {
+    /* padding-top: 46px; */
+    height: 1px;
+    background: rgba(255, 255, 255, 0.60);
 }
 
 @media (max-width: 1360px) {
