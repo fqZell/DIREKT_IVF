@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+sliderBanner = () => {
     const sliderLayout = document.querySelector('.slider-layout');
     const banners = document.querySelectorAll('.img-banner');
     const prevButton = document.querySelector('.prev');
@@ -50,4 +50,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     updateSlider(); 
-});
+}
+
+burgerBanner = () => {
+    const headerBurger = document.querySelector('.header-burger');
+    const headerMenu = document.querySelector('.burger-menu');
+
+    headerBurger.addEventListener('click', () => {
+
+        document.body.style.overflow = 'hidden';
+        headerMenu.classList.toggle('active');
+
+    })
+}
+
+searchBanner = () => {
+    const searchBurger = document.querySelector('.header-search');
+    const searchMenu = document.querySelector('.search-menu');
+
+    searchBurger.addEventListener('click', () => {
+
+        document.body.style.overflow = 'hidden';
+        searchMenu.classList.toggle('active');
+
+    })
+}
+
+const init = () => {
+    sliderBanner()
+    burgerBanner()
+    searchBanner()
+}
+
+document.addEventListener('DOMContentLoaded', init);
