@@ -43,13 +43,33 @@ img {
 }
 
 .container {
-    max-width: 1360px;
+    max-width: 1400px;
     margin: 0 auto;
 } 
+
+.slider-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-layout {
+    display: flex;
+    transition: transform 1.5s ease-in-out;
+}
 
 .img-banner {
     position: relative;
     height: 100vh;
+    flex: 0 0 100%;
+}
+
+.img-banner img {
+    transition: transform 0.5s ease;
+    transform: scale(1);
+}
+
+.img-banner img.active {
+    transform: scale(1.05); /* Эффект увеличения при появлении */
 }
 
 .header-wrapper {
@@ -72,6 +92,7 @@ img {
 
 .header-logo img {
     cursor: pointer;
+    transition: transform 2s ease;
 }
 
 .header-nav {
@@ -112,6 +133,19 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
+
+    padding: 0 48px;
+}
+
+.banner-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.banner-content.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .banner-content h2 {
@@ -154,7 +188,13 @@ img {
 }
 
 .banner-bottom {
-    margin-top: 126px;
+    position: absolute;
+    /* top: 0; */
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 1000;
 
     display: flex;
     flex-direction: row;
@@ -182,10 +222,6 @@ img {
     gap: 16px;
 }
 
-.banner-breakpoint.active {
-    opacity: 1;
-}
-
 .banner-breakpoint {
     width: 5px;
     height: 5px;
@@ -198,8 +234,31 @@ img {
     transition: all 0.3s ease-in-out;
 }
 
-.banner-breakpoint:hover {
+.banner-breakpoint.active {
     opacity: 1;
+}
+
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 1000;
+
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+.slider-controls button {
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .info-wrapper {
@@ -970,8 +1029,8 @@ footer hr {
     gap: 16px;
 }
 
-@media (max-width: 1360px) {
+@media (max-width: 1400px) {
     .container {
-        padding: 48px;
+        padding: 24px;
     }
 }
