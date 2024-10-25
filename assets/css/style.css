@@ -1,10 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* fonts */
+
+@font-face {
+    font-family: 'TTFirsNeue-Black';
+    src: url(../font/TTFirsNeue-Black.ttf);
+}
+
+@font-face {
+    font-family: 'TTFirsNeue-Bold';
+    src: url(../font/TTFirsNeue-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'TTFirsNeue-ExtraLight';
+    src: url(../font/TTFirsNeue-ExtraLight.ttf);
+}
+
+@font-face {
+    font-family: 'TTFirsNeue-Light';
+    src: url(../font/TTFirsNeue-Light.ttf);
+}
+
+@font-face {
+    font-family: 'TTFirsNeue-Medium';
+    src: url(../font/TTFirsNeue-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'TTFirsNeue-Regular';
+    src: url(../font/TTFirsNeue-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'TTFirsNeue-Thin';
+    src: url(../font/TTFirsNeue-Thin.ttf);
+}
+
+/* fonts */
+
+/* basick style */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
     transition: all 0.3s ease-in-out;
 }
 
@@ -24,30 +62,7 @@ html {
 
 body {
     overflow-x: hidden;
-    font-family: 'Roboto', sans-serif;
     background-color: #ffffff;
-}
-
-.header-logo img,
-.header-search img {
-    filter: invert(0);
-}
-
-body.active .header-logo img,
-body.active .header-search img {
-    filter: invert(1); 
-}
-
-body.active {
-    overflow: hidden;
-}
-
-input, button {
-    font-family: 'Roboto', sans-serif;
-}
-
-input::placeholder {
-    font-family: 'Roboto', sans-serif;
 }
 
 img {
@@ -56,8 +71,14 @@ img {
     object-fit: cover;
 }
 
+/* basick style */
+
+body.active {
+    overflow: hidden;
+}
+
 .container {
-    max-width: 1400px;
+    max-width: 1300px;
     margin: 0 auto;
 } 
 
@@ -97,20 +118,30 @@ header {
     align-items: center;
     text-align: center;
 
-    /* width: 100%; */
-
     padding-top: 28px;
 
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 999;
 }
 
+.header-logo__layout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
 .header-logo img {
     cursor: pointer;
     transition: transform 2s ease;
+}
+
+.active-img {
+    display: none;
 }
 
 .header-nav {
@@ -121,16 +152,21 @@ header {
     gap: 16px;
 }
 
-.header-en{
-    font-weight: 400;
+.header-en {
+    font-family: 'TTFirsNeue-Regular';
     font-size: 14px;
-    color: #fff;
+    color: #000000;
     cursor: pointer;
     transition: all 0.1s ease-in-out;
+
+    background-color: #fff;
+    padding: 8px 16px;
+    border-radius: 32px;
 }
 
 .header-en.active {
-    color: #000;
+    color: #fff;
+    background-color: #00328A;
 }
 
 .header-search img {
@@ -164,11 +200,13 @@ header {
 }
 
 .header-burger.active .header-line:first-child {
-    transform: rotate(45deg); 
+    transform: rotate(45deg);
+    background-color: #00328A; 
 }
 
 .header-burger.active .header-line:last-child {
     transform: translateY(-8.5px) rotate(-46deg);
+    background-color: #00328A;
 }
 
 .header-line.active {
@@ -186,8 +224,6 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-
-    padding: 0 48px;
 }
 
 .banner-content {
@@ -202,19 +238,35 @@ header {
 }
 
 .banner-content h2 {
+    font-family: 'TTFirsNeue-Thin';
     font-size: 180px;
-    font-weight: 400;
     color: #fff;
     letter-spacing: 0.10px;
     text-transform: uppercase;
 }
 
 .banner-content h3 {
-    font-size: 64px;
-    font-weight: 200;
+    font-size: 52px;
+    font-family: 'TTFirsNeue-Medium';
     color: #fff;
     letter-spacing: 0.10px;
     text-transform: uppercase;
+}
+
+.banner-content h3:nth-child(2) {
+    font-size: 32px;
+}
+
+.banner-content h3:nth-child(3) {
+    font-size: 48px;
+}
+
+.banner-content h2:nth-child(4) {
+    font-size: 96px;
+}
+
+.banner-content h3:nth-child(4) {
+    font-size: 32px;
 }
 
 .banner-content button {
@@ -224,9 +276,9 @@ header {
     border-radius: 50px;
     border: 1px white solid;
 
+    font-family: 'TTFirsNeue-Regular';
     color: #F1F1F1; 
     font-size: 14px;
-    font-weight: 400; 
     letter-spacing: 0.10px;
 
     cursor: pointer;
@@ -242,7 +294,6 @@ header {
 
 .banner-bottom {
     position: absolute;
-    /* top: 0; */
     bottom: 10%;
     left: 0;
     right: 0;
@@ -256,8 +307,8 @@ header {
 }
 
 .banner-bottom p {
+    font-family: 'TTFirsNeue-Regular';
     font-size: 14px;
-    font-weight: 300;
     color: #f1f1f1;
     letter-spacing: 0.10px;
 }
@@ -325,10 +376,11 @@ header {
     bottom: 0;
     /* z-index: 9999; */
 
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
 
     display: none;
     animation: fadeIn 0.8s ease-in-out;
+    z-index: 1;
 }
 
 @keyframes fadeIn {
@@ -353,12 +405,12 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    /* z-index: 9999; */
 
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
 
     display: none;
     animation: fadeIn 0.8s ease-in-out;
+    z-index: 1;
 }
 
 @keyframes fadeIn {
@@ -392,11 +444,27 @@ header {
 .burger-menu__column ul li {
     color: #272727; 
     font-size: 48px; 
-    font-weight: 200; 
+    font-family: 'TTFirsNeue-ExtraLight'; 
     line-height: 57.60px; 
     letter-spacing: 0.10px;
     text-transform: uppercase;
     cursor: pointer;
+}
+
+.burger-menu__column ul li:hover {
+    color: #0061FC;
+}
+
+.burger-menu__column.center ul li {
+    color: #272727; 
+    font-size: 24px; 
+    font-family: 'TTFirsNeue-Regular';
+    line-height: 28.80px; 
+    letter-spacing: 0.10px;
+}
+
+.burger-menu__column.center ul li:hover {
+    color: #0061FC;
 }
 
 .burger-menu__column:last-child {
@@ -408,15 +476,13 @@ header {
 .burger-menu__column:last-child span {
     color: #272727; 
     font-size: 24px; 
-    font-weight: 300; 
+    font-family: 'TTFirsNeue-Light'; 
     line-height: 28.80px; 
     letter-spacing: 0.10px;
 }
 
 .burger-menu__column:last-child hr {
-    /* height: 2px;
-    background-color: #164734; */
-    border: 2px solid #164734;
+    border: 1px solid #0061FC;
     border-radius: 3px;
 }
 
@@ -429,7 +495,7 @@ header {
 .burger-menu__column:last-child .burger-menu__phone a {
     color: #272727; 
     font-size: 24px; 
-    font-weight: 400; 
+    font-family: 'TTFirsNeue-Regular'; 
     text-transform: uppercase; 
     letter-spacing: 0.10px;
 }
@@ -437,7 +503,7 @@ header {
 .burger-menu__column:last-child .burger-menu__phone span {
     color: #373737; 
     font-size: 12px; 
-    font-weight: 300; 
+    font-family: 'TTFirsNeue-Light'; 
 }
 
 .burger-menu__column:last-child .burger-menu__mail {
@@ -449,7 +515,7 @@ header {
 .burger-menu__column:last-child .burger-menu__mail a {
     color: #272727; 
     font-size: 24px; 
-    font-weight: 400; 
+    font-family: 'TTFirsNeue-Regular'; 
     text-transform: uppercase; 
     letter-spacing: 0.10px;
 }
@@ -457,7 +523,7 @@ header {
 .burger-menu__column:last-child .burger-menu__mail span {
     color: #373737; 
     font-size: 12px; 
-    font-weight: 300; 
+    font-family: 'TTFirsNeue-Light'; 
 }
 
 .burger-menu__social {
@@ -477,9 +543,38 @@ header {
 .burger-menu__social .icons span {
     color: #272727; 
     font-size: 10px; 
-    font-weight: 300; 
+    font-family: 'TTFirsNeue-Light'; 
     text-transform: uppercase; 
     letter-spacing: 0.10px;
+}
+
+.burger-menu__footer {
+    margin-top: 100px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.burger-footer__row {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    align-items: center;
+}
+
+.burger-menu__footer a span {
+    color: #272727; 
+    font-size: 24px; 
+    font-family: 'TTFirsNeue-Regular';
+    font-weight: 300; 
+    line-height: 28.80px; 
+    letter-spacing: 0.10px;
+}
+
+.burger-menu__footer a span:hover {
+    color: #0061FC;
 }
 
 .search-menu__wrapper {
@@ -494,6 +589,10 @@ header {
     gap: 16px;
 }
 
+.search-menu__wrapper .search-menu__input {
+    width: 100%;
+}
+
 .search-menu__wrapper .search-menu__input input {
     outline: none;
     border: none;
@@ -501,17 +600,19 @@ header {
 
     color: rgba(39.34, 39.34, 39.34, 0.80); 
     font-size: 48px; 
-    font-weight: 200; 
+    font-family: 'TTFirsNeue-ExtraLight'; 
     line-height: 80.60px; 
     letter-spacing: 0.10px;
 
-    width: 1254px;
+    width: 100%;
+
+    background-color: transparent;
 }
 
 .search-menu__wrapper form button {
     outline: none;
     border: none;
-    background: #164734; 
+    background: #0061FC; 
     border-radius: 50%;
     padding: 22px;
     cursor: pointer;
@@ -527,16 +628,28 @@ header {
 
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 16px;
 }
 
 .search-menu__wrapper ul li {
     color: #272727; 
     font-size: 24px; 
-    font-weight: 300; 
+    font-family: 'TTFirsNeue-Light'; 
     line-height: 28.80px; 
     letter-spacing: 0.10px;
     cursor: pointer;
+}
+
+.search-menu__wrapper ul li:hover {
+    color: #0061FC;
+}
+
+/* Общие стили для обертки с баннером */
+.slider-wrapper {
+    position: relative;
+    height: 100vh; /* Высота баннера на весь экран */
+    overflow: hidden;
 }
 
 .info-wrapper {
@@ -563,17 +676,25 @@ header {
 .info-content__left h1 {
     color: #164734; 
     font-size: 32px; 
-    font-weight: 700; 
+    font-family: 'TTFirsNeue-Bold'; 
     line-height: 38.40px; 
     letter-spacing: 0.10px;
 }
 
 .info-content__left p {
-    color: #272727; 
+    /* color: #272727; 
     font-size: 18px; 
-    font-weight: 300; 
+    font-family: 'TTFirsNeue-Light'; 
     line-height: 21.60px; 
     letter-spacing: 0.10px;
+    max-width: 438px; */
+
+    color: #272727; 
+    font-size: 28px; 
+    font-family: 'TTFirsNeue-ExtraLight';
+    line-height: 33.60px; 
+    letter-spacing: 0.10px;
+    max-width: 438px;
 }
 
 .info-content__left button {
@@ -586,7 +707,7 @@ header {
 
     color: #ffffff; 
     font-size: 16px;
-    font-weight: 400; 
+    font-family: 'TTFirsNeue-Regular'; 
     letter-spacing: 0.10px; 
     transition: all 0.3s ease-in-out;
     cursor: pointer;
@@ -599,11 +720,12 @@ header {
 }
 
 .info-layout {
-    background-color: #164734;
+    background: #F7F7F7; 
+    box-shadow: 0px 9px 20px rgb(163, 163, 163);
     border-top-left-radius: 100px; 
-    border-top-right-radius: 5px;
+    border-bottom-left-radius: 100px; 
 
-    padding: 218px 260px 183px 139px;
+    padding: 218px 260px 218px 139px;
 
     position: absolute;
     right: 0;
@@ -621,22 +743,21 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+
+    gap: 32px;
 }
 
 .info-content__right p {
-    color: #fff; 
-    font-size: 300px; 
-    font-weight: 700; 
-}
-
-.info-content__right p:last-child {
-    color: #fff; 
+    color: #000000; 
     font-size: 24px; 
-    font-weight: 300; 
+    font-family: 'TTFirsNeue-Light'; 
+    line-height: 28.80px; 
+    letter-spacing: 0.10px;
 }
 
 .number__wrapper {
-    margin-top: 321px;
+    margin-top: 421px;
 
     display: flex;
     flex-direction: row;
@@ -645,24 +766,48 @@ header {
     flex-wrap: wrap;
 }
 
-.number-wrapper__left, .number-wrapper__right {
-    flex: 1;
-}
-
 .number-wrapper__left p{
-    font-size: 18px;
-    font-weight: 300;
+    font-size: 24px;
+    font-family: 'TTFirsNeue-ExtraLight';
     line-height: 21.60px; 
     letter-spacing: 0.10px;
+    color: #272727;
+
+    max-width: 462px;
+}
+
+.number-wrapper__left button {
+    color: #fff; 
+    font-size: 16px; 
+    font-family: 'TTFirsNeue-Medium';
+    letter-spacing: 0.10px;
+
+    padding: 16px 32px;
+    background: #0061FC; 
+    border-radius: 50px;
+    border: 1px solid transparent;
+    outline: none;
+
+    margin-top: 32px;
+
+    cursor: pointer;
+}
+
+.number-wrapper__left button:hover {
+    background: transparent;
+    border: 1px solid #0061FC;
     color: #272727;
 }
 
 .number-wrapper__right p {
     font-size: 24px;
-    font-weight: 300;
+    font-family: 'TTFirsNeue-Light';
     line-height: 21.60px; 
     letter-spacing: 0.10px;
     color: #272727;
+
+    text-align: center;
+    /* width: max-content; */
 }
 
 .accordion-wrapper {
@@ -696,7 +841,7 @@ header {
 .accordion-el p {
     color: #272727; 
     font-size: 14px; 
-    font-weight: 300; 
+    font-family: 'TTFirsNeue-Light'; 
 }
 
 .accordion-el::after {  
@@ -720,10 +865,55 @@ header {
     gap: 50px;
 }
 
+.accordion-img img {
+    display: none;
+    animation: fadeInImg 1s ease-in-out;
+}
+
+@keyframes fadeInImg {
+    0% {
+        /* opacity: 0; */
+        margin-top: -100px;
+    }
+
+    100% {
+        /* opacity: 1; */
+        margin-top: 0;
+    }
+}
+
+.accordion-img .active  {
+    display: block;
+}
+
+.accordion-img .disabled {
+    display: block;
+    height: 169px;
+}
+
 .accordion-line {
     width: 199px;
     height: 1px;
     background-color: #a9a9a9;
+}
+
+.accordion-content {
+    width: 100%;
+}
+
+.accordion-content span {
+    color: black; 
+    font-size: 38px; 
+    font-family: 'TTFirsNeue-Medium';
+    text-transform: uppercase; 
+    line-height: 49.40px;
+}
+
+.accordion-content__row.first {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .accordion-content__row {
@@ -733,15 +923,13 @@ header {
     align-items: center;
 
     width: 100%;
+
+    cursor: pointer;
 }
 
 .accordion-content__row img {
     width: 17px;
     height: 17px;
-}
-
-.accordion-img img:last-child {
-    height: 169px;
 }
 
 .accordion-contets {
@@ -758,10 +946,10 @@ header {
     background-color: #d9d9d9;
 }
 
-.accordion-contets h2 {
+.accordion-content h2 {
     color: #000; 
-    font-size: 40px; 
-    font-weight: 100; 
+    font-size: 38px; 
+    font-family: 'TTFirsNeue-Thin'; 
     text-transform: uppercase; 
     line-height: 52px;
 }
@@ -770,25 +958,55 @@ header {
     color: #000; 
     font-size: 16px; 
     font-style: italic; 
-    font-weight: 200; 
+    font-family: 'TTFirsNeue-ExtraLight'; 
     line-height: 19.20px; 
     letter-spacing: 0.10px;
+    margin-top: 22px;
 }
 
 .accordion-content__row h2 {
     color: #000; 
     font-size: 24px; 
-    font-weight: 200; 
+    font-family: 'TTFirsNeue-Medium'; 
     text-transform: uppercase; 
     line-height: 31.20px;
+}
+
+.accordion-content__row.first h2 {
+    color: black; 
+    font-size: 38px; 
+    font-family: 'TTFirsNeue-Thin';
+    text-transform: uppercase; 
+    line-height: 49.40px;
 }
 
 .accordion-content__row img {
     cursor: pointer;
 }
 
-.accordion-content__row img:hover {
+.accordion-content__row:hover img {
     scale: 1.2;
+}
+
+.accordion-content__el {
+    display: none;
+}
+
+.accordion-content__el.active {
+    display: block;
+    animation: fadeInAccrodion 0.5s ease-in-out;
+}
+
+@keyframes fadeInAccrodion {
+    0% {
+        opacity: 0;
+        margin-top: -30px;
+    }
+
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
 }
 
 .news-wrapper {
@@ -805,7 +1023,7 @@ header {
 .news-header__title h3 {
     color: black; 
     font-size: 48px; 
-    font-weight: 100; 
+    font-family: 'TTFirsNeue-Thin'; 
     text-transform: uppercase; 
     line-height: 62.40px;
 }
@@ -829,7 +1047,7 @@ header {
 
     color: white; 
     font-size: 16px; 
-    font-weight: 400; 
+    font-family: 'TTFirsNeue-Regular'; 
     letter-spacing: 0.10px;
     cursor: pointer;
 }
@@ -859,15 +1077,13 @@ header {
 
     color: #000; 
     font-size: 24px; 
-    font-family: Roboto; 
-    font-weight: 300;
+    font-family: 'TTFirsNeue-Light';
 }
 
 .news p {
     color: #000; 
     font-size: 12px; 
-    font-family: Roboto; 
-    font-weight: 300; 
+    font-family: 'TTFirsNeue-Light'; 
     letter-spacing: 0.10px;
 }
 
@@ -912,7 +1128,7 @@ header {
 .freedback-wrapper__col p {
     color: #000; 
     font-size: 24px;  
-    font-weight: 200; 
+    font-family: 'TTFirsNeue-ExtraLight'; 
     letter-spacing: 0.10px;
 }
 
@@ -934,7 +1150,7 @@ header {
 .freedback-wrapper__main h2 {
     color: #000; 
     font-size: 16px; 
-    font-weight: 500;
+    font-family: 'TTFirsNeue-Medium';
 }
 
 .freedback-wrapper__footer {
@@ -953,7 +1169,7 @@ header {
 
     color: #fff; 
     font-size: 16px; 
-    font-weight: 400; 
+    font-family: 'TTFirsNeue-Regular'; 
     letter-spacing: 0.10px;
     outline: none;
     border: 1px solid transparent;
@@ -976,14 +1192,14 @@ header {
     color: #000; 
     font-size: 16px; 
     font-style: italic; 
-    font-weight: 300; 
+    font-family: 'TTFirsNeue-Light'; 
     letter-spacing: 0.10px;
 }
 
 .freedback-wrapper__footerDate a {
     color: #000; 
     font-size: 14px; 
-    font-weight: 300; 
+    font-family: 'TTFirsNeue-Light'; 
     text-decoration: underline; 
     letter-spacing: 0.10px;
 }
@@ -1002,7 +1218,7 @@ header {
 .freedback-el p {
     color: #272727; 
     font-size: 14px; 
-    font-weight: 300; 
+    font-family: 'TTFirsNeue-Light'; 
 }
 
 .freedback-el::after {  
@@ -1033,7 +1249,7 @@ header {
 .photo-content h2 {
     color: #fff; 
     font-size: 180px; 
-    font-weight: 400; 
+    font-family: 'TTFirsNeue-Regular'; 
     text-transform: uppercase; 
     letter-spacing: 0.10px;
 }
@@ -1041,7 +1257,7 @@ header {
 .photo-content p {
     color: #fff; 
     font-size: 16px; 
-    font-weight: 200; 
+    font-family: 'TTFirsNeue-ExtraLight'; 
     letter-spacing: 0.10px;
 
     margin-top: 16px;
@@ -1056,7 +1272,7 @@ header {
 
     color: #fff; 
     font-size: 16px; 
-    font-weight: 400; 
+    font-family: 'TTFirsNeue-Regular'; 
     letter-spacing: 0.10px;
     outline: none;
     border: 1px solid transparent;
@@ -1085,7 +1301,7 @@ header {
 .photo-el p {
     color: #FFFFFF; 
     font-size: 14px; 
-    font-weight: 300; 
+    font-family: 'TTFirsNeue-Light'; 
 }
 
 .photo-el::after {  
@@ -1125,7 +1341,7 @@ header {
 .subcription-content p {
     color: #fff; 
     font-size: 18px; 
-    font-weight: 400; 
+    font-family: 'TTFirsNeue-Regular'; 
     letter-spacing: 0.10px;
     margin-right: 24px;
 }
@@ -1147,14 +1363,14 @@ header {
 
     color: #fff; 
     font-size: 16px; 
-    font-weight: 300;
+    font-family: 'TTFirsNeue-Light';
 }
 
 .subcription-input input::placeholder {
     margin: 13px;
     color: #fff; 
     font-size: 16px; 
-    font-weight: 300;
+    font-family: 'TTFirsNeue-Light';
 }
 
 .subcription-form button {
@@ -1165,7 +1381,7 @@ header {
 
     color: #F1F1F1; 
     font-size: 14px; 
-    font-weight: 400; 
+    font-family: 'TTFirsNeue-Regular'; 
     letter-spacing: 0.10px;
     margin-right: 32px;
     cursor: pointer;
@@ -1185,7 +1401,7 @@ header {
 
     color: #F1F1F1; 
     font-size: 14px; 
-    font-weight: 400; 
+    font-family: 'TTFirsNeue-Regular'; 
     letter-spacing: 0.10px;
     margin-right: 32px;
     cursor: pointer;
@@ -1217,7 +1433,7 @@ footer hr {
 .footer-content__connect a {
     color: #F1F1F1; 
     font-size: 20px; 
-    font-weight: 500; 
+    font-family: 'TTFirsNeue-Medium'; 
     text-transform: uppercase; 
     letter-spacing: 0.10px;
 }
@@ -1225,7 +1441,7 @@ footer hr {
 .footer-content__connect p {
     color: #BABABA; 
     font-size: 12px; 
-    font-weight: 400; 
+    font-family: 'TTFirsNeue-Regular'; 
 }
 
 .footer-content__message {
@@ -1245,7 +1461,7 @@ footer hr {
 .footer-content__message p {
     color: #F1F1F1; 
     font-size: 10px; 
-    font-weight: 500; 
+    font-family: 'TTFirsNeue-Medium'; 
     text-transform: uppercase; 
     letter-spacing: 0.10px;
 }
@@ -1275,7 +1491,7 @@ footer hr {
 .footer-content__col h2 {
     color: #F1F1F1; 
     font-size: 14px; 
-    font-weight: 500; 
+    font-family: 'TTFirsNeue-Medium'; 
     text-transform: uppercase; 
     letter-spacing: 0.10px;
 }
@@ -1283,7 +1499,7 @@ footer hr {
 .footer-content__col p {
     color: #BABABA; 
     font-size: 12px;  
-    font-weight: 400; 
+    font-family: 'TTFirsNeue-Regular'; 
     letter-spacing: 0.10px;
 }
 
@@ -1299,7 +1515,7 @@ footer hr {
 .footer-content__en p {
     color: #BABABA; 
     font-size: 12px; 
-    font-weight: 400; 
+    font-family: 'TTFirsNeue-Regular'; 
     letter-spacing: 0.10px;
 }
 
@@ -1309,6 +1525,10 @@ footer hr {
     justify-content: center;
     align-items: center;
     gap: 16px;
+}
+
+.footer-content__imgs img {
+    cursor: pointer;
 }
 
 @media (max-width: 1400px) {
