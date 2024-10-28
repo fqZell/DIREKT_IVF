@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="shortcut icon" href="./assets/img/logo/logo.svg" type="image/x-icon">
     <script src="./assets/js/script.js" defer></script>
@@ -688,7 +690,7 @@
 
                                 <h2>унипарк</h2>
     
-                                <img src="./assets/img/icons/plus.svg" alt="icon">
+                                <img class="toggle-icon" src="./assets/img/icons/plus.svg" alt="icon">
     
                             </div>
 
@@ -708,7 +710,7 @@
 
                                 <h2>Университетский венчурный<br>фонд им. Лобачевского</h2>
     
-                                <img src="./assets/img/icons/plus.svg" alt="icon">
+                                <img class="toggle-icon" src="./assets/img/icons/plus.svg" alt="icon">
     
                             </div>
 
@@ -728,7 +730,7 @@
 
                                 <h2>название компании</h2>
     
-                                <img src="./assets/img/icons/plus.svg" alt="icon">
+                                <img class="toggle-icon" src="./assets/img/icons/plus.svg" alt="icon">
     
                             </div>
 
@@ -758,7 +760,11 @@
 
                     <div class="news-header__title">
 
-                        <h3>ключевые даты</h3>
+                        <h2>новости фонда</h2>
+                        
+                        <span>
+                            и портфельных компаний
+                        </span>
 
                     </div>
 
@@ -766,35 +772,99 @@
 
                 </div>
 
-                <div class="news-content">
+                <div class="swiper mySwiper">
 
-                    <div class="news">
+                    <div class="news-content swiper-wrapper">
 
-                        <img src="./assets/img/news/news.png" alt="news">
+                        <div class="news swiper-slide">
 
-                        <h2>Название для новости</h2>
+                            <img src="./assets/img/news/news.png" alt="news">
 
-                        <p>20/07/24</p>
+                            <h2>Название для новости</h2>
 
-                    </div>
+                            <p>20/07/24</p>
 
-                    <div class="news">
+                        </div>
 
-                        <img src="./assets/img/news/news2.png" alt="news">
+                        <div class="news swiper-slide">
 
-                        <h2>Название для новости в<br> несколько строк</h2>
+                            <img src="./assets/img/news/news2.png" alt="news">
 
-                        <p>20/07/24</p>
+                            <h2>Название для новости в<br> несколько строк</h2>
 
-                    </div>
+                            <p>20/07/24</p>
 
-                    <div class="news">
+                        </div>
 
-                        <img src="./assets/img/news/news3.png" alt="news">
+                        <div class="news swiper-slide">
 
-                        <h2>Название для новости в<br> несколько строк</h2>
+                            <img src="./assets/img/news/news3.png" alt="news">
 
-                        <p>20/07/24</p>
+                            <h2>Название для новости в<br> несколько строк</h2>
+
+                            <p>20/07/24</p>
+
+                        </div>
+
+                        <div class="news swiper-slide">
+
+                            <img src="./assets/img/news/news.png" alt="news">
+
+                            <h2>Название для новости</h2>
+
+                            <p>20/07/24</p>
+
+                        </div>
+
+                        <div class="news swiper-slide">
+
+                            <img src="./assets/img/news/news2.png" alt="news">
+
+                            <h2>Название для новости в<br> несколько строк</h2>
+
+                            <p>20/07/24</p>
+
+                        </div>
+
+                        <div class="news swiper-slide">
+
+                            <img src="./assets/img/news/news3.png" alt="news">
+
+                            <h2>Название для новости в<br> несколько строк</h2>
+
+                            <p>20/07/24</p>
+
+                        </div>
+
+                        <div class="news swiper-slide">
+
+                            <img src="./assets/img/news/news.png" alt="news">
+
+                            <h2>Название для новости</h2>
+
+                            <p>20/07/24</p>
+
+                        </div>
+
+                        <div class="news swiper-slide">
+
+                            <img src="./assets/img/news/news2.png" alt="news">
+
+                            <h2>Название для новости в<br> несколько строк</h2>
+
+                            <p>20/07/24</p>
+
+                        </div>
+
+                        <div class="news swiper-slide">
+
+                            <img src="./assets/img/news/news3.png" alt="news">
+
+                            <h2>Название для новости в<br> несколько строк</h2>
+
+                            <p>20/07/24</p>
+
+                        </div>
 
                     </div>
 
@@ -803,6 +873,7 @@
                 <div class="news-footer">
 
                     <hr class="news-footer__line">
+                    <div class="progress-bar"></div>
 
                 </div>
 
@@ -863,7 +934,7 @@
 
                 <div class="freedback-wrapper__col">
 
-                    <img src="./assets/img/content/president.png" alt="president">
+                    <img src="./assets/img/content/president2.png" alt="president">
 
                 </div>
 
@@ -888,34 +959,34 @@
                     <h2>2024</h2>
 
                     <p>
-                        Российский венчурный форум ведущее событие отрасли ежегодно объединяющее представителей инвестиционных компаний, венчурных инвесторов, бизнес-ангелов, институты развития и технологических разработчиков, для обсуждения актуальных вопросов, новых трендов и стратегических задач для будущего развития венчура в России и на международной арене.
+                        ВСЕРОССИЙСКИЙ ФОРУМ ТЕХНОЛОГИЧЕСКОГО ПРЕДПРИНИМАТЕЛЬСТВА
                     </p>
                     
                     <a href="#">
                         <button>
-                            Смотреть фоторепортаж
+                            Перейти на сайт
                         </button>
                     </a>
 
                     <div class="photo-el">
 
-                        <p>Фоторепортажи</p>
+                        <p>Мероприятия</p>
     
                     </div>
 
                 </div>
 
-                <section id="subcription">
+                <!-- <section id="subcription"> -->
 
                     <div class="subcription-wrapper container">
 
                         <div class="subcription-content">
 
                             <p>
-                                Подписывайтесь на рассылку новостей<br> и Telegram-канал фонда
+                                Все новости фонда в социальных сетях
                             </p>
 
-                            <form class="subcription-form">
+                            <!-- <form class="subcription-form">
 
                                 <div class="subcription-input">
                                     <label for="email"></label>
@@ -927,19 +998,35 @@
                                     Подписаться
                                 </button>
 
-                            </form>
+                            </form> -->
 
-                            <a href="#">
-                                <button class="subcription-button">
-                                    Telegram-канал
-                                </button>
-                            </a>
+                            <div class="subscription-buttons">
+
+                                <a href="#">
+                                    <button class="subcription-button">
+                                        Telegram-канал
+                                    </button>
+                                </a>
+    
+                                <a href="#">
+                                    <button class="subcription-button">
+                                        Группа ВКонтакте
+                                    </button>
+                                </a>
+    
+                                <a href="#">
+                                    <button class="subcription-button">
+                                        Канал RUTUBE
+                                    </button>
+                                </a>
+
+                            </div>
 
                         </div>
 
                     </div>
 
-                </section>
+                <!-- </section> -->
 
             </div>
 

@@ -226,49 +226,6 @@ function scrollHeader() {
 //     const images = document.querySelectorAll('.accordion-img img');
 
 //     rows.forEach((row, index) => {
-//         const icon = row.querySelector('img');
-
-//         row.addEventListener('click', () => {
-//             // Проверка текущего состояния контента
-//             const isActive = contents[index].classList.contains("active");
-
-//             // Закрываем все контенты и сбрасываем иконки
-//             contents.forEach(content => content.classList.remove("active"));
-//             rows.forEach(r => {
-//                 const img = r.querySelector('img');
-//                 if (img) img.src = './assets/img/icons/plus.svg';
-//             });
-
-//             if (!isActive) {
-//                 // Открыть текущий контент
-//                 contents[index].classList.add("active");
-
-//                 // Меняем иконку на крестик
-//                 if (icon) icon.src = './assets/img/icons/cross.svg';
-
-//                 // Сброс классов картинок и установка нужной картинки как активной
-//                 images.forEach((img, imgIndex) => {
-//                     img.classList.remove("active", "disabled");
-//                     if (imgIndex === index) {
-//                         img.classList.add("active"); // Устанавливаем активной нужную картинку
-//                         img.style.display = "block"; // Отображаем активную картинку
-//                     } else if (img.classList.contains("disabled")) {
-//                         img.style.display = "block"; // Оставляем видимыми картинки с классом disabled
-//                     } else {
-//                         img.style.display = "none"; // Скрываем все остальные картинки
-//                     }
-//                 });
-//             }
-//         });
-//     });
-// };
-
-// const accordionIndex = () => {
-//     const rows = document.querySelectorAll('.accordion-content__row');
-//     const contents = document.querySelectorAll('.accordion-content__el');
-//     const images = document.querySelectorAll('.accordion-img img');
-
-//     rows.forEach((row, index) => {
 //         row.addEventListener('click', () => {
 //             const isActive = contents[index].classList.contains("active");
 
@@ -281,8 +238,12 @@ function scrollHeader() {
 
 //                     if (imgIndex === index) {
 //                         img.classList.add("active");
-//                     } else if (imgIndex === index + 1 || (index === images.length - 1 && imgIndex === 0)) {
+//                         img.style.transform = "translateY(0)";
+//                     } else if (imgIndex === (index + 1) % images.length) {
 //                         img.classList.add("disabled");
+//                         img.style.transform = "translateY(-100%)";
+//                     } else {
+//                         img.style.transform = "translateY(100%)";
 //                     }
 //                 });
 //             }
@@ -299,18 +260,31 @@ const accordionIndex = () => {
         row.addEventListener('click', () => {
             const isActive = contents[index].classList.contains("active");
 
+            // Сброс всех контентов и иконок
             contents.forEach(content => content.classList.remove("active"));
+            rows.forEach(r => {
+                const icon = r.querySelector('img'); 
+                if (icon) {
+                    icon.src = './assets/img/icons/plus.svg';
+                }
+            });
+
             if (!isActive) {
                 contents[index].classList.add("active");
 
-                // Сброс классов и установка активного изображения
+                // Установка активной иконки для текущего ряда
+                const icon = row.querySelector('img');
+                if (icon) {
+                    icon.src = './assets/img/icons/cross.svg';
+                }
+
+                // Управление классами картинок для анимации
                 images.forEach((img, imgIndex) => {
                     img.classList.remove("active", "disabled");
-
                     if (imgIndex === index) {
-                        img.classList.add("active"); // Текущая картинка активна
-                    } else if (imgIndex === (index + 2) % images.length) {
-                        img.classList.add("disabled"); // Следующая картинка будет частично видна
+                        img.classList.add("active");
+                    } else if (imgIndex === (index + 1) % images.length) {
+                        img.classList.add("disabled");
                     }
                 });
             }
@@ -318,6 +292,49 @@ const accordionIndex = () => {
     });
 };
 
+const swiperNews = () => {
+
+    const swiper = new Swiper(".mySwiper", {
+        direction: "horizontal",
+        slidesPerView: 4,
+        mousewheel: true,
+        freeMode: true,
+        freeModeMomentum: true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        on: {
+            progress: function (swiper, progress) {
+                // Проверяем текущее значение прогресса в консоли
+                console.log("Прогресс слайдера:", progress);
+
+                // Получаем элемент progress-bar
+                const progressBar = document.querySelector(".progress-bar");
+                const lineWidth = document.querySelector(".news-footer__line").offsetWidth;
+
+                // Рассчитываем ширину для прогресс-бара
+                const currentWidth = lineWidth * progress;
+                progressBar.style.width = `${currentWidth}px`;
+            },
+        },
+    });
+
+    // Добавляем Intersection Observer для анимации появления
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("slide-in");
+            } else {
+                entry.target.classList.remove("slide-in");
+            }
+        });
+    }, { threshold: 0.1 }); // Порог, при котором слайд считается видимым
+
+    // Применяем Observer ко всем слайдам
+    const slides = document.querySelectorAll('.swiper-slide');
+    slides.forEach(slide => observer.observe(slide)); 
+}
 
 const init = () => {
     sliderBanner()
@@ -325,6 +342,7 @@ const init = () => {
     searchBanner()
     changeLanguage()
     accordionIndex()
+    swiperNews()
 }
 
 document.addEventListener('DOMContentLoaded', init);
