@@ -71,6 +71,19 @@ img {
     object-fit: cover;
 }
 
+/* Начальное состояние: скрыто */
+section {
+    opacity: 0;
+    transform: translateY(50px); /* немного ниже начальной позиции */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Класс, который добавляется при видимости */
+section.visible {
+    opacity: 1;
+    transform: translateY(0); /* возвращение к изначальной позиции */
+}
+
 /* basick style */
 
 body.active {
