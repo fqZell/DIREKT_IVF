@@ -188,68 +188,72 @@ changeLanguage = () => {
     })
 }
 
-window.addEventListener('scroll', scrollHeader);
+// window.addEventListener('scroll', scrollHeader);
+
+// function scrollHeader() {
+//     const headerLogo = document.querySelector('.header-logo img');
+//     const headerLogoTxt = document.querySelector('.header-logo__txt');
+//     const searchIcon = document.querySelector('.header-search img');
+//     const headerEn = document.querySelector('.header-en')
+//     const headerLines = document.querySelectorAll('.header-line')
+//     const bannerHeight = window.innerHeight; 
+//     const scrollPosition = window.scrollY;
+
+//     if (scrollPosition > bannerHeight) {
+//         headerLogo.src = './assets/img/logo/logoBlue.svg'; 
+//         headerLogoTxt.src = './assets/img/logo/logoTxtBlue.svg';
+//         searchIcon.src = './assets/img/icons/searchBlue.svg';
+//         headerEn.style.color = "#ffffff"
+//         headerEn.style.backgroundColor = "#00328A"
+//         headerLines.forEach(headerLine => {
+//             headerLine.style.backgroundColor = "#00328A" 
+//         });
+//     } else {
+//         headerLogo.src = './assets/img/logo/logo.svg'; 
+//         headerLogoTxt.src = './assets/img/logo/logoTxt.svg';
+//         searchIcon.src = './assets/img/icons/search.svg';
+//         headerEn.style.color = "#000"
+//         headerEn.style.backgroundColor = "#fff"
+//         headerLines.forEach(headerLine => {
+//             headerLine.style.backgroundColor = "#fff" 
+//         });
+//     }
+// }
 
 function scrollHeader() {
     const headerLogo = document.querySelector('.header-logo img');
     const headerLogoTxt = document.querySelector('.header-logo__txt');
     const searchIcon = document.querySelector('.header-search img');
-    const headerEn = document.querySelector('.header-en')
-    const headerLines = document.querySelectorAll('.header-line')
+    const headerEn = document.querySelector('.header-en');
+    const headerLines = document.querySelectorAll('.header-line');
+    
     const bannerHeight = window.innerHeight; 
+    const photoSection = document.querySelector('#photo');
+    const photoSectionPosition = photoSection.getBoundingClientRect().top + window.scrollY;
     const scrollPosition = window.scrollY;
 
-    if (scrollPosition > bannerHeight) {
+    if (scrollPosition > bannerHeight && scrollPosition < photoSectionPosition) {
         headerLogo.src = './assets/img/logo/logoBlue.svg'; 
         headerLogoTxt.src = './assets/img/logo/logoTxtBlue.svg';
         searchIcon.src = './assets/img/icons/searchBlue.svg';
-        headerEn.style.color = "#ffffff"
-        headerEn.style.backgroundColor = "#00328A"
+        headerEn.style.color = "#ffffff";
+        headerEn.style.backgroundColor = "#00328A";
         headerLines.forEach(headerLine => {
-            headerLine.style.backgroundColor = "#00328A" 
+            headerLine.style.backgroundColor = "#00328A";
         });
     } else {
         headerLogo.src = './assets/img/logo/logo.svg'; 
         headerLogoTxt.src = './assets/img/logo/logoTxt.svg';
         searchIcon.src = './assets/img/icons/search.svg';
-        headerEn.style.color = "#000"
-        headerEn.style.backgroundColor = "#fff"
+        headerEn.style.color = "#000";
+        headerEn.style.backgroundColor = "#fff";
         headerLines.forEach(headerLine => {
-            headerLine.style.backgroundColor = "#fff" 
+            headerLine.style.backgroundColor = "#fff";
         });
     }
 }
 
-// const accordionIndex = () => {
-//     const rows = document.querySelectorAll('.accordion-content__row');
-//     const contents = document.querySelectorAll('.accordion-content__el');
-//     const images = document.querySelectorAll('.accordion-img img');
-
-//     rows.forEach((row, index) => {
-//         row.addEventListener('click', () => {
-//             const isActive = contents[index].classList.contains("active");
-
-//             contents.forEach(content => content.classList.remove("active"));
-//             if (!isActive) {
-//                 contents[index].classList.add("active");
-
-//                 images.forEach((img, imgIndex) => {
-//                     img.classList.remove("active", "disabled");
-
-//                     if (imgIndex === index) {
-//                         img.classList.add("active");
-//                         img.style.transform = "translateY(0)";
-//                     } else if (imgIndex === (index + 1) % images.length) {
-//                         img.classList.add("disabled");
-//                         img.style.transform = "translateY(-100%)";
-//                     } else {
-//                         img.style.transform = "translateY(100%)";
-//                     }
-//                 });
-//             }
-//         });
-//     });
-// };
+window.addEventListener('scroll', scrollHeader);
 
 const accordionIndex = () => {
     const rows = document.querySelectorAll('.accordion-content__row');
@@ -285,7 +289,7 @@ const accordionIndex = () => {
                         img.classList.add("active");
                     } else if (imgIndex === (index + 1) % images.length) {
                         img.classList.add("disabled");
-                    }
+                    } 
                 });
             }
         });
@@ -306,8 +310,6 @@ const swiperNews = () => {
         },
         on: {
             progress: function (swiper, progress) {
-                // Проверяем текущее значение прогресса в консоли
-                console.log("Прогресс слайдера:", progress);
 
                 // Получаем элемент progress-bar
                 const progressBar = document.querySelector(".progress-bar");
@@ -336,6 +338,59 @@ const swiperNews = () => {
     slides.forEach(slide => observer.observe(slide)); 
 }
 
+const sliderPhoto = () => {
+
+    const slides = [
+        {
+            img: './assets/img/content/photo.jpg',
+            year: '2024',
+            text: 'ВСЕРОССИЙСКИЙ ФОРУМ ТЕХНОЛОГИЧЕСКОГО ПРЕДПРИНИМАТЕЛЬСТВА'
+        },
+        {
+            img: './assets/img/banner1.jpg',
+            year: '2025',
+            text: 'МЕЖДУНАРОДНЫЙ ФОРУМ ИННОВАЦИЙ'
+        },
+        {
+            img: './assets/img/banner2.jpg',
+            year: '2026',
+            text: 'ВЫСТАВКА ТЕХНОЛОГИЙ И БУДУЩЕГО'
+        }
+    ];
+    
+    
+    let currentSlide = 0;
+    const imageElement = document.querySelector('.photo-wrapper img');
+    const yearElement = document.querySelector('.photo-content h2');
+    const textElement = document.querySelector('.photo-content p');
+    const photoContent = document.querySelector('.photo-content');
+
+    function updateSlide() {
+        // Убираем класс active для плавного исчезновения
+        photoContent.classList.remove('active');
+        imageElement.classList.remove('fade');
+
+        // Задержка перед обновлением слайда для анимации
+        setTimeout(() => {
+            const slide = slides[currentSlide];
+            imageElement.src = slide.img;
+            yearElement.textContent = slide.year;
+            textElement.textContent = slide.text;
+
+            // Добавляем класс active для плавного появления
+            photoContent.classList.add('active');
+            imageElement.classList.add('fade');
+
+            // Обновляем индекс слайда
+            currentSlide = (currentSlide + 1) % slides.length;
+        }, 500); // Время задержки соответствует времени плавного исчезновения
+    }
+    
+    // Меняем слайд каждые 3 секунды
+    setInterval(updateSlide, 5000);
+
+}
+
 const init = () => {
     sliderBanner()
     burgerBanner()
@@ -343,6 +398,7 @@ const init = () => {
     changeLanguage()
     accordionIndex()
     swiperNews()
+    sliderPhoto()
 }
 
 document.addEventListener('DOMContentLoaded', init);
