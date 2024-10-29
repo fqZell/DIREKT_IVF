@@ -347,12 +347,12 @@ const sliderPhoto = () => {
             text: 'ВСЕРОССИЙСКИЙ ФОРУМ ТЕХНОЛОГИЧЕСКОГО ПРЕДПРИНИМАТЕЛЬСТВА'
         },
         {
-            img: './assets/img/banner1.jpg',
+            img: './assets/img/content/photo.jpg',
             year: '2025',
             text: 'МЕЖДУНАРОДНЫЙ ФОРУМ ИННОВАЦИЙ'
         },
         {
-            img: './assets/img/banner2.jpg',
+            img: './assets/img/content/photo.jpg',
             year: '2026',
             text: 'ВЫСТАВКА ТЕХНОЛОГИЙ И БУДУЩЕГО'
         }
@@ -386,8 +386,8 @@ const sliderPhoto = () => {
         }, 500); // Время задержки соответствует времени плавного исчезновения
     }
     
-    // Меняем слайд каждые 3 секунды
-    setInterval(updateSlide, 5000);
+    // Меняем слайд каждые 20 секунды
+    setInterval(updateSlide, 20000);
 
 }
 

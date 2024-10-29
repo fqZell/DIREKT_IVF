@@ -1317,15 +1317,15 @@ header {
 }
 
 .photo-wrapper img {
-    opacity: 0;
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    transform: translateX(100%);
-}
-
-.photo-wrapper img.fade {
     opacity: 1;
+    transition: opacity 0.8s ease, transform 0.8s ease;
     transform: translateX(0);
 }
+
+/* .photo-wrapper img.fade {
+    opacity: 1;
+    transform: translateX(0);
+} */
 
 .photo-wrapper img,
 .photo-content h2,
