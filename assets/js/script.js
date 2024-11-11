@@ -320,6 +320,23 @@ const swiperNews = () => {
                 progressBar.style.width = `${currentWidth}px`;
             },
         },
+        breakpoints: {
+            2560: {
+                slidesPerView: 4,
+            },
+            1920: {
+                slidesPerView: 4,
+            },
+            1440: {
+                slidesPerView: 4,
+            },
+            1024: {
+                slidesPerView: 2,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+        },
     });
 
     // Добавляем Intersection Observer для анимации появления
@@ -383,7 +400,7 @@ const sliderPhoto = () => {
 
             // Обновляем индекс слайда
             currentSlide = (currentSlide + 1) % slides.length;
-        }, 500); // Время задержки соответствует времени плавного исчезновения
+        }, 800); // Время задержки соответствует времени плавного исчезновения
     }
     
     // Меняем слайд каждые 20 секунды
