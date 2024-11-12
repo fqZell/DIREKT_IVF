@@ -2053,6 +2053,10 @@ footer .team {
         text-align: center;
         font-size: 24px;
     }
+
+    .photo-el {
+        display: none;
+    }
 }
 
 @media (max-width: 769px) {
@@ -2078,6 +2082,29 @@ footer .team {
     .footer-content__links {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .info-content__left p {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .number__wrapper {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .subcription-wrapper {
+        max-height: 100%;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .search-menu__wrapper .search-menu__input input {
+        font-size: 24px;
+        line-height: 20px;
     }
 }
 

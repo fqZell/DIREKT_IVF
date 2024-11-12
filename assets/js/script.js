@@ -188,38 +188,6 @@ changeLanguage = () => {
     })
 }
 
-// window.addEventListener('scroll', scrollHeader);
-
-// function scrollHeader() {
-//     const headerLogo = document.querySelector('.header-logo img');
-//     const headerLogoTxt = document.querySelector('.header-logo__txt');
-//     const searchIcon = document.querySelector('.header-search img');
-//     const headerEn = document.querySelector('.header-en')
-//     const headerLines = document.querySelectorAll('.header-line')
-//     const bannerHeight = window.innerHeight; 
-//     const scrollPosition = window.scrollY;
-
-//     if (scrollPosition > bannerHeight) {
-//         headerLogo.src = './assets/img/logo/logoBlue.svg'; 
-//         headerLogoTxt.src = './assets/img/logo/logoTxtBlue.svg';
-//         searchIcon.src = './assets/img/icons/searchBlue.svg';
-//         headerEn.style.color = "#ffffff"
-//         headerEn.style.backgroundColor = "#00328A"
-//         headerLines.forEach(headerLine => {
-//             headerLine.style.backgroundColor = "#00328A" 
-//         });
-//     } else {
-//         headerLogo.src = './assets/img/logo/logo.svg'; 
-//         headerLogoTxt.src = './assets/img/logo/logoTxt.svg';
-//         searchIcon.src = './assets/img/icons/search.svg';
-//         headerEn.style.color = "#000"
-//         headerEn.style.backgroundColor = "#fff"
-//         headerLines.forEach(headerLine => {
-//             headerLine.style.backgroundColor = "#fff" 
-//         });
-//     }
-// }
-
 function scrollHeader() {
     const headerLogo = document.querySelector('.header-logo img');
     const headerLogoTxt = document.querySelector('.header-logo__txt');
@@ -297,26 +265,30 @@ const accordionIndex = () => {
 };
 
 const swiperNews = () => {
-
     const swiper = new Swiper(".mySwiper", {
         direction: "horizontal",
         slidesPerView: 4,
         mousewheel: true,
         freeMode: true,
         freeModeMomentum: true,
+        loop: true,
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
         },
         on: {
-            progress: function (swiper, progress) {
+            slideChange: function (swiper) {
+                // Calculate the progress using realIndex
+                const totalSlides = swiper.slides.length - swiper.loopedSlides * 2; // Adjust for looped slides
+                const realIndex = swiper.realIndex;
+                const progress = realIndex / (totalSlides - 1);
 
-                // Получаем элемент progress-bar
+                // Get the progress-bar element
                 const progressBar = document.querySelector(".progress-bar");
                 const lineWidth = document.querySelector(".news-footer__line").offsetWidth;
 
-                // Рассчитываем ширину для прогресс-бара
-                const currentWidth = lineWidth * progress;
+                // Calculate the width for the progress-bar and constrain it
+                const currentWidth = Math.min(lineWidth * progress, lineWidth); // Cap the width at lineWidth
                 progressBar.style.width = `${currentWidth}px`;
             },
         },
@@ -336,10 +308,13 @@ const swiperNews = () => {
             768: {
                 slidesPerView: 2,
             },
+            375: {
+                slidesPerView: 1,
+            },
         },
     });
 
-    // Добавляем Intersection Observer для анимации появления
+    // Add Intersection Observer for slide animation
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -348,12 +323,13 @@ const swiperNews = () => {
                 entry.target.classList.remove("slide-in");
             }
         });
-    }, { threshold: 0.1 }); // Порог, при котором слайд считается видимым
+    }, { threshold: 0.1 });
 
-    // Применяем Observer ко всем слайдам
+    // Apply Observer to all slides
     const slides = document.querySelectorAll('.swiper-slide');
-    slides.forEach(slide => observer.observe(slide)); 
-}
+    slides.forEach(slide => observer.observe(slide));
+};
+
 
 const sliderPhoto = () => {
 
