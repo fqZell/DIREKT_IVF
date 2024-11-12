@@ -402,6 +402,8 @@ const sliderPhoto = () => {
             currentSlide = (currentSlide + 1) % slides.length;
         }, 800); // Время задержки соответствует времени плавного исчезновения
     }
+
+    updateSlide();
     
     // Меняем слайд каждые 20 секунды
     setInterval(updateSlide, 20000);

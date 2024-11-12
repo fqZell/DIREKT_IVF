@@ -177,6 +177,14 @@ header {
     border-radius: 32px;
 }
 
+.header-en.blue {
+    background-color: #00328A;
+}
+
+.header-en.blue p {
+    color: #fff;
+}
+
 .header-en.active {
     color: #fff;
     background-color: #00328A;
@@ -198,7 +206,11 @@ header {
     width: 24px;
     height: 1px;
     background-color: #d9d9d9;
-}  
+}
+
+.header-line.blue {
+    background-color: #00328A;
+}
 
 .header-line:first-child {
     top: 0; 
@@ -1538,6 +1550,10 @@ footer hr {
     margin-bottom: 60px;
 }
 
+.footer-wrapper.pages {
+    position: relative;
+}
+
 .footer-content {
     display: flex;
     flex-direction: row;
@@ -1651,16 +1667,201 @@ footer hr {
     cursor: pointer;
 }
 
+/* team css */
+
+.team-navigation {
+    margin-top: 125px;
+}
+
+.team-navigation span {
+    color: #00246A; 
+    font-size: 18px; 
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-weight: 265; 
+    line-height: 21.60px; 
+    letter-spacing: 0.10px;
+}
+
+.team-navigation hr {
+    margin-top: 16px;
+    max-width: 180px;
+    border: 1px solid #00246A;
+    border-radius: 3px;
+}
+
+.team-title h2 {
+    color: #272727; 
+    font-size: 48px; 
+    font-family: 'TTFirsNeue-Medium'; 
+    font-weight: 500; 
+    text-transform: uppercase; 
+    line-height: 57.60px; 
+    letter-spacing: 0.10px;
+
+    margin-top: 32px;
+}
+
+.team-description p {
+    color: #272727; 
+    font-size: 24px; 
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-weight: 265; 
+    line-height: 28.80px; 
+    letter-spacing: 0.10px;
+
+    margin-top: 32px;
+}
+
+.team-cards {
+    margin-top: 66px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 36px;
+}
+
+.team-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    max-width: 553px;
+}
+
+.team-card__description p {
+    color: #272727; 
+    font-size: 20px; 
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-weight: 265; 
+    letter-spacing: 0.10px;
+
+    margin-top: 32px;
+}
+
+.team-card hr {
+    margin-top: 12px;
+
+    width: 100%;
+    
+    border: 1px solid #00246A;
+}
+
+.team-card__title h3 {
+    margin-top: 8px;
+
+    color: #272727; 
+    font-size: 28px; 
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-weight: 265; 
+    letter-spacing: 0.10px;
+}
+
+.team-title:last-child h2{
+    margin-top: 68px;
+}
+
+.team-structure {
+    margin-top: 60px;
+
+    margin-bottom: 208px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.team-structure__card {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 24px;
+
+    max-width: 553px;
+}
+
+.team-structure__content {
+    width: 100%;
+}
+
+.team-structure__content h3 {
+    color: #272727; 
+    font-size: 24px; 
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-weight: 265; 
+    letter-spacing: 0.10px;
+}
+
+.team-structure__content span {
+    color: #272727; 
+    font-size: 16px; 
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-weight: 265; 
+    letter-spacing: 0.10px; 
+
+    margin-top: 10px;
+}
+
+.team-structure__contact {
+    margin-top: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.team-structure__contact span {
+    color: #353535; 
+    font-size: 12px; 
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-weight: 265; 
+    letter-spacing: 0.10px;
+}
+
+.team-structure__contact a {
+    color: #00246A; 
+    font-size: 16px; 
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-weight: 265; 
+    letter-spacing: 0.10px;
+}
+
+footer .team {
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.subcription-wrapper.team {
+    bottom: 20px;
+}
+
+/* team css */
+
 @media (max-width: 1400px) {
     .container {
         padding: 24px;
     }
 }
 
+@media (max-width: 1191px) {
+    .team-cards {
+        justify-content: center;
+    }
+
+    .team-structure {
+        justify-content: center;
+    }
+}
 
 @media (max-width: 1025px) {
     .banner-bottom {
-        display: none;
+        left: 37%;
+        bottom: 20%;
     }
 
     .banner-content h2 {
@@ -1796,5 +1997,15 @@ footer hr {
     .footer-content {
         flex-wrap: wrap;
         gap: 32px;
+    }
+
+    .team-title h2 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 500px) {
+    .team-structure__card {
+        flex-direction: column;
     }
 }
