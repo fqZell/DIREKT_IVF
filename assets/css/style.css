@@ -1842,6 +1842,49 @@ footer .team {
 
 /* team css */
 
+/* about css */
+
+.about-wrapper {
+    position: relative;
+}
+
+.about-wrapper .about-banner {
+    height: 100vh;
+}
+
+.about-banner__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+}
+
+.about-banner__content h2 {
+    color: #fff; 
+    font-size: 18px; 
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-weight: 265; 
+    line-height: 21.60px; 
+    letter-spacing: 0.10px;
+}
+
+.about-banner__content h1 {
+    color: #fff; 
+    font-size: 180px; 
+    font-family: 'TTFirsNeue-Bold';
+    font-weight: 700; 
+    text-transform: uppercase; 
+    line-height: 180px; 
+    letter-spacing: 0.10px;
+    width: max-content;
+
+    margin-top: 47px;
+}
+
+/* about css */
+
 @media (max-width: 1400px) {
     .container {
         padding: 24px;
@@ -1860,8 +1903,7 @@ footer .team {
 
 @media (max-width: 1025px) {
     .banner-bottom {
-        left: 37%;
-        bottom: 20%;
+        bottom: 0;
     }
 
     .banner-content h2 {
@@ -2002,10 +2044,50 @@ footer .team {
     .team-title h2 {
         font-size: 36px;
     }
+
+    .about-banner__content h1 {
+        font-size: 96px; 
+    }
+
+    .banner-content h3:nth-child(2) {
+        text-align: center;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 769px) {
+    .slider-controls {
+        top: auto;
+        bottom: 20%;
+    }
+
+    .subcription-content {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .subscription-buttons {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .subcription-button {
+        width: 100%;
+    }
+
+    .footer-content__links {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 @media (max-width: 500px) {
     .team-structure__card {
         flex-direction: column;
+    }
+
+    .about-banner__content h1 {
+        font-size: 64px; 
+        margin-top: 0;
     }
 }
