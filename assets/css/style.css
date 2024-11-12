@@ -2057,6 +2057,21 @@ footer .team {
     .photo-el {
         display: none;
     }
+
+    .burger-menu__wrapper {
+        margin-top: 70px;
+    }
+
+    .burger-menu__footer {
+        margin-top: 64px;
+    }
+}
+
+@media (max-width: 910px) {
+    .burger-menu__column ul li {
+        font-size: 28px;
+        line-height: 40px;
+    }
 }
 
 @media (max-width: 769px) {
@@ -2104,7 +2119,33 @@ footer .team {
 
     .search-menu__wrapper .search-menu__input input {
         font-size: 24px;
+        line-height: 30px;
+    }
+
+    .burger-menu__wrapper {
+        margin-top: 60px;
+    }
+
+    .burger-menu__column ul {
+        gap: 12px;
+    }
+
+    .burger-menu__column ul li {
+        font-size: 24px;
         line-height: 20px;
+    }
+
+    .burger-menu__column.center ul li {
+        font-size: 18px;
+    }
+
+    .burger-menu__footer {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .burger-menu__wrapper {
+        flex-wrap: wrap;
     }
 }
 
