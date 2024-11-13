@@ -4,6 +4,7 @@ const init = () => {
     changeLanguage()
     fadeInSection()
     scrollHeader()
+    tabsDate()
 }
 
 document.addEventListener('DOMContentLoaded', init);
@@ -167,8 +168,6 @@ function scrollHeader() {
     const headerLines = document.querySelectorAll('.header-line');
     
     const bannerHeight = window.innerHeight; 
-    // const photoSection = document.querySelector('#photo');
-    // const photoSectionPosition = photoSection.getBoundingClientRect().top + window.scrollY;
     const scrollPosition = window.scrollY;
 
     if (scrollPosition > bannerHeight) {
@@ -193,3 +192,102 @@ function scrollHeader() {
 }
 
 window.addEventListener('scroll', scrollHeader);
+
+function setLineWidths() {
+    const portfolioRows = document.querySelectorAll('.portfolio-wrapper__row');
+
+    portfolioRows.forEach(row => {
+        const percentageElement = row.querySelector('.portfolio-wrapper__rowEl span');
+        const hrElement = row.querySelector('.portfolio-wrapper__rowEl hr');
+
+        if (percentageElement && hrElement) {
+            const percentageText = percentageElement.textContent.trim();
+            const percentageValue = parseFloat(percentageText.replace(',', '.'));
+
+            const maxWidth = 400; 
+            const calculatedWidth = (percentageValue / 100) * maxWidth;
+            
+            hrElement.style.width = `${calculatedWidth}px`;
+        }
+    });
+}
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            setLineWidths(); 
+            observer.unobserve(entry.target); 
+        }
+    });
+}, { threshold: 0.5 }); 
+
+const portfolioSection = document.querySelector('#portfolio');
+if (portfolioSection) {
+    observer.observe(portfolioSection);
+}
+
+function setLineHeights() {
+    const portfolioRowsRight = document.querySelectorAll('.portfolio-wrapper__col.right .portfolio-wrapper__row');
+
+    portfolioRowsRight.forEach(row => {
+        const percentageElement = row.querySelector('span');
+        const hrElement = row.querySelector('hr');
+
+        if (percentageElement && hrElement) {
+            const percentageText = percentageElement.textContent.trim();
+            const percentageValue = parseFloat(percentageText.replace(',', '.'));
+
+            const maxHeight = 600; 
+            const calculatedHeight = (percentageValue / 100) * maxHeight;
+
+            hrElement.style.height = `${calculatedHeight}px`;
+        }
+    });
+}
+
+const observerRight = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            setLineHeights();
+            observerRight.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+const portfolioSectionRight = document.querySelector('.portfolio-wrapper__col.right');
+if (portfolioSectionRight) {
+    observerRight.observe(portfolioSectionRight);
+}
+
+const tabsDate = () => {
+
+    const dateActivate = document.querySelectorAll('.tabs-header__numbers span')
+
+    dateActivate.forEach(date => {
+        
+        date.addEventListener("click", () => {
+
+            // if (date.classList.contains('active')) {
+            //     date.classList.remove('active')
+            // } else if(!date.classList.contains('active')) {
+            //     date.classList.add('active')
+            // }
+
+            dateActivate.forEach(d => {
+                d.classList.remove("active")
+            });
+
+            date.classList.add('active')
+
+            const dateActive = document.querySelector('.tabs-header__numbers .active')
+            const datePaste = document.querySelector('.tabs-date span')
+        
+            const dateActiveTxt = dateActive.textContent
+            
+            datePaste.innerHTML = `${dateActiveTxt} год`
+
+        })
+
+    });
+
+}
