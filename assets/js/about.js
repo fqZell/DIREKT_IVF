@@ -5,6 +5,7 @@ const init = () => {
     changeLanguage()
     fadeInSection()
     tabsDate()
+    aboutSlider()
 }
 
 document.addEventListener('DOMContentLoaded', init);
@@ -273,12 +274,6 @@ const tabsDate = () => {
         
         date.addEventListener("click", () => {
 
-            // if (date.classList.contains('active')) {
-            //     date.classList.remove('active')
-            // } else if(!date.classList.contains('active')) {
-            //     date.classList.add('active')
-            // }
-
             dateActivate.forEach(d => {
                 d.classList.remove("active")
             });
@@ -287,13 +282,56 @@ const tabsDate = () => {
 
             const dateActive = document.querySelector('.tabs-header__numbers .active')
             const datePaste = document.querySelector('.tabs-date span')
+            const tabsContent = document.querySelectorAll('.tabs-content__date span')
         
             const dateActiveTxt = dateActive.textContent
             
             datePaste.innerHTML = `${dateActiveTxt} год`
+            tabsContent.forEach(tabsC => {
+                tabsC.innerHTML = `Октябрь ${dateActiveTxt} год` 
+            });
 
         })
 
+    });
+
+}
+
+const aboutSlider = () => {
+
+    var swiper = new Swiper(".aboutSwiper", {
+        slidesPerView: 8,
+        spaceBetween: 10,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        // loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        breakpoints: {
+            2560: {
+                slidesPerView: 8,
+            },
+            1920: {
+                slidesPerView: 8,
+            },
+            1024: {
+                slidesPerView: 6,
+            },
+            768: {
+                slidesPerView: 5,
+            },
+            500: {
+                slidesPerView: 3,
+            },
+            300: {
+                slidesPerView: 3,
+            },
+        }
     });
 
 }
