@@ -172,9 +172,9 @@ searchBanner = () => {
         searchIcon.src = './assets/img/icons/searchBlue.svg';
     } else {
         // Если внутри секции баннера, возвращаем изображения в "баннерный" вид
-        logo.src = '../assets/img/logo/logo.svg';
-        logoTxt.src = '../assets/img/logo/logoTxt.svg';
-        searchIcon.src = '../assets/img/icons/search.svg';
+        logo.src = './assets/img/logo/logo.svg';
+        logoTxt.src = './assets/img/logo/logoTxt.svg';
+        searchIcon.src = './assets/img/icons/search.svg';
     }
 
     });  
