@@ -18,11 +18,13 @@ burgerBanner = () => {
     const logoTxt = document.querySelector('.header-logo__txt')
     const searchIcon = document.querySelector('.header-search img');
     const headerSearch = document.querySelector('.search-menu');
-    
-
+    const bannerHeight = window.innerHeight;
 
     if (!headerBurger) return;
     headerBurger.addEventListener('click', () => {
+
+        const scrollPosition = window.scrollY;
+        const isInBanner = scrollPosition <= bannerHeight;
 
         if (headerSearch.classList.contains('active')) {
             document.body.classList.remove('active');
@@ -48,21 +50,19 @@ burgerBanner = () => {
         });
 
         if (document.body.classList.contains('active')) {
-            logo.src = '../assets/img/logo/logoBlue.svg'; 
-        } else {
             logo.src = '../assets/img/logo/logoBlue.svg';
-        }
-
-        if (document.body.classList.contains('active')) {
-            logoTxt.src = '../assets/img/logo/logoTxtBlue.svg'; 
-        } else {
             logoTxt.src = '../assets/img/logo/logoTxtBlue.svg';
-        }
-
-        if (document.body.classList.contains('active')) {
-            searchIcon.src = '../assets/img/icons/searchBlue.svg'; 
-        } else {
             searchIcon.src = '../assets/img/icons/searchBlue.svg';
+        } else if (!isInBanner) {
+            // Если находимся вне секции баннера, возвращаем изображения в "внешний" вид
+            logo.src = '../assets/img/logo/logoBlue.svg';
+            logoTxt.src = '../assets/img/logo/logoTxtBlue.svg';
+            searchIcon.src = '../assets/img/icons/searchBlue.svg';
+        } else if(isInBanner) {
+            // Если внутри секции баннера, возвращаем изображения в "баннерный" вид
+            logo.src = '../assets/img/logo/logo.svg';
+            logoTxt.src = '../assets/img/logo/logoTxt.svg';
+            searchIcon.src = '../assets/img/icons/search.svg';
         }
 
         searchIcon.classList.toggle('active');
@@ -79,12 +79,17 @@ searchBanner = () => {
     const logoTxt = document.querySelector('.header-logo__txt')
     const searchIcon = document.querySelector('.header-search img');  
     const headerMenu = document.querySelector('.burger-menu');  
+    const bannerHeight = window.innerHeight;
    
     if (!searchBurger) return;  
    
     headerBurger.style.display = "flex";  
    
     searchBurger.addEventListener('click', () => {  
+
+        const scrollPosition = window.scrollY;
+        const isInBanner = scrollPosition <= bannerHeight;
+
     if (headerMenu.classList.contains('active')) {  
     document.body.classList.remove('active');  
     headerMenu.classList.remove('active');  
@@ -110,21 +115,19 @@ searchBanner = () => {
     searchIcon.classList.toggle('active');  
 
     if (document.body.classList.contains('active')) {
-        logo.src = '../assets/img/logo/logoBlue.svg'; 
-    } else {
         logo.src = '../assets/img/logo/logoBlue.svg';
-    }
-
-    if (document.body.classList.contains('active')) {
-        logoTxt.src = '../assets/img/logo/logoTxtBlue.svg'; 
-    } else {
         logoTxt.src = '../assets/img/logo/logoTxtBlue.svg';
-    }
-
-    if (document.body.classList.contains('active')) {
-        searchIcon.src = '../assets/img/icons/searchBlue.svg'; 
-    } else {
         searchIcon.src = '../assets/img/icons/searchBlue.svg';
+    } else if (!isInBanner) {
+        // Если находимся вне секции баннера, возвращаем изображения в "внешний" вид
+        logo.src = '../assets/img/logo/logoBlue.svg';
+        logoTxt.src = '../assets/img/logo/logoTxtBlue.svg';
+        searchIcon.src = '../assets/img/icons/searchBlue.svg';
+    } else {
+        // Если внутри секции баннера, возвращаем изображения в "баннерный" вид
+        logo.src = '../assets/img/logo/logo.svg';
+        logoTxt.src = '../assets/img/logo/logoTxt.svg';
+        searchIcon.src = '../assets/img/icons/search.svg';
     }
 
     });  

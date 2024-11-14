@@ -140,12 +140,21 @@ header {
     z-index: 999;
 }
 
+.header-wrapper.active {
+    -webkit-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    -moz-box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    background-color: #fff;
+    padding-bottom: 24px;
+}
+
 .header-logo__layout {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    padding: 0 !important;
 }
 
 .header-logo img {
@@ -157,12 +166,17 @@ header {
     display: none;
 }
 
+.header-wrapper a {
+    padding: 0 !important;
+}
+
 .header-nav {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     gap: 16px;
+    padding: 0 !important;
 }
 
 .header-en {
@@ -186,8 +200,8 @@ header {
 }
 
 .header-en.active {
-    color: #fff;
-    background-color: #00328A;
+    color: #fff !important;
+    background-color: #00328A !important;
 }
 
 .header-search img {
@@ -226,12 +240,12 @@ header {
 
 .header-burger.active .header-line:first-child {
     transform: rotate(45deg);
-    background-color: #00328A; 
+    background-color: #00328A !important; 
 }
 
 .header-burger.active .header-line:last-child {
     transform: translateY(-8.5px) rotate(-46deg);
-    background-color: #00328A;
+    background-color: #00328A !important;
 }
 
 .header-line.active {
@@ -2335,6 +2349,72 @@ footer .team {
 
 .about-team__main {
     margin-top: 64px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    margin-bottom: 84px;
+}
+
+.about-team__main .team-card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 24px;
+
+    max-width: 553px;
+    height: 240px;
+}
+
+.about-team__main .team-card img {
+    max-width: 207px;
+}
+
+.about-team__main .team-content .team-name h2 {
+    color: #272727; 
+    font-size: 24px; 
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-weight: 265; 
+    letter-spacing: 0.10px;
+}
+
+.about-team__main .team-content .team-role {
+    margin-top: 10px;
+}
+
+.about-team__main .team-content .team-role span {
+    color: #272727; 
+    font-size: 16px; 
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-weight: 265; 
+    letter-spacing: 0.10px;
+}
+
+.about-team__main .team-content .team-contact {
+    margin-top: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.about-team__main .team-content .team-contact span {
+    color: #353535; 
+    font-size: 12px; 
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-weight: 265; 
+    letter-spacing: 0.10px;
+}
+
+.about-team__main .team-content .team-contact a {
+    color: #00246A; 
+    font-size: 16px;
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-weight: 265; 
+    letter-spacing: 0.10px;
 }
 
 @media (max-width: 1400px) {
@@ -2619,7 +2699,7 @@ footer .team {
     }
 
     .burger-menu__wrapper {
-        margin-top: 60px;
+        margin-top: 100px;
     }
 
     .burger-menu__column ul {
@@ -2703,6 +2783,24 @@ footer .team {
     .about-title {
         font-size: 24px;
         line-height: 30px;
+    }
+
+    .about-team__main .team-card {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+        height: 100%;
+    }
+
+    .about-team__main .team-card img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .about-team__header {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 
