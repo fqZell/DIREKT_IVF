@@ -2,7 +2,7 @@ const init = () => {
     burgerBanner()
     searchBanner()
     changeLanguage()
-    fadeInSection()
+    // fadeInSection()
     burgerFadeIn()
 }
 
@@ -140,26 +140,26 @@ changeLanguage = () => {
     })
 }
 
-const fadeInSection = () => {
-    // Настройка IntersectionObserver
-    const observerOptions = {
-        threshold: 0.1 // Секция считается видимой, когда 10% её высоты появляются в области видимости
-    };
+// const fadeInSection = () => {
+//     // Настройка IntersectionObserver
+//     const observerOptions = {
+//         threshold: 0.1 // Секция считается видимой, когда 10% её высоты появляются в области видимости
+//     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible'); // Добавляем класс при видимости
-                observer.unobserve(entry.target); // Прекращаем отслеживание после появления
-            }
-        });
-    }, observerOptions);
+//     const observer = new IntersectionObserver((entries, observer) => {
+//         entries.forEach(entry => {
+//             if (entry.isIntersecting) {
+//                 entry.target.classList.add('visible'); // Добавляем класс при видимости
+//                 observer.unobserve(entry.target); // Прекращаем отслеживание после появления
+//             }
+//         });
+//     }, observerOptions);
 
-    // Наблюдаем за всеми секциями
-    document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
-    });
-}
+//     // Наблюдаем за всеми секциями
+//     document.querySelectorAll('section').forEach(section => {
+//         observer.observe(section);
+//     });
+// }
 
 const burgerFadeIn = () => {
     const menuItems = document.querySelectorAll('.burger-menu__column ul li');

@@ -6,6 +6,7 @@ const init = () => {
     fadeInSection()
     tabsDate()
     aboutSlider()
+    burgerFadeIn()
 }
 
 document.addEventListener('DOMContentLoaded', init);
@@ -334,4 +335,43 @@ const aboutSlider = () => {
         }
     });
 
+}
+
+const burgerFadeIn = () => {
+    const menuItems = document.querySelectorAll('.burger-menu__column ul li');
+    const lists = document.querySelectorAll('.burger-menu__column.center ul');
+    
+    menuItems.forEach(item => {
+        const index = item.getAttribute('data-index');
+        const list = document.querySelector(`.burger-menu__column.center ul[data-index="${index}"]`);
+    
+        // Проверяем, существует ли список, прежде чем добавлять обработчики событий
+        if (list) {
+            item.addEventListener('mouseenter', () => {
+                lists.forEach(ul => ul.classList.add('hidden')); // Скрываем все списки
+                list.classList.remove('hidden'); // Показываем соответствующий список
+            });
+    
+            item.addEventListener('mouseleave', () => {
+                setTimeout(() => {
+                    if (!list.matches(':hover') && !item.matches(':hover')) {
+                        list.classList.add('hidden');
+                    }
+                }, 30000000); // Добавляем небольшую задержку
+            });
+    
+            // Обрабатываем наведение на список ul
+            list.addEventListener('mouseenter', () => {
+                list.classList.remove('hidden'); // Оставляем список видимым
+            });
+    
+            list.addEventListener('mouseleave', () => {
+                setTimeout(() => {
+                    if (!list.matches(':hover') && !item.matches(':hover')) {
+                        list.classList.add('hidden');
+                    }
+                }, 30000000); // Добавляем небольшую задержку
+            });
+        }
+    });    
 }

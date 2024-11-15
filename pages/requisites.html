@@ -3,9 +3,495 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="shortcut icon" href="../assets/img/logo/logo.svg" type="image/x-icon">
+    <script src="../assets/js/requisites.js" defer></script>
+    <title>Резвизиты</title>
 </head>
 <body>
-    <h1>Реквизиты</h1>
+    
+    <div class="container">
+
+        <header>
+            
+            <div class="header-wrapper active">
+
+                <div class="header-layout container">
+
+                    <a href="../index.html"><div class="header-logo__layout">
+
+                        <div class="header-logo">
+
+                            <img src="../assets/img/logo/logoBlue.svg" alt="logo">
+            
+                        </div>
+
+                        <img src="../assets/img/logo/logoTxtBlue.svg" alt="logoTxt" class="header-logo__txt">
+
+                    </div></a>
+
+                    <div class="header-nav">
+                    
+                        <div class="header-en blue">
+
+                            <p>RU</p>
+
+                        </div>
+
+                        <div class="header-search">
+
+                            <img src="../assets/img/icons/searchBlue.svg" alt="search">
+
+                        </div>
+
+                        <div class="header-burger">
+
+                            <div class="header-line blue"></div>
+                            <div class="header-line blue"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <div class="burger-menu">
+
+            <div class="burger-menu__layout container">
+
+                <div class="burger-menu__wrapper">
+
+                    <div class="burger-menu__column">
+    
+                        <ul>
+    
+                            <li data-index="1">программы</li>
+                            <li data-index="2">МЕРОПРИЯТИЯ</li>
+                            <li data-index="3">ИНСТРУМЕНТЫ</li>
+                            <li data-index="4">О ФОНДЕ</li>
+    
+                        </ul>
+    
+                    </div>
+    
+                    <div class="burger-menu__column center">
+    
+                        <ul data-index="1" class="hidden">
+    
+                            <!-- <li>Отчётность</li>
+                            <a href="./pages/team.html"><li>Команда</li></a>
+                            <li>Вакансии</li>
+                            <li>История</li>
+                            <li>Медиа</li>
+                            <a href="./pages/requisites.html"><li>Реквизиты</li></a> -->
+    
+                            <li>ФРП</li>
+                            <li>Программа поддержки МСП с использованием механизма лизинга</li>
+                            <li>Университетская стартап-студия</li>
+                            <li>Идея-1000</li>
+                            <li>Фонд «Лобачевский»</li>
+                            <li>Республиканский конкурс «Инновация года»</li>
+                            <li>ФЦК</li>
+                            <li>Клуб бизнес ангелов</li>
+    
+                        </ul>
+    
+                        <ul data-index="2" class="hidden">
+                            <li>РВФ</li>
+                            <li>KDW</li>
+                            <li>Инновации года</li>
+                            <li>Клуб бизнес-ангелов</li>
+                        </ul>
+    
+                        <ul data-index="3" class="hidden">
+                            <li>Иджара лизинг</li>
+                            <li>ЛКМБ</li>
+                            <li>Унипарк</li>
+                            <li>Технопарк Идея</li>
+                        </ul>
+    
+                        <ul data-index="4" class="hidden">
+                            <a href="./pages/about.html"><li>О фонде</li></a>
+                            <li>Документы</li>
+                            <li>Награды</li>
+                            <a href="./pages/team.html"><li>Команда</li></a>
+                            <li>Реквизиты</li>
+                            <li>Реализованные проекты</li>
+                            <li>Материалы СМИ</li>
+                        </ul>
+    
+                    </div>
+    
+                    <div class="burger-menu__column">
+    
+                        <span>
+                            Контакты
+                        </span>
+    
+                        <hr>
+    
+                        <div class="burger-menu__phone">
+    
+                            <a href="tel:+7900000-00-00">
+                                +7 900 000-00-00
+                            </a>
+            
+                            <span>
+                                Круглосуточный телефон call-центра
+                            </span>
+    
+                        </div>
+    
+                        <div class="burger-menu__mail">
+    
+                            <a href="mailto:mail@mail.ru">
+                                info@ivf.ru
+                            </a>
+    
+                            <span>
+                                Почта для обращений
+                            </span>
+    
+                        </div>
+    
+                        <div class="burger-menu__social">
+    
+                            <div class="icons">
+    
+                                <img src="../assets/img/icons/vkDark.svg" alt="vk">
+    
+                                <span>Вконтакте</span>
+    
+                            </div>
+    
+                            <div class="icons">
+    
+                                <img src="../assets/img/icons/telegramDark.svg" alt="telegram">
+    
+                                <span>telegram</span>
+    
+                            </div>
+    
+                        </div>
+    
+                    </div>
+    
+                </div>
+
+                <div class="burger-menu__footer">
+
+                    <div class="burger-footer__row">
+
+                        <a href="#">
+                            <span>
+                                Медиа
+                            </span>
+                        </a>
+
+                        <a href="#">
+                            <span>
+                                Карьера
+                            </span>
+                        </a>
+
+                        <a href="#">
+                            <span>
+                                Карьера
+                            </span>
+                        </a>
+
+                    </div>
+
+                    <div class="burger-footer__row">
+
+                        <div class="footer-content__imgs">
+
+                            <img src="../assets/img/icons/russian.svg" alt="russian">
+
+                            <img src="../assets/img/icons/en.svg" alt="russian">
+
+                            <img src="../assets/img/icons/china.svg" alt="russian">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="search-menu">
+
+            <div class="search-menu__wrapper container">
+
+                <form>
+
+                    <div class="search-menu__input">
+
+                        <label for="search"></label>
+                        <input type="text" id="search" placeholder="Что вы ищете... ">
+
+                    </div>
+
+                    <button type="submit">
+                        <img src="../assets/img/icons/search.svg" alt="search">
+                    </button>
+
+                </form>
+
+                <ul>
+                    <li>О фонде</li>
+                    <li>Проекты</li>
+                    <li>Новости</li>
+                    <li>Медиа</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <main>
+
+            <nav class="requisites-nav">
+
+                <a href="./about.html">О фонде</a>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="9" viewBox="0 0 8 9" fill="none">
+                    <g clip-path="url(#clip0_4914_830)">
+                      <path d="M2.66663 7.96654L6.39996 4.49987L2.66663 1.0332" stroke="#00246A" stroke-linecap="square"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_4914_830">
+                        <rect width="8" height="8" fill="white" transform="translate(0 0.5)"/>
+                      </clipPath>
+                    </defs>
+                </svg>
+
+                <a href="#">Реквизиты</a>
+
+            </nav>
+
+            <div class="requisites-title">
+
+                <h2>
+                    реквизиты
+                </h2>
+
+            </div>
+
+            <div class="requisites-wrapper">
+
+                <div class="requisites-wrapper__col">
+
+                    <div class="requisites-wrapper__row">
+
+                        <span>
+                            Наименование организации:
+                        </span>
+
+                        <p>
+                            Некоммерческая организация «Инвестиционно-венчурный фонд Республики Татарстан»
+                        </p>
+
+                    </div>
+
+                    <div class="requisites-wrapper__row">
+
+                        <span>
+                            Директор:
+                        </span>
+
+                        <p>
+                            Галиев Дамир Расилович
+                        </p>
+
+                    </div>
+
+                    <div class="requisites-wrapper__row">
+
+                        <span>
+                            Руководитель финансового отдела – главный бухгалтер:
+                        </span>
+
+                        <p>
+                            Салимова Айгуль Ринатовна
+                        </p>
+
+                    </div>
+
+                    <div class="requisites-wrapper__row">
+
+                        <span>
+                            Юридический адрес:
+                        </span>
+
+                        <p>
+                            420107, г.Казань, ул.Петербургская, зд.50 к.24
+                        </p>
+
+                    </div>
+
+                    <div class="requisites-wrapper__row">
+
+                        <span>
+                            Фактический адрес:
+                        </span>
+
+                        <p>
+                            420107, г.Казань, ул.Петербургская, зд.50 к.24
+                        </p>
+
+                    </div>
+
+                    <div class="requisites-wrapper__row">
+
+                        <span>
+                            Расчетный счет:
+                        </span>
+
+                        <p>
+                            40603810800020000108
+                        </p>
+
+                    </div>
+
+                    <div class="requisites-wrapper__row">
+
+                        <span>
+                            БИК:
+                        </span>
+
+                        <p>
+                            049205805
+                        </p>
+
+                    </div>
+
+                    <div class="requisites-wrapper__row">
+
+                        <span>
+                            Корр. счет:
+                        </span>
+
+                        <p>
+                            30101810000000000805
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="requisites-wrapper__col">
+
+                    <div class="requisites-wrapper__row">
+
+                        <span>
+                            Наименование организации:
+                        </span>
+
+                        <p>
+                            Некоммерческая организация «Инвестиционно-венчурный фонд Республики Татарстан»
+                        </p>
+
+                    </div>
+
+                    <div class="requisites-wrapper__row">
+
+                        <span>
+                            Директор:
+                        </span>
+
+                        <p>
+                            Галиев Дамир Расилович
+                        </p>
+
+                    </div>
+
+                    <div class="requisites-wrapper__row">
+
+                        <span>
+                            Руководитель финансового отдела – главный бухгалтер:
+                        </span>
+
+                        <p>
+                            Салимова Айгуль Ринатовна
+                        </p>
+
+                    </div>
+
+                    <div class="requisites-wrapper__row">
+
+                        <span>
+                            Юридический адрес:
+                        </span>
+
+                        <p>
+                            420107, г.Казань, ул.Петербургская, зд.50 к.24
+                        </p>
+
+                    </div>
+
+                    <div class="requisites-wrapper__row">
+
+                        <span>
+                            Фактический адрес:
+                        </span>
+
+                        <p>
+                            420107, г.Казань, ул.Петербургская, зд.50 к.24
+                        </p>
+
+                    </div>
+
+                    <div class="requisites-wrapper__row">
+
+                        <span>
+                            Расчетный счет:
+                        </span>
+
+                        <p>
+                            40603810800020000108
+                        </p>
+
+                    </div>
+
+                    <div class="requisites-wrapper__row">
+
+                        <span>
+                            БИК:
+                        </span>
+
+                        <p>
+                            049205805
+                        </p>
+
+                    </div>
+
+                    <div class="requisites-wrapper__row">
+
+                        <span>
+                            Корр. счет:
+                        </span>
+
+                        <p>
+                            30101810000000000805
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
 </body>
 </html>
