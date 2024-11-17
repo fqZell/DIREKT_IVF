@@ -421,7 +421,7 @@ header {
     bottom: 0;
     /* z-index: 9999; */
 
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.95);
 
     display: none;
     animation: fadeIn 0.8s ease-in-out;
@@ -2542,6 +2542,7 @@ footer .team {
 
 .requisites-wrapper {
     margin-top: 32px;
+    margin-bottom: 64px;
 
     border-radius: 5px;
     background: #FFF;
@@ -2587,10 +2588,182 @@ footer .team {
 
 /* requisites */
 
+/* events */
+
+.events-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 96px;
+
+    margin-bottom: 164px;
+}
+
+.about-banner__content .events-title {
+    color: #FFF ;
+    font-family: 'TTFirsNeue-Medium';
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%; /* 48px */
+    letter-spacing: 0.1px;
+    text-transform: uppercase;
+}
+
+.events-wrapper {
+    margin-top: 100px;
+
+    border-radius: 5px;
+    background: #F9F9F9;
+    padding-top: 18px;
+    padding-left: 40px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 73px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.events-contents__header {
+    color: #00246A;
+    font-family: 'TTFirsNeue-Regular';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.1px;
+}
+
+.events-contents__title {
+    color: #272727;
+    font-family: 'TTFirsNeue-Medium';
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 38.4px */
+    letter-spacing: 0.1px;
+    text-transform: uppercase;
+
+    margin-top: 16px;
+}
+
+.events-contents__subscription {
+    color: #272727;
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: 120%; /* 21.6px */
+    letter-spacing: 0.1px;
+
+    margin: 32px 0;
+}
+
+.events-contents__price {
+    color: #00246A;
+    font-family: 'TTFirsNeue-Regular';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 21.6px */
+    letter-spacing: 0.1px;
+}
+
+.events-contents hr {
+    border: 1px solid #00246A;
+    margin-top: 32px;
+}
+
+.events-contents__footer {
+    margin-top: 32px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+}
+
+.events-contents__footer button {
+    border-radius: 50px;
+    background: #00246A;
+    padding: 16px 32px;
+    outline: none;
+    border: 1px solid transparent;
+
+    color: #FFF;
+    font-family: 'TTFirsNeue-Medium';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+}
+
+.events-contents__footer button:hover {
+    background: transparent;
+    border: 1px solid #00246A;
+    color: #00246A;
+}
+
+.events-footer__content h2 {
+    color: #272727;
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: 110%; /* 26.4px */
+    letter-spacing: 0.1px;
+    margin-bottom: 10px;
+}
+
+.events-footer__content span {
+    color: #272727;
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: normal;
+    letter-spacing: 0.1px;
+}
+
+.events-block {
+    position: absolute;
+    right: -5%;
+    bottom: -25%;
+
+    background: linear-gradient(0deg, #FFF 0%, #FFF 100%), url(<path-to-image>) lightgray -1px -1px / 100.699% 100.699% no-repeat;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+
+    padding: 100px 30px;
+
+    max-width: 286px;
+}
+
+.events-block.no-style {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+
+/* events */
+
 @media (min-width: 2000px) {
     .info-layout {
-        max-width: 40%;
-        width: 50% !important;
+        max-width: 30%;
+        width: 40% !important;
+    }
+
+    .banner-wrapper {
+        transform: translateY(35%);
+    }
+
+    .photo-content {
+        top: 50%;
     }
 }
 
@@ -2806,6 +2979,60 @@ footer .team {
     .tabs-header__numbers {
         gap: 16px;
     }
+
+    .events-img {
+        display: none;
+    }
+
+    .events-block {
+        display: none;
+    }
+
+    .events-contents__title {
+        font-size: 24px;
+    }
+
+    .events-contents__subscription {
+        font-size: 16px;
+    }
+
+    .events-contents__header {
+        font-size: 14px;
+    }
+
+    .events-contents__price {
+        font-size: 14px;
+    }
+
+    .events-wrapper {
+        padding: 18px 40px;
+    }
+
+    .events-contents__footer button {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+
+    .events-footer__content h2 {
+        font-size: 18px;
+    }
+
+    .events-footer__content span {
+        font-size: 14px;
+    }
+
+    .events-layout {
+        gap: 0;
+    }
+
+    .events-wrapper  {
+        margin-top: 48px;
+    }
+
+    .about-banner__content .events-title {
+        font-size: 36px;
+        margin-top: 24px;
+    }
 }
 
 @media (max-width: 910px) {
@@ -2819,7 +3046,6 @@ footer .team {
     .slider-controls {
         top: auto;
         bottom: 20%;
-        display: none;
     }
 
     .subcription-content {
