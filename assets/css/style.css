@@ -846,8 +846,12 @@ header {
     letter-spacing: 0.10px;
 }
 
+#news-first {
+    margin-top: 500px;
+}
+
 .number__wrapper {
-    margin-top: 421px;
+    margin-top: 128px;
 
     display: flex;
     flex-direction: row;
@@ -1246,7 +1250,7 @@ header {
 }
 
 .mySwiper:hover {
-    cursor: url('../img/icons/cursor.svg'), auto;
+    cursor: url('../img/icons/cursorNew.svg'), auto;
     z-index: 1;
 }
 
@@ -1683,6 +1687,10 @@ footer hr {
     cursor: pointer;
 }
 
+.footer-content__logo img {
+    transform: rotate(180deg);
+}
+
 /* team css */
 
 .team-navigation {
@@ -1714,7 +1722,7 @@ footer hr {
     line-height: 57.60px; 
     letter-spacing: 0.10px;
 
-    margin-top: 32px;
+    margin-top: 128px;
 }
 
 .team-description p {
@@ -1736,7 +1744,7 @@ footer hr {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 36px;
+    gap: 64px;
 }
 
 .team-card {
@@ -2094,7 +2102,7 @@ footer .team {
     font-size: 20px; 
     font-family: 'TTFirsNeue-Medium';
     font-weight: 500; 
-    text-transform: uppercase; 
+    /* text-transform: uppercase;  */
     line-height: 26px;
 
     padding: 0 24px;
@@ -2586,6 +2594,10 @@ footer .team {
     margin-top: 4px;
 }
 
+.requisites-wrapper__row a {
+    text-decoration: underline;
+}
+
 /* requisites */
 
 /* events */
@@ -2595,7 +2607,8 @@ footer .team {
     flex-direction: column;
     gap: 96px;
 
-    margin-bottom: 164px;
+    margin-top: -200px;
+    margin-bottom: 200px;
 }
 
 .about-banner__content .events-title {
@@ -2607,6 +2620,19 @@ footer .team {
     line-height: 100%; /* 48px */
     letter-spacing: 0.1px;
     text-transform: uppercase;
+    position: relative;
+}
+
+.about-banner__content .events-title::after {
+    content: '';
+    border: 1px solid #00246A;
+    
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: -40%;
+
 }
 
 .events-wrapper {
@@ -2614,17 +2640,26 @@ footer .team {
 
     border-radius: 5px;
     background: #F9F9F9;
+    border: 1px solid #CDCDCD;
     padding-top: 18px;
     padding-left: 40px;
 
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 73px;
 
     position: relative;
     z-index: 1;
+}
+
+/* .events-wrapper:nth-child() {
+    position: absolute;
+} */
+
+.events-contents {
+    max-width: 628px;
 }
 
 .events-contents__header {
@@ -2689,7 +2724,7 @@ footer .team {
 .events-contents__footer button {
     border-radius: 50px;
     background: #00246A;
-    padding: 16px 32px;
+    padding: 16px 28px;
     outline: none;
     border: 1px solid transparent;
 
@@ -2735,13 +2770,26 @@ footer .team {
     right: -5%;
     bottom: -25%;
 
-    background: linear-gradient(0deg, #FFF 0%, #FFF 100%), url(<path-to-image>) lightgray -1px -1px / 100.699% 100.699% no-repeat;
+    background: linear-gradient(0deg, #FFF 0%, #FFF 100%), lightgray -1px -1px / 100.699% 100.699% no-repeat;
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
     z-index: 2;
+    border-radius: 5px;
 
-    padding: 100px 30px;
+    padding: 60px 47px;
 
     max-width: 286px;
+}
+
+.events-wrapper__2 .events-block {
+    padding: 115px 30px;
+}
+
+.events-wrapper__3 .events-block {
+    padding: 30px;
+}
+
+.events-wrapper__4 .events-block {
+    padding: 105px 77px;
 }
 
 .events-block.no-style {
