@@ -64,6 +64,7 @@ burgerBanner = () => {
     const headerSearch = document.querySelector('.search-menu');
     const bannerHeight = window.innerHeight;
     const sliderControls = document.querySelector('.slider-controls')
+    const htmlTag = document.querySelector('html')
 
     if (!headerBurger) return;
     headerBurger.addEventListener('click', () => {
@@ -91,6 +92,7 @@ burgerBanner = () => {
         infoContent.classList.toggle('active');
         headerEn.classList.toggle('active');
         headerBurger.classList.toggle('active');
+        htmlTag.classList.toggle('active')
         headerLine.forEach(line => {
             line.classList.toggle('active'); 
         });
@@ -128,6 +130,7 @@ searchBanner = () => {
     const headerMenu = document.querySelector('.burger-menu');  
     const bannerHeight = window.innerHeight;
     const sliderControls = document.querySelector('.slider-controls')
+    const htmlTag = document.querySelector('html')
    
     if (!searchBurger) return;  
    
@@ -156,6 +159,7 @@ searchBanner = () => {
     searchMenu.classList.toggle('active');  
     infoContent.classList.toggle('active');  
     headerEn.classList.toggle('active');  
+    htmlTag.classList.toggle('active')
    
     headerBurger.style.display = (headerBurger.style.display === "none" || headerBurger.style.display === "") ? "flex" : "none";  
    
@@ -168,7 +172,7 @@ searchBanner = () => {
     if (document.body.classList.contains('active')) {
         logo.src = './assets/img/logo/logoBlue.svg';
         logoTxt.src = './assets/img/logo/logoTxtBlue.svg';
-        searchIcon.src = './assets/img/icons/searchBlue.svg';
+        searchIcon.src = './assets/img/icons/cross.svg';
     } else if (!isInBanner) {
         // Если находимся вне секции баннера, возвращаем изображения в "внешний" вид
         logo.src = './assets/img/logo/logoBlue.svg';
@@ -284,7 +288,7 @@ const swiperNews = () => {
         loop: true,
         pagination: {
             el: ".swiper-pagination",
-            clickable: true,
+            // clickable: true,
         },
         on: {
             slideChange: function (swiper) {
@@ -335,7 +339,7 @@ const swiperNews = () => {
                 entry.target.classList.remove("slide-in");
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0 });
 
     // Apply Observer to all slides
     const slides = document.querySelectorAll('.swiper-slide');
@@ -421,42 +425,68 @@ const fadeInSection = () => {
 
 const burgerFadeIn = () => {
     const menuItems = document.querySelectorAll('.burger-menu__column ul li');
-    const lists = document.querySelectorAll('.burger-menu__column.center ul');
-    
+
     menuItems.forEach(item => {
         const index = item.getAttribute('data-index');
         const list = document.querySelector(`.burger-menu__column.center ul[data-index="${index}"]`);
-    
-        // Проверяем, существует ли список, прежде чем добавлять обработчики событий
-        if (list) {
+        const cross = document.querySelector(`.burger-mobile__lines[data-index="${index}"]`);
+
+        if (list && cross) {
             item.addEventListener('mouseenter', () => {
-                lists.forEach(ul => ul.classList.add('hidden')); // Скрываем все списки
-                list.classList.remove('hidden'); // Показываем соответствующий список
+                // Скрываем все списки и удаляем класс active у всех крестиков
+                document.querySelectorAll('.burger-menu__column.center ul').forEach(ul => ul.classList.add('hidden'));
+                document.querySelectorAll('.burger-mobile__lines').forEach(crossEl => crossEl.classList.remove('active'));
+
+                // Показываем соответствующий список и добавляем класс active к конкретному крестику
+                list.classList.remove('hidden');
+                cross.classList.add('active');
             });
-    
+
             item.addEventListener('mouseleave', () => {
                 setTimeout(() => {
                     if (!list.matches(':hover') && !item.matches(':hover')) {
                         list.classList.add('hidden');
+                        cross.classList.remove('active');
                     }
                 }, 30000000); // Добавляем небольшую задержку
             });
-    
+
             // Обрабатываем наведение на список ul
             list.addEventListener('mouseenter', () => {
                 list.classList.remove('hidden'); // Оставляем список видимым
             });
-    
+
             list.addEventListener('mouseleave', () => {
                 setTimeout(() => {
                     if (!list.matches(':hover') && !item.matches(':hover')) {
                         list.classList.add('hidden');
+                        cross.classList.remove('active');
                     }
-                }, 30000000); // Добавляем небольшую задержку
+                }, 3000000); // Добавляем небольшую задержку
             });
         }
-    });    
+    });
+};
+
+const startAnimation = () => {
+    // Блокируем прокрутку
+    document.body.classList.add('no-scroll');
+
+    // Таймер на 3 секунды
+    setTimeout(() => {
+        // Плавно убираем анимационный блок
+        const overlay = document.querySelector('.start-overlay');
+        overlay.style.opacity = '0';
+
+        // Убираем блок из DOM после завершения анимации
+        setTimeout(() => {
+            overlay.remove();
+            // Включаем прокрутку
+            document.body.classList.remove('no-scroll');
+        }, 500); // Задержка в 500 мс для завершения плавного исчезновения
+    }, 3000); // Анимация длится 3 секунды
 }
+
 
 const init = () => {
     sliderBanner()
@@ -468,6 +498,7 @@ const init = () => {
     sliderPhoto()
     fadeInSection()
     burgerFadeIn()
+    startAnimation()
 }
 
 document.addEventListener('DOMContentLoaded', init);

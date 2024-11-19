@@ -19,6 +19,7 @@ burgerBanner = () => {
     const searchIcon = document.querySelector('.header-search img');
     const headerSearch = document.querySelector('.search-menu');
     const bannerHeight = window.innerHeight;
+    const htmlTag = document.querySelector('html')
 
     if (!headerBurger) return;
     headerBurger.addEventListener('click', () => {
@@ -43,6 +44,7 @@ burgerBanner = () => {
         headerMenu.classList.toggle('active');
         headerEn.classList.toggle('active');
         headerBurger.classList.toggle('active');
+        htmlTag.classList.toggle('active')
         headerLine.forEach(line => {
             line.classList.toggle('active'); 
         });
@@ -78,6 +80,7 @@ searchBanner = () => {
     const searchIcon = document.querySelector('.header-search img');  
     const headerMenu = document.querySelector('.burger-menu');  
     const bannerHeight = window.innerHeight;
+    const htmlTag = document.querySelector('html')
    
     if (!searchBurger) return;  
    
@@ -102,7 +105,8 @@ searchBanner = () => {
    
     document.body.classList.toggle('active');  
     searchMenu.classList.toggle('active');    
-    headerEn.classList.toggle('active');  
+    headerEn.classList.toggle('active'); 
+    htmlTag.classList.toggle('active') 
    
     headerBurger.style.display = (headerBurger.style.display === "none" || headerBurger.style.display === "") ? "flex" : "none";  
    
@@ -180,42 +184,48 @@ window.addEventListener('scroll', scrollHeader);
 
 const burgerFadeIn = () => {
     const menuItems = document.querySelectorAll('.burger-menu__column ul li');
-    const lists = document.querySelectorAll('.burger-menu__column.center ul');
-    
+
     menuItems.forEach(item => {
         const index = item.getAttribute('data-index');
         const list = document.querySelector(`.burger-menu__column.center ul[data-index="${index}"]`);
-    
-        // Проверяем, существует ли список, прежде чем добавлять обработчики событий
-        if (list) {
+        const cross = document.querySelector(`.burger-mobile__lines[data-index="${index}"]`);
+
+        if (list && cross) {
             item.addEventListener('mouseenter', () => {
-                lists.forEach(ul => ul.classList.add('hidden')); // Скрываем все списки
-                list.classList.remove('hidden'); // Показываем соответствующий список
+                // Скрываем все списки и удаляем класс active у всех крестиков
+                document.querySelectorAll('.burger-menu__column.center ul').forEach(ul => ul.classList.add('hidden'));
+                document.querySelectorAll('.burger-mobile__lines').forEach(crossEl => crossEl.classList.remove('active'));
+
+                // Показываем соответствующий список и добавляем класс active к конкретному крестику
+                list.classList.remove('hidden');
+                cross.classList.add('active');
             });
-    
+
             item.addEventListener('mouseleave', () => {
                 setTimeout(() => {
                     if (!list.matches(':hover') && !item.matches(':hover')) {
                         list.classList.add('hidden');
+                        cross.classList.remove('active');
                     }
                 }, 30000000); // Добавляем небольшую задержку
             });
-    
+
             // Обрабатываем наведение на список ul
             list.addEventListener('mouseenter', () => {
                 list.classList.remove('hidden'); // Оставляем список видимым
             });
-    
+
             list.addEventListener('mouseleave', () => {
                 setTimeout(() => {
                     if (!list.matches(':hover') && !item.matches(':hover')) {
                         list.classList.add('hidden');
+                        cross.classList.remove('active');
                     }
-                }, 30000000); // Добавляем небольшую задержку
+                }, 3000000); // Добавляем небольшую задержку
             });
         }
-    });    
-}
+    });
+};
 
 const fadeInSection = () => {
     // Настройка IntersectionObserver
