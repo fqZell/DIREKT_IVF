@@ -1687,10 +1687,6 @@ footer hr {
     cursor: pointer;
 }
 
-.footer-content__logo img {
-    transform: rotate(180deg);
-}
-
 /* team css */
 
 .team-navigation {
@@ -2994,7 +2990,7 @@ footer .team {
     }
 
     .burger-menu__wrapper {
-        margin-top: 70px;
+        margin-top: 96px;
     }
 
     .burger-menu__footer {
@@ -3140,24 +3136,39 @@ footer .team {
 
     .burger-menu__wrapper {
         margin-top: 100px;
+        flex-direction: column;
+    }
+
+    .burger-menu__column {
+        width: 100%;
     }
 
     .burger-menu__column ul {
-        gap: 12px;
+        gap: 32px;
     }
 
     .burger-menu__column ul li {
         font-size: 24px;
         line-height: 20px;
+        width: 100%;
     }
 
     .burger-menu__column.center ul li {
         font-size: 18px;
     }
 
+    .burger-menu.active {
+        overflow-y: scroll;
+    }
+
+    .burger-menu__column.center ul {
+        margin: 12px 0;
+    }
+
     .burger-menu__footer {
         flex-direction: column;
         gap: 16px;
+        padding-bottom: 24px;
     }
 
     .burger-menu__wrapper {

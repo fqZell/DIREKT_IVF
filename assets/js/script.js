@@ -35,7 +35,7 @@ sliderBanner = () => {
 
         slideNumber.textContent = (currentSlide + 1).toString().padStart(2, '0');
 
-        rotationDegree += 180;
+        rotationDegree += 360;
         logo.style.transform = `rotate(${rotationDegree}deg)`; 
     }
 
@@ -294,12 +294,14 @@ const swiperNews = () => {
                 const progress = realIndex / (totalSlides - 1);
 
                 // Get the progress-bar element
-                const progressBar = document.querySelector(".progress-bar");
+                const progressBar = document.querySelectorAll(".progress-bar");
                 const lineWidth = document.querySelector(".news-footer__line").offsetWidth;
 
                 // Calculate the width for the progress-bar and constrain it
                 const currentWidth = Math.min(lineWidth * progress, lineWidth); // Cap the width at lineWidth
-                progressBar.style.width = `${currentWidth}px`;
+                progressBar.forEach(bar => {
+                    bar.style.width = `${currentWidth}px`;
+                });
             },
         },
         breakpoints: {
