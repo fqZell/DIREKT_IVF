@@ -46,6 +46,10 @@
     transition: all 0.3s ease-in-out;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -3222,6 +3226,10 @@ footer .team {
 
     .burger-menu__wrapper {
         gap: 12px;
+    }
+
+    .banner-content h2 {
+        font-size: 48px;
     }
 }
 
