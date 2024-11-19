@@ -2902,6 +2902,10 @@ footer .team {
         margin-top: 84px;
     }
 
+    #news-first {
+        margin-top: 0;
+    }
+
     .accordion-layout {
         flex-direction: column;
     }
