@@ -286,9 +286,14 @@ const swiperNews = () => {
         freeMode: true,
         freeModeMomentum: true,
         loop: true,
+        speed: 1000,
         pagination: {
             el: ".swiper-pagination",
             // clickable: true,
+        },
+        scrollbar: {
+            el: ".swiper-scrollbar",
+            hide: true,
         },
         on: {
             slideChange: function (swiper) {
@@ -330,7 +335,7 @@ const swiperNews = () => {
         },
     });
 
-    // Add Intersection Observer for slide animation
+    // // Add Intersection Observer for slide animation
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -341,7 +346,7 @@ const swiperNews = () => {
         });
     }, { threshold: 0 });
 
-    // Apply Observer to all slides
+    // // Apply Observer to all slides
     const slides = document.querySelectorAll('.swiper-slide');
     slides.forEach(slide => observer.observe(slide));
 };
@@ -398,7 +403,7 @@ const sliderPhoto = () => {
     updateSlide();
     
     // Меняем слайд каждые 20 секунды
-    setInterval(updateSlide, 20000);
+    setInterval(updateSlide, 7000);
 
 }
 
