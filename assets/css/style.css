@@ -1058,6 +1058,15 @@ header {
 
 .accordion-content {
     width: 100%;
+    position: relative;
+}
+
+.accordion-content::before {
+    content: '';
+    position: absolute;
+    border: 1px solid #D9D9D9;
+    width: 100%;
+    bottom: -32px;
 }
 
 .accordion-content span {
@@ -1097,6 +1106,31 @@ header {
     justify-content: flex-start;
     align-items: flex-start;
     gap: 32px;
+
+    max-height: calc(4 * 120px + 3 * 32px); /* Высота 4 элементов + промежутки */
+    overflow-y: auto; /* Добавляем вертикальный скролл */
+    padding-right: 16px; /* Отступ для скроллбара */
+    /* scrollbar-width: thin; */
+}
+
+.accordion-contets::-webkit-scrollbar {
+    width: 8px; /* Ширина скроллбара */
+}
+
+.accordion-contets::-webkit-scrollbar-thumb {
+    background-color: #d9d9d9; /* Цвет скроллбара */
+    border-radius: 4px; /* Скругление */
+}
+
+.accordion-contets::-webkit-scrollbar-thumb:hover {
+    background-color: #b3b3b3; /* Цвет скроллбара при наведении */
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 768px) {
+    .accordion-contets {
+        max-height: calc(4 * 100px + 3 * 24px); /* Измените высоту под мобильный дизайн */
+    }
 }
 
 .accordion-contets .line {
@@ -1141,10 +1175,6 @@ header {
 
 .accordion-content__row img {
     cursor: pointer;
-}
-
-.accordion-content__row:hover img {
-    scale: 1.2;
 }
 
 .accordion-content__el {
@@ -1280,7 +1310,7 @@ header {
     top: 0; /* Высота по вертикали подстраивается под линию */
     left: 0;
     height: 2px;
-    background: #0061FC;
+    background: #00246A;
     border-radius: 3px;
     z-index: 999;
     width: 0; /* Изначально ширина 0 */
@@ -1437,14 +1467,24 @@ header {
 }
 
 .freedback-wrapper__main hr {
-    border: 2px solid #0061FC;
+    border: 2px solid #00246A;
     transform: rotate(180deg);
 }
 
-.freedback-wrapper__main h2 {
+.freedback-wrapper__main h2:last-child {
     color: #000; 
     font-size: 16px; 
+    font-family: 'TTFirsNeue-Light';
+    margin-top: 10px;
+}
+
+.freedback-wrapper__main h2 {
+    color: #000;
     font-family: 'TTFirsNeue-Medium';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
 .freedback-wrapper__footer {
@@ -1480,6 +1520,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    display: none;
 }
 
 .freedback-wrapper__footerDate p {
@@ -1821,6 +1862,37 @@ footer hr {
 
 .footer-content__imgs img {
     cursor: pointer;
+}
+
+.footer-content__logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-content__logo span {
+    margin-top: 32px;
+
+    color: #BABABA;
+    font-family: 'TTFirsNeue-ExtraLight'; 
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: normal;
+    letter-spacing: 0.1px;
+}
+
+.footer-content__helps {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+    justify-content: flex-start;
+
+    margin-top: 16px;
+}
+
+.footer-content__helps img {
+    width: 56px;
+    height: 56px;
 }
 
 /* team css */
