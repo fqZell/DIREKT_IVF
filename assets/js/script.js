@@ -65,6 +65,8 @@ burgerBanner = () => {
     const bannerHeight = window.innerHeight;
     const sliderControls = document.querySelector('.slider-controls')
     const htmlTag = document.querySelector('html')
+    const sliderBottom = document.querySelector('.banner-bottom')
+    const photoWrapper = document.querySelector('.photo-wrapper')
 
     if (!headerBurger) return;
     headerBurger.addEventListener('click', () => {
@@ -93,6 +95,8 @@ burgerBanner = () => {
         headerEn.classList.toggle('active');
         headerBurger.classList.toggle('active');
         htmlTag.classList.toggle('active')
+        sliderBottom.classList.toggle('active')
+        photoWrapper.classList.toggle('active')
         headerLine.forEach(line => {
             line.classList.toggle('active'); 
         });
@@ -131,6 +135,8 @@ searchBanner = () => {
     const bannerHeight = window.innerHeight;
     const sliderControls = document.querySelector('.slider-controls')
     const htmlTag = document.querySelector('html')
+    const sliderBottom = document.querySelector('.banner-bottom')
+    const photoWrapper = document.querySelector('.photo-wrapper')
    
     if (!searchBurger) return;  
    
@@ -160,6 +166,8 @@ searchBanner = () => {
     infoContent.classList.toggle('active');  
     headerEn.classList.toggle('active');  
     htmlTag.classList.toggle('active')
+    sliderBottom.classList.toggle('active')
+    photoWrapper.classList.toggle('active')
    
     headerBurger.style.display = (headerBurger.style.display === "none" || headerBurger.style.display === "") ? "flex" : "none";  
    
