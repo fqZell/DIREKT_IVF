@@ -121,7 +121,7 @@ searchBanner = () => {
     if (document.body.classList.contains('active')) {
         logo.src = '../assets/img/logo/logoBlue.svg';
         logoTxt.src = '../assets/img/logo/logoTxtBlue.svg';
-        searchIcon.src = '../assets/img/icons/searchBlue.svg';
+        searchIcon.src = '../assets/img/icons/cross.svg';
     } else if (!isInBanner) {
         // Если находимся вне секции баннера, возвращаем изображения в "внешний" вид
         logo.src = '../assets/img/logo/logoBlue.svg';

@@ -549,6 +549,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    width: 300px;
 }
 
 .burger-menu__column ul li {
@@ -1965,6 +1966,17 @@ footer hr {
     border-radius: 3px;
 }
 
+.team-title.document {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team-title {
+    margin-top: 128px;
+}
+
 .team-title h2 {
     color: #272727; 
     font-size: 48px; 
@@ -1973,8 +1985,6 @@ footer hr {
     text-transform: uppercase; 
     line-height: 57.60px; 
     letter-spacing: 0.10px;
-
-    margin-top: 128px;
 }
 
 .team-description p {
@@ -3223,6 +3233,227 @@ footer .team {
 
 /* news */
 
+/* document */
+
+.team-title.document a {
+    color: #00246A;
+    font-family: 'TTFirsNeue-Regular'; 
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: 0.1px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}
+
+.document-hr {
+    margin-top: 28px;
+    border: 1px solid #00246A;
+}
+
+.documnt-wrapper__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 16px;
+}
+
+.documnt-wrapper__header span {
+    color: #272727;
+    font-family: 'TTFirsNeue-Medium';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 28.8px */
+    letter-spacing: 0.1px;
+    cursor: pointer;
+}
+
+.documnt-wrapper__header img {
+    width: 16px;
+    height: 16px;
+}
+
+.documnt-wrapper__header img.active {
+    transform: rotate(180deg);
+}
+
+.document-wrapper__content {
+    display: none;
+    animation: fadeInDocument 0.3s ease-in-out;
+}
+
+@keyframes fadeInDocument {
+    from {
+        margin-top: -20px;
+        opacity: 0;
+    }
+    to {
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+
+.document-wrapper__content.active {
+    display: block;
+}
+
+#documents {
+    margin-bottom: 64px;
+}
+ 
+/* document */
+
+/* honors */
+
+.honors-title {
+    color: #FFF !important;
+    text-align: center !important;
+    font-family: 'TTFirsNeue-Medium' !important;
+    font-size: 48px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: 100% !important; /* 48px */
+    letter-spacing: 0.1px !important;
+    text-transform: uppercase !important;
+    width: auto !important;
+}
+
+.honors-hr {
+    border: 1px solid #00246A;
+    width: 100%;
+    margin-top: 32px;
+}
+
+.honors-subtitle {
+    color: #FFF;
+    font-family: 'TTFirsNeue-Light';
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 120%; /* 24px */
+    letter-spacing: 0.1px;
+
+    max-width: 668px;
+
+    margin-top: 32px;
+}
+
+.honors-select {
+    margin-top: 64px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+}
+
+.honors-select select {
+    background-color: transparent;
+    border: none; 
+    border-bottom: 2px solid #00246A; 
+    outline: none;
+    padding: 10px;
+    cursor: pointer; 
+
+    color: #444;
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: normal;
+    letter-spacing: 0.1px;
+}
+
+.honors-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    
+    margin-top: 64px;
+}
+
+.honors-wrapper__card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 64px;
+}
+
+.honors-wrapper__card img {
+    max-width: 207px;
+    max-height: 283px;
+}
+
+.honors-card__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.honors-card__category {
+    border-radius: 20px;
+    background: #6D9DEB;
+    padding: 0 16px;
+
+    color: #FFF;
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    white-space: nowrap;
+    width: min-content;
+}
+
+.honors-card__title {
+    color: #061421;
+    font-family: 'TTFirsNeue-Medium';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+
+    margin-top: 16px;
+}
+
+.honors-card__subtitle {
+    color: #272727;
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: normal;
+    letter-spacing: 0.1px;
+
+    margin-top: 32px;
+}
+
+.honors-card__date {
+    color: #272727;
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: normal;
+    letter-spacing: 0.1px;
+
+    margin-top: 16px;
+}
+
+/* honors */
+
 @media (min-width: 2200px) {
     .info-layout {
         max-width: auto;
@@ -3414,7 +3645,7 @@ footer .team {
     }
 
     .team-title h2 {
-        font-size: 36px;
+        font-size: 28px;
     }
 
     .about-banner__content h1 {
@@ -3524,7 +3755,7 @@ footer .team {
         height: 30%;
     }
 
-    .team-title h2 {
+    .team-title {
         margin-top: 24px;
     }
 
@@ -3764,5 +3995,13 @@ footer .team {
 
     .portfolio-wrapper__col.right {
         gap: 8px;
+    }
+
+    .honors-select select {
+        font-size: 14px;
+    }
+
+    .honors-select {
+        gap: 12px;
     }
 }

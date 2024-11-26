@@ -126,7 +126,7 @@ searchBanner = () => {
     }
 
     if (document.body.classList.contains('active')) {
-        searchIcon.src = '../assets/img/icons/searchBlue.svg'; 
+        searchIcon.src = '../assets/img/icons/cross.svg'; 
     } else {
         searchIcon.src = '../assets/img/icons/searchBlue.svg';
     }
