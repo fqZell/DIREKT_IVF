@@ -58,7 +58,6 @@ ul, li {
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 html.active {
@@ -957,6 +956,15 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    gap: 24px;
+}
+
+.number-wrapper__left {
+    flex: 1;
+}
+
+.number-wrapper__right {
+    flex: 1;
 }
 
 .number-wrapper__left p{
@@ -992,6 +1000,12 @@ header {
     color: #272727;
 }
 
+.number-wrapper__right video {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 8px;
+}
+
 .number-wrapper__right p {
     font-size: 24px;
     font-family: 'TTFirsNeue-Light';
@@ -1000,6 +1014,7 @@ header {
     color: #272727;
 
     text-align: center;
+    margin-top: 8px;
     /* width: max-content; */
 }
 
@@ -2154,10 +2169,17 @@ footer .team {
     margin-top: 100px;
 }
 
+.about-header__col video {
+    max-width: 300px;
+    max-height: 300px;
+}
+
 .about-header__col:first-child {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 .about-header__col:first-child span {
@@ -2260,6 +2282,11 @@ footer .team {
     max-width: 200px;
     max-height: 100px;
     object-fit: contain;
+}
+
+.about-main__col.right .about-main__rowHeader video {
+    max-width: 200px;
+    max-height: 100px;
 }
 
 .about-main__col.right .about-main__rowHeader span {
@@ -3200,6 +3227,7 @@ footer .team {
     .info-layout {
         max-width: auto;
         width: auto;
+        padding: 130px 800px 130px 50px;
     }
 
     .banner-wrapper {
@@ -3407,7 +3435,7 @@ footer .team {
     }
 
     .burger-menu__footer {
-        margin-top: 64px;
+        margin-top: 24px;
     }
 
     .about-info__header {
@@ -3570,7 +3598,7 @@ footer .team {
     }
 
     .burger-menu__wrapper {
-        margin-top: 100px;
+        margin-top: 60px;
         flex-direction: column;
     }
 
@@ -3673,6 +3701,10 @@ footer .team {
 
     .burger-mobile__line {
         display: block;
+    }
+
+    .burger-footer__row {
+        gap: 12px;
     }
 }
 
