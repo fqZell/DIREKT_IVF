@@ -1,15 +1,13 @@
 const init = () => {
+    scrollHeader()
     burgerBanner()
     searchBanner()
     changeLanguage()
-    fadeInSection()
     burgerFadeIn()
-    scrollHeader()
-    tebsHonors()
+    fadeInSection()
 }
 
 document.addEventListener('DOMContentLoaded', init);
-
 
 burgerBanner = () => {
     const headerBurger = document.querySelector('.header-burger');
@@ -107,7 +105,8 @@ searchBanner = () => {
    
     document.body.classList.toggle('active');  
     searchMenu.classList.toggle('active');    
-    headerEn.classList.toggle('active');  
+    headerEn.classList.toggle('active'); 
+    htmlTag.classList.toggle('active') 
    
     headerBurger.style.display = (headerBurger.style.display === "none" || headerBurger.style.display === "") ? "flex" : "none";  
    
@@ -116,7 +115,6 @@ searchBanner = () => {
    
     logo.classList.toggle('active');  
     searchIcon.classList.toggle('active');  
-    htmlTag.classList.toggle('active')
 
     if (document.body.classList.contains('active')) {
         logo.src = '../assets/img/logo/logoBlue.svg';
@@ -148,26 +146,41 @@ changeLanguage = () => {
     })
 }
 
-const fadeInSection = () => {
-    // Настройка IntersectionObserver
-    const observerOptions = {
-        threshold: 0.1 // Секция считается видимой, когда 10% её высоты появляются в области видимости
-    };
+function scrollHeader() {
+    const headerLogo = document.querySelector('.header-logo img');
+    const headerLogoTxt = document.querySelector('.header-logo__txt');
+    const searchIcon = document.querySelector('.header-search img');
+    const headerEn = document.querySelector('.header-en');
+    const headerLines = document.querySelectorAll('.header-line');
+    const headerWrapper = document.querySelector(".header-wrapper")
+    
+    const bannerHeight = window.innerHeight; 
+    const scrollPosition = window.scrollY;
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible'); // Добавляем класс при видимости
-                observer.unobserve(entry.target); // Прекращаем отслеживание после появления
-            }
+    if (scrollPosition > bannerHeight) {
+        headerLogo.src = '../assets/img/logo/logoBlue.svg'; 
+        headerLogoTxt.src = '../assets/img/logo/logoTxtBlue.svg';
+        searchIcon.src = '../assets/img/icons/searchBlue.svg';
+        headerEn.style.color = "#ffffff";
+        headerEn.style.backgroundColor = "#00328A";
+        headerLines.forEach(headerLine => {
+            headerLine.style.backgroundColor = "#00328A";
         });
-    }, observerOptions);
-
-    // Наблюдаем за всеми секциями
-    document.querySelectorAll('section').forEach(section => {
-        observer.observe(section);
-    });
+        headerWrapper.classList.add('active')
+    } else {
+        headerLogo.src = '../assets/img/logo/logo.svg'; 
+        headerLogoTxt.src = '../assets/img/logo/logoTxt.svg';
+        searchIcon.src = '../assets/img/icons/search.svg';
+        headerEn.style.color = "#000";
+        headerEn.style.backgroundColor = "#fff";
+        headerLines.forEach(headerLine => {
+            headerLine.style.backgroundColor = "#fff";
+        });
+        headerWrapper.classList.remove('active')
+    }
 }
+
+window.addEventListener('scroll', scrollHeader);
 
 const burgerFadeIn = () => {
     const menuItems = document.querySelectorAll('.burger-menu__column ul li');
@@ -214,85 +227,23 @@ const burgerFadeIn = () => {
     });
 };
 
-function scrollHeader() {
-    const headerLogo = document.querySelector('.header-logo img');
-    const headerLogoTxt = document.querySelector('.header-logo__txt');
-    const searchIcon = document.querySelector('.header-search img');
-    const headerEn = document.querySelector('.header-en');
-    const headerLines = document.querySelectorAll('.header-line');
-    const headerWrapper = document.querySelector(".header-wrapper")
-    
-    const bannerHeight = window.innerHeight; 
-    const scrollPosition = window.scrollY;
+const fadeInSection = () => {
+    // Настройка IntersectionObserver
+    const observerOptions = {
+        threshold: 0.1 // Секция считается видимой, когда 10% её высоты появляются в области видимости
+    };
 
-    if (scrollPosition > bannerHeight) {
-        headerLogo.src = '../assets/img/logo/logoBlue.svg'; 
-        headerLogoTxt.src = '../assets/img/logo/logoTxtBlue.svg';
-        searchIcon.src = '../assets/img/icons/searchBlue.svg';
-        headerEn.style.color = "#ffffff";
-        headerEn.style.backgroundColor = "#00328A";
-        headerLines.forEach(headerLine => {
-            headerLine.style.backgroundColor = "#00328A";
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible'); // Добавляем класс при видимости
+                observer.unobserve(entry.target); // Прекращаем отслеживание после появления
+            }
         });
-        headerWrapper.classList.add('active')
-    } else {
-        headerLogo.src = '../assets/img/logo/logo.svg'; 
-        headerLogoTxt.src = '../assets/img/logo/logoTxt.svg';
-        searchIcon.src = '../assets/img/icons/search.svg';
-        headerEn.style.color = "#000";
-        headerEn.style.backgroundColor = "#fff";
-        headerLines.forEach(headerLine => {
-            headerLine.style.backgroundColor = "#fff";
-        });
-        headerWrapper.classList.remove('active')
-    }
-}
+    }, observerOptions);
 
-window.addEventListener('scroll', scrollHeader);
-
-const tebsHonors = () => {
-    const honorsWrapper = document.querySelectorAll('.honors-wrapper');
-    if (!honorsWrapper.length) return;
-    const honorsNumbers = document.querySelectorAll('.honors-bottom__numbers span');
-    if (!honorsNumbers.length) return;
-    const prevButton = document.querySelector('.honors-bottom__prev span');
-    const nextButton = document.querySelector('.honors-bottom__next span');
-    const fullPrevButton = document.querySelector('.honor-full__prev');
-    const fullNextButton = document.querySelector('.honor-full__next');
-
-    if (!prevButton || !nextButton || !fullPrevButton || !fullNextButton) return;
-
-    honorsNumbers.forEach((numbers, index) => {
-        numbers.addEventListener('click', () => {
-            updateActiveSlide(index);
-        });
+    // Наблюдаем за всеми секциями
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
     });
-
-    let currentIndex = Array.from(honorsWrapper).findIndex(wrapper => wrapper.classList.contains('active'));
-
-    // Функция для обновления активного слайда и номера
-    function updateActiveSlide(newIndex) {
-        honorsWrapper[currentIndex].classList.remove('active');
-        honorsNumbers[currentIndex].classList.remove('active');
-
-        currentIndex = newIndex;
-
-        honorsWrapper[currentIndex].classList.add('active');
-        honorsNumbers[currentIndex].classList.add('active');
-    }
-
-    // Функция переключения слайдов с зацикливанием
-    function switchSlide(newIndex) {
-        updateActiveSlide((newIndex + honorsWrapper.length) % honorsWrapper.length);
-    }
-
-    // Обработчики событий для стандартных кнопок переключения
-    prevButton.addEventListener('click', () => switchSlide(currentIndex - 1));
-    nextButton.addEventListener('click', () => switchSlide(currentIndex + 1));
-
-    // Обработчики событий для кнопок полного переключения
-    fullPrevButton.addEventListener('click', () => updateActiveSlide(0)); // В начало
-    fullNextButton.addEventListener('click', () => updateActiveSlide(honorsWrapper.length - 1)); // В конец
-};
-
-
+}

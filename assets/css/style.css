@@ -1788,8 +1788,12 @@ header {
 
 footer {
     background-color: #1A1A1A;
-    padding-top: 107px;
+    /* padding-top: 107px; */
     padding-bottom: 43px;
+}
+
+.index {
+    padding-top: 107px;
 }
 
 footer hr {
@@ -3373,12 +3377,30 @@ footer .team {
 }
 
 .honors-wrapper {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     
     margin-top: 64px;
+
+    animation: honorsFadeIn 0.3s ease-in-out;
+}
+
+@keyframes honorsFadeIn {
+    0% {
+        opacity: 0;
+        margin-left: 64px;
+    }
+
+    100% {
+        opacity: 0;
+        margin-left: 64px;
+    }
+}
+
+.honors-wrapper.active {
+    display: flex;
 }
 
 .honors-wrapper__card {
@@ -3452,7 +3474,197 @@ footer .team {
     margin-top: 16px;
 }
 
+.honors-bottom {
+    margin: 128px 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.honors-bottom__prev, .honors-bottom__next, .honors-bottom__numbers {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.honors-bottom__prev span, .honors-bottom__next span {
+    color: #061421;
+    font-family: 'TTFirsNeue-Medium';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.honors-bottom__prev span:hover, .honors-bottom__next span:hover {
+    text-decoration: underline;
+}
+
+.honors-bottom__prev img, .honors-bottom__next img {
+    cursor: pointer;
+}
+
+.honors-bottom__numbers span {
+    color: rgba(6, 20, 33, 0.60);
+    font-family: 'TTFirsNeue-Medium';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.honors-bottom__numbers span.active {
+    background: #061421;
+    padding: 8px;
+    color: #fff;
+    border-radius: 2px;
+}
+
 /* honors */
+
+/* contact */
+
+.team-title.contact {
+    margin-top: 0;
+}
+
+.contact-maps {
+    margin-top: 64px;
+
+    position: relative;
+}
+
+.contact-maps__content {
+    position: absolute;
+    z-index: 999;
+    top: 25%;
+    left: 20%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    background: #FFF;
+    max-width: 494px;
+    padding: 40px;
+    border-radius: 8px;
+}
+
+/* contact */
+
+/* programs */
+
+.events-layout.programs {
+    margin-top: 0;
+}
+
+.events-block.programs {
+    background: none;
+    box-shadow: none;
+    max-width: 50%;
+}
+
+.programs-test {
+    position: relative;
+    margin: -150px 40px -50px 40px;
+}
+
+.programs-test__img {
+    height: 300px;
+}
+
+.programs-test__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 65px 115px 0 115px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.programs-test__content span {
+    color: #FFF;
+    font-family: 'TTFirsNeue-Medium';
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.1px;
+}
+
+.programs-test__content button {
+    outline: none;
+    background-color: transparent;
+    border-radius: 50px;
+    border: 1px solid #fff;
+    padding: 12px 24px;
+
+    color: #F1F1F1;
+    font-family: 'TTFirsNeue-Medium';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+}
+
+.programs-test__content button:hover {
+    border: 1px solid transparent;
+    background-color: #fff;
+    color: #00246A;
+}
+
+/* programs */
+
+/* 404 */
+
+.honors-title.error {
+    font-size: 320px !important;
+}
+
+.error-btn {
+    margin-top: 48px;
+
+    outline: none;
+    border-radius: 50px;
+    border: 1px solid #FFF;
+    background: rgba(255, 255, 255, 0.10);
+    padding: 12px 24px;
+
+    color: #F1F1F1;
+    font-family: 'TTFirsNeue-Medium';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+}
+
+.error-btn:hover {
+    border: 1px solid transparent;
+    color: #00246A;
+    background-color: #fff;
+}
+
+.error-footer {
+    transform: translateY(-4px) !important;
+}
+
+/* 404 */
 
 @media (min-width: 2200px) {
     .info-layout {
@@ -3771,6 +3983,19 @@ footer .team {
         max-width: 100%;
         text-align: center;
     }
+
+    .programs-test__content {
+        top: 25%;
+        gap: 16px;
+    }
+
+    .programs-test__content span {
+        font-size: 24px;
+    }
+
+    .honors-title.error {
+        font-size: 180px !important;
+    }
 }
 
 @media (max-width: 910px) {
@@ -3937,6 +4162,14 @@ footer .team {
     .burger-footer__row {
         gap: 12px;
     }
+
+    .honor-prev, .honor-next {
+        display: none;
+    }
+
+    .honors-title.error {
+        font-size: 90px !important;
+    }
 }
 
 @media (max-width: 550px) {
@@ -3957,7 +4190,7 @@ footer .team {
     .about-team__main .team-card {
         flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
+        align-items: center;
         width: 100%;
         height: 100%;
     }
@@ -3981,6 +4214,11 @@ footer .team {
         text-align: left;
         font-size: 18px;
     }
+
+    .programs-test__content {
+        top: 10%;
+        gap: 16px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -3990,7 +4228,7 @@ footer .team {
 
     .about-banner__content h1 {
         font-size: 64px; 
-        margin-top: 0;
+        margin-top: 24px;
     }
 
     .portfolio-wrapper__col.right {
