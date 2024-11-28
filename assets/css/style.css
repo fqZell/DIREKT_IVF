@@ -58,6 +58,7 @@ ul, li {
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 html.active {
@@ -1388,10 +1389,19 @@ header {
     z-index: 1;
 }
 
+.mySwiper2:hover {
+    cursor: url('../img/icons/cursorNew.svg'), auto;
+    z-index: 1;
+}
+
+.swiper-horizontal>.swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-horizontal, .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite, .swiper-vertical>.swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
+    top: -100% !important;
+}
+
 /* Изначальное состояние слайда - невидимость и ниже позиции */
 .swiper-slide {
-    opacity: 0.5;
-    transform: translateY(90px);
+    opacity: 0;
+    transform: translateY(50px);
     padding-top: 90px;
     transition: all 0.5s ease-out;
 }
@@ -2127,7 +2137,11 @@ footer .team {
 }
 
 .subcription-wrapper.team {
-    bottom: 20px;
+    bottom: 70px;
+}
+
+#footer {
+    margin-top: 155px;
 }
 
 /* team css */
@@ -2759,10 +2773,14 @@ footer .team {
     margin-right: 1px !important;
 }
 
-.tabs-header .swiper-wrapper {
-    /* max-width: 800px; */
+.swiper-wrapper {
+    max-width: 100%;
     /* align-items: center;
     justify-content: center; */
+}
+
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background: #00246A !important;
 }
 
 .tabs-header .swiper-button-next, .swiper-button-prev {

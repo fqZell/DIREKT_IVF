@@ -218,52 +218,31 @@ const swiperNews = () => {
         mousewheel: true,
         freeMode: true,
         freeModeMomentum: true,
-        loop: true,
         speed: 1000,
         pagination: {
-            el: ".swiper-pagination",
-            // clickable: true,
+            el: ".swiper-pagination-1",
+            type: "progressbar",
         },
         scrollbar: {
             el: ".swiper-scrollbar",
             hide: true,
         },
-        on: {
-            slideChange: function (swiper) {
-                // Calculate the progress using realIndex
-                const totalSlides = swiper.slides.length - swiper.loopedSlides * 2; // Adjust for looped slides
-                const realIndex = swiper.realIndex;
-                const progress = realIndex / (totalSlides - 1);
-
-                // Get the progress-bar element
-                const progressBar = document.querySelectorAll(".progress-bar");
-                const lineWidth = document.querySelector(".news-footer__line").offsetWidth;
-
-                // Calculate the width for the progress-bar and constrain it
-                const currentWidth = Math.min(lineWidth * progress, lineWidth); // Cap the width at lineWidth
-                progressBar.forEach(bar => {
-                    bar.style.width = `${currentWidth}px`;
-                });
-            },
-        },
         breakpoints: {
-            2560: {
-                slidesPerView: 4,
+            2560: { slidesPerView: 4 },
+            1920: { slidesPerView: 4 },
+            1440: { slidesPerView: 4 },
+            1024: { slidesPerView: 2 },
+            768: { slidesPerView: 2 },
+            375: { slidesPerView: 1 },
+        },
+        on: {
+            reachEnd: () => {
+                document.body.style.overflow = "auto";
+                swiper.mousewheel.disable();
             },
-            1920: {
-                slidesPerView: 4,
-            },
-            1440: {
-                slidesPerView: 4,
-            },
-            1024: {
-                slidesPerView: 2,
-            },
-            768: {
-                slidesPerView: 2,
-            },
-            375: {
-                slidesPerView: 1,
+            fromEdge: () => {
+                document.body.style.overflow = "hidden";
+                swiper.mousewheel.enable();
             },
         },
     });
