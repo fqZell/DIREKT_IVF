@@ -504,6 +504,8 @@ const burgerFadeIn = () => {
 const startAnimation = () => {
     // Блокируем прокрутку
     document.body.classList.add('no-scroll');
+    const html = document.querySelector('html')
+    html.style.overflow = 'hidden'
 
     // Таймер на 3 секунды
     setTimeout(() => {
@@ -516,6 +518,7 @@ const startAnimation = () => {
             overlay.remove();
             // Включаем прокрутку
             document.body.classList.remove('no-scroll');
+            html.style.overflow = 'scroll'
         }, 500); // Задержка в 500 мс для завершения плавного исчезновения
     }, 3000); // Анимация длится 3 секунды
 }

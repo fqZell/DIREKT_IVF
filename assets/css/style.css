@@ -62,7 +62,7 @@ html {
 }
 
 html.active {
-    overflow-x: inherit !important;
+    overflow: hidden !important;
 }
 
 body {
@@ -1224,6 +1224,31 @@ header {
 
 .accordion-content__el {
     display: none;
+}
+
+.accordion-content__el button {
+    outline: none;
+    border: 1px solid transparent;
+    background-color: #00246A;
+    border-radius: 8px;
+    padding: 8px 16px;
+
+    color: #FFF;
+    font-family: 'TTFirsNeue-Light';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+
+    margin-top: 24px;
+}
+
+.accordion-content__el button:hover {
+    background-color: transparent;
+    border: 1px solid #00246A;
+    color: #00246A;
 }
 
 .accordion-content__el.active {
@@ -2398,18 +2423,36 @@ footer .team {
 
 .about-direction__card span {
     position: absolute;
-    top: 20%;
+    top: 20px;
     left: 0;
     right: 0;
     bottom: 0;
     text-align: left;
 
-    color: white; 
-    font-size: 20px; 
-    font-family: 'TTFirsNeue-Medium';
-    font-weight: 500; 
-    /* text-transform: uppercase;  */
-    line-height: 26px;
+    color: #FFF;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%; /* 26px */
+
+    padding: 0 24px;
+}
+
+.about-direction__card p {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: left;
+
+    color: #FFF;
+    font-family: "TTFirsNeue-ExtraLight";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: 130%; /* 20.8px */
 
     padding: 0 24px;
 }
@@ -3398,6 +3441,7 @@ footer .team {
     outline: none;
     padding: 10px;
     cursor: pointer; 
+    appearance: none;
 
     color: #444;
     font-family: 'TTFirsNeue-ExtraLight';
@@ -3406,6 +3450,8 @@ footer .team {
     font-weight: 265;
     line-height: normal;
     letter-spacing: 0.1px;
+
+    width: 287px;
 }
 
 .honors-wrapper {
@@ -3559,6 +3605,20 @@ footer .team {
     padding: 8px;
     color: #fff;
     border-radius: 2px;
+}
+
+.honors-select__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.honors-select__row img {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
 }
 
 /* honors */
@@ -4059,7 +4119,8 @@ footer .team {
     }
 
     .about-direction__cards {
-        gap: 8px;
+        gap: 24px;
+        justify-content: center;
     }
 
     .tabs-header {
@@ -4161,6 +4222,19 @@ footer .team {
 
     .contact-maps__content {
         left: 5%;
+    }
+
+    .news-header__title h2 {
+        line-height: 40px;
+    }
+
+    .news-header__title span {
+        line-height: 40px;
+    }
+
+    .portfolio-wrapper__col.right .portfolio-wrapper__row {
+        flex-direction: column-reverse;
+        gap: 24px;
     }
 }
 
@@ -4264,10 +4338,6 @@ footer .team {
         flex-wrap: wrap;
     }
 
-    .about-direction__cards {
-        justify-content: center;
-    }
-
     .portfolio-wrapper__col.right .portfolio-wrapper__row span {
         font-size: 16px;
     }
@@ -4310,7 +4380,7 @@ footer .team {
     }
 
     .banner-content h2 {
-        font-size: 48px;
+        font-size: 64px;
     }
 
     .burger-menu__column.center ul {
@@ -4335,14 +4405,6 @@ footer .team {
 
     .honors-title.error {
         font-size: 90px !important;
-    }
-
-    .news-header__title h2 {
-        line-height: 40px;
-    }
-
-    .news-header__title span {
-        line-height: 40px;
     }
 
     .contact-maps__content {
@@ -4423,7 +4485,8 @@ footer .team {
     }
 
     .honors-select {
-        gap: 12px;
+        gap: 24px;
+        flex-direction: column;
     }
 
     .contact-maps__content {
