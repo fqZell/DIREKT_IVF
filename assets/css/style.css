@@ -1314,6 +1314,7 @@ header {
 
 .news img {
     margin-bottom: 39px;
+    height: 242px;
 }
 
 .news h2 {
@@ -2081,7 +2082,7 @@ footer hr {
     justify-content: flex-start;
     gap: 24px;
 
-    max-width: 553px;
+    width: 553px;
 }
 
 .team-structure__content {
@@ -3575,6 +3576,45 @@ footer .team {
     max-width: 494px;
     padding: 40px;
     border-radius: 8px;
+}
+
+.contact-maps__content span {
+    color: #00246A;
+    font-family: 'TTFirsNeue-Regular';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 21.6px */
+    letter-spacing: 0.1px;
+
+    position: relative;
+
+    margin-bottom: 16px;
+}
+
+.contact-maps__content span::after {
+    content: '';
+    border: 1px solid #00246A;
+    border-radius: 3px;
+    width: 100%;
+
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+.contact-maps__content a {
+    color: #000;
+    font-family: 'TTFirsNeue-Light';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 20px; /* 125% */
+    letter-spacing: 0.1px;
+}
+
+.contact-maps__content a:first-child {
+    margin-bottom: 16px;
 }
 
 /* contact */
