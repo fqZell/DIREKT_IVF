@@ -289,7 +289,7 @@ const accordionIndex = () => {
 const swiperNews = () => {
     const swiper = new Swiper(".mySwiper", {
         direction: "horizontal",
-        slidesPerView: 4.5,
+        slidesPerView: 4,
         mousewheel: true,
         freeMode: true,
         freeModeMomentum: true,
@@ -306,9 +306,9 @@ const swiperNews = () => {
             2560: { slidesPerView: 4 },
             1920: { slidesPerView: 4 },
             1440: { slidesPerView: 4 },
-            1024: { slidesPerView: 2 },
-            768: { slidesPerView: 2 },
-            375: { slidesPerView: 1 },
+            1024: { slidesPerView: 3, threshold: 0,  },
+            768: { slidesPerView: 2, threshold: 0 },
+            375: { slidesPerView: 1, threshold: 0 },
         },
         on: {
             reachEnd: () => {
@@ -341,9 +341,9 @@ const swiperNews = () => {
             2560: { slidesPerView: 4 },
             1920: { slidesPerView: 4 },
             1440: { slidesPerView: 4 },
-            1024: { slidesPerView: 2 },
-            768: { slidesPerView: 2 },
-            375: { slidesPerView: 1 },
+            1024: { slidesPerView: 3, threshold: 0 },
+            768: { slidesPerView: 2, threshold: 0 },
+            375: { slidesPerView: 1, threshold: 0 },
         },
         on: {
             reachEnd: () => {
@@ -374,7 +374,7 @@ const swiperNews = () => {
                 entry.target.classList.remove("slide-in");
             }
         });
-    }, { threshold: 0.6 });
+    }, { threshold: 0.1 });
 
     const slides = document.querySelectorAll('.swiper-slide');
     slides.forEach(slide => observer.observe(slide));
@@ -532,6 +532,9 @@ const init = () => {
     fadeInSection()
     burgerFadeIn()
     startAnimation()
+
+    const html = document.querySelector('html')
+    html.style.overflowX = 'hidden'
 }
 
 document.addEventListener('DOMContentLoaded', init);

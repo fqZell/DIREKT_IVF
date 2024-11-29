@@ -58,7 +58,7 @@ ul, li {
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 html.active {
@@ -1309,7 +1309,7 @@ header {
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 23px;
+    gap: 4px;
 }
 
 .news img {
@@ -1428,6 +1428,15 @@ header {
 
 .news-project {
     position: relative;
+}
+
+.news-project .news-project__content h2 {
+    cursor: pointer;
+    z-index: 999;
+}
+
+.news-project .news-project__content h2:hover {
+    text-decoration: underline;
 }
 
 .news-project .news-project__content {
@@ -1989,7 +1998,7 @@ footer hr {
 }
 
 .team-title {
-    margin-top: 128px;
+    margin-top: 64px;
 }
 
 .team-title h2 {
@@ -2000,6 +2009,10 @@ footer hr {
     text-transform: uppercase; 
     line-height: 57.60px; 
     letter-spacing: 0.10px;
+}
+
+.team-title.news h2 {
+    text-transform: none;
 }
 
 .team-description p {
@@ -3192,7 +3205,7 @@ footer .team {
 .news-row {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 24px;
     align-items: stretch;
     flex-wrap: wrap;
@@ -3724,6 +3737,96 @@ footer .team {
 
 /* 404 */
 
+/* maps */
+
+.maps-wrapper {
+    margin-top: 32px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 26px;
+}
+
+.maps-wrapper ul {
+    flex: 1;
+}
+
+.maps-wrapper ul .maps-title {
+    color: #00246A;
+    font-family: 'TTFirsNeue-Regular';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 21.6px */
+    letter-spacing: 0.1px;
+
+    position: relative;
+
+    margin-bottom: 16px;
+}
+
+.maps-wrapper ul .maps-title::after {
+    content: '';
+    border: 1px solid #00246A;
+    border-radius: 3px;
+    width: 100%;
+
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+}
+
+.maps-wrapper ul li {
+    color: #000;
+    font-family: 'TTFirsNeue-Light';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 18px; /* 112.5% */
+    letter-spacing: 0.1px;
+    margin-bottom: 16px;
+}
+
+.maps-wrapper ul li:hover {
+    color: #00246A;
+}
+
+/* maps */
+
+/* politicy */
+
+.politycy-wrapper {
+    margin-top: 64px;
+}
+
+.politycy-wrapper p {
+    color: #000;
+    font-family: 'TTFirsNeue-ExtraLight';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: 150%; /* 30px */
+
+    text-align: justify;
+    margin: 24px 0;
+}
+
+.politycy-wrapper .politicy-title {
+    color: #000;
+    font-family: 'TTFirsNeue-Regular';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: 150%; /* 30px */
+
+    margin: 24px 0;
+}
+
+/* politicy */
+
 @media (min-width: 2200px) {
     .info-layout {
         max-width: auto;
@@ -3915,7 +4018,8 @@ footer .team {
     }
 
     .team-title h2 {
-        font-size: 28px;
+        font-size: 24px;
+        line-height: 30px;
     }
 
     .about-banner__content h1 {
@@ -4244,6 +4348,10 @@ footer .team {
     .contact-maps__content {
         padding: 24px;
         top: 10%;
+    }
+
+    .maps-wrapper {
+        flex-direction: column;
     }
 }
 
