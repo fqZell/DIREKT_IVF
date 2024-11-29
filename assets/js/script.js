@@ -289,7 +289,7 @@ const accordionIndex = () => {
 const swiperNews = () => {
     const swiper = new Swiper(".mySwiper", {
         direction: "horizontal",
-        slidesPerView: 4,
+        slidesPerView: 4.5,
         mousewheel: true,
         freeMode: true,
         freeModeMomentum: true,
@@ -374,7 +374,7 @@ const swiperNews = () => {
                 entry.target.classList.remove("slide-in");
             }
         });
-    }, { threshold: 0 });
+    }, { threshold: 0.6 });
 
     const slides = document.querySelectorAll('.swiper-slide');
     slides.forEach(slide => observer.observe(slide));
