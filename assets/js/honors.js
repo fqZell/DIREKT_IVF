@@ -6,6 +6,7 @@ const init = () => {
     burgerFadeIn()
     scrollHeader()
     tebsHonors()
+    popup()
 }
 
 document.addEventListener('DOMContentLoaded', init);
@@ -295,4 +296,38 @@ const tebsHonors = () => {
     fullNextButton.addEventListener('click', () => updateActiveSlide(honorsWrapper.length - 1)); // В конец
 };
 
+const popup = () => {
+
+    const cards = document.querySelectorAll('.honors-wrapper__card');
+    const popupOverlay = document.querySelector('.popup-overlay');
+    const popupImage = document.querySelector('.popup-image');
+    const popupTitle = document.querySelector('.popup-title');
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const imgSrc = card.querySelector('img').src;
+            const titleText = card.querySelector('.honors-card__title').innerText;
+
+            // Установка картинки и заголовка в popup
+            popupImage.src = imgSrc;
+            popupTitle.innerText = titleText;
+
+            // Показ popup
+            popupOverlay.style.display = 'flex';
+        });
+    });
+
+    // Закрытие popup по клику на overlay
+    popupOverlay.addEventListener('click', (e) => {
+        if (e.target === popupOverlay) {
+            popupOverlay.classList.add('hidden');
+            setTimeout(() => {
+                popupOverlay.style.display = 'none';
+                popupOverlay.classList.remove('hidden');
+            }, 500);
+        }
+    });
+
+
+}
 
