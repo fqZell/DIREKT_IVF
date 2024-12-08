@@ -2091,7 +2091,7 @@ footer hr {
 }
 
 .team-title {
-    margin-top: 96px;
+    margin-top: 32px;
 }
 
 .team-title h2 {
@@ -4717,6 +4717,47 @@ footer .team {
 
 /* portfolio */
 
+/* partners */
+
+.partners-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+.partners-header .partners-header__el {
+    flex: 1;
+    max-width: 258px;
+    max-height: 180px;
+}
+
+.partners-wrapper {
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 32px;
+
+    margin-top: 32px;
+}
+
+.partners-wrapper.active {
+    display: flex;
+}
+
+.partners-wrapper .partners-wrapper__card {
+    background: #D9D9D9;
+    border-radius: 5px;
+    width: 258px;
+    height: 180px;
+}
+
+/* partners */
+
 @media (min-width: 2200px) {
     .info-layout {
         max-width: auto;
@@ -5040,10 +5081,6 @@ footer .team {
         height: 30%;
     }
 
-    .team-title {
-        margin-top: 96px;
-    }
-
     .news-wrapper__pages {
         padding-left: 0;
     }
@@ -5149,6 +5186,10 @@ footer .team {
         flex: none;
         height: 350px;
         margin-bottom: 16px;
+    }
+
+    .partners-wrapper {
+        justify-content: center;
     }
 }
 
@@ -5371,6 +5412,12 @@ footer .team {
     }
 
     .team-cards__row.one .team-card {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .partners-header {
+        flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
     }
