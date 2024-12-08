@@ -298,99 +298,99 @@ const accordionIndex = () => {
     });
 };
 
-const swiperNews = () => {
-    const swiper = new Swiper(".mySwiper", {
-        direction: "horizontal",
-        slidesPerView: 4,
-        mousewheel: true,
-        freeMode: true,
-        freeModeMomentum: true,
-        speed: 1000,
-        pagination: {
-            el: ".swiper-pagination-2",
-            type: "progressbar",
-        },
-        scrollbar: {
-            el: ".swiper-scrollbar",
-            hide: true,
-        },
-        breakpoints: {
-            2560: { slidesPerView: 4 },
-            1920: { slidesPerView: 4 },
-            1440: { slidesPerView: 4 },
-            1024: { slidesPerView: 3, threshold: 0,  },
-            768: { slidesPerView: 2, threshold: 0 },
-            375: { slidesPerView: 1, threshold: 0 },
-        },
-        on: {
-            reachEnd: () => {
-                document.body.style.overflow = "auto";
-                swiper.mousewheel.disable();
-            },
-            fromEdge: () => {
-                document.body.style.overflow = "hidden";
-                swiper.mousewheel.enable();
-            },
-        },
-    });
+// const swiperNews = () => {
+//     const swiper = new Swiper(".mySwiper", {
+//         direction: "horizontal",
+//         slidesPerView: 4,
+//         mousewheel: true,
+//         freeMode: true,
+//         freeModeMomentum: true,
+//         speed: 1000,
+//         pagination: {
+//             el: ".swiper-pagination-2",
+//             type: "progressbar",
+//         },
+//         scrollbar: {
+//             el: ".swiper-scrollbar",
+//             hide: true,
+//         },
+//         breakpoints: {
+//             2560: { slidesPerView: 4 },
+//             1920: { slidesPerView: 4 },
+//             1440: { slidesPerView: 4 },
+//             1024: { slidesPerView: 3, threshold: 0,  },
+//             768: { slidesPerView: 2, threshold: 0 },
+//             375: { slidesPerView: 1, threshold: 0 },
+//         },
+//         on: {
+//             reachEnd: () => {
+//                 document.body.style.overflow = "auto";
+//                 swiper.mousewheel.disable();
+//             },
+//             fromEdge: () => {
+//                 document.body.style.overflow = "hidden";
+//                 swiper.mousewheel.enable();
+//             },
+//         },
+//     });
 
-    const swiper2 = new Swiper(".mySwiper2", {
-        direction: "horizontal",
-        slidesPerView: 4,
-        mousewheel: true,
-        freeMode: true,
-        freeModeMomentum: true,
-        speed: 1000,
-        pagination: {
-            el: ".swiper-pagination-1",
-            type: "progressbar",
-        },
-        scrollbar: {
-            el: ".swiper-scrollbar",
-            hide: true,
-        },
-        breakpoints: {
-            2560: { slidesPerView: 4 },
-            1920: { slidesPerView: 4 },
-            1440: { slidesPerView: 4 },
-            1024: { slidesPerView: 3, threshold: 0 },
-            768: { slidesPerView: 2, threshold: 0 },
-            375: { slidesPerView: 1, threshold: 0 },
-        },
-        on: {
-            reachEnd: () => {
-                document.body.style.overflow = "auto";
-                swiper2.mousewheel.disable();
-            },
-            fromEdge: () => {
-                document.body.style.overflow = "hidden";
-                swiper2.mousewheel.enable();
-            },
-        },
-    });
+//     const swiper2 = new Swiper(".mySwiper2", {
+//         direction: "horizontal",
+//         slidesPerView: 4,
+//         mousewheel: true,
+//         freeMode: true,
+//         freeModeMomentum: true,
+//         speed: 1000,
+//         pagination: {
+//             el: ".swiper-pagination-1",
+//             type: "progressbar",
+//         },
+//         scrollbar: {
+//             el: ".swiper-scrollbar",
+//             hide: true,
+//         },
+//         breakpoints: {
+//             2560: { slidesPerView: 4 },
+//             1920: { slidesPerView: 4 },
+//             1440: { slidesPerView: 4 },
+//             1024: { slidesPerView: 3, threshold: 0 },
+//             768: { slidesPerView: 2, threshold: 0 },
+//             375: { slidesPerView: 1, threshold: 0 },
+//         },
+//         on: {
+//             reachEnd: () => {
+//                 document.body.style.overflow = "auto";
+//                 swiper2.mousewheel.disable();
+//             },
+//             fromEdge: () => {
+//                 document.body.style.overflow = "hidden";
+//                 swiper2.mousewheel.enable();
+//             },
+//         },
+//     });
 
-    window.addEventListener("wheel", (event) => {
-        if ((swiper.isEnd && event.deltaY > 0) || (swiper2.isEnd && event.deltaY > 0)) {
-            document.body.style.overflow = "auto";
-        } else {
-            document.body.style.overflow = "hidden";
-        }
-    });
+//     window.addEventListener("wheel", (event) => {
+//         if ((swiper.isEnd && event.deltaY > 0) || (swiper2.isEnd && event.deltaY > 0)) {
+//             document.body.style.overflow = "auto";
+//         } else {
+//             document.body.style.overflow = "hidden";
+//         }
+//     });
 
-    // Intersection Observer для анимации слайдов
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("slide-in");
-            } else {
-                entry.target.classList.remove("slide-in");
-            }
-        });
-    }, { threshold: 0.1 });
+//     // Intersection Observer для анимации слайдов
+//     const observer = new IntersectionObserver((entries) => {
+//         entries.forEach(entry => {
+//             if (entry.isIntersecting) {
+//                 entry.target.classList.add("slide-in");
+//             } else {
+//                 entry.target.classList.remove("slide-in");
+//             }
+//         });
+//     }, { threshold: 0.1 });
 
-    const slides = document.querySelectorAll('.swiper-slide');
-    slides.forEach(slide => observer.observe(slide));
-};
+//     const slides = document.querySelectorAll('.swiper-slide');
+//     slides.forEach(slide => observer.observe(slide));
+// };
 
 const sliderPhoto = () => {
 
@@ -444,6 +444,24 @@ const sliderPhoto = () => {
     
     // Меняем слайд каждые 20 секунды
     setInterval(updateSlide, 7000);
+
+    // const slides = document.querySelectorAll('.slide');
+    // let currentSlide = 0;
+
+    // function updateSlide() {
+    //     // Убираем класс active у текущего слайда
+    //     slides[currentSlide].classList.remove('active');
+
+    //     // Переход к следующему слайду
+    //     currentSlide = (currentSlide + 1) % slides.length;
+
+    //     // Добавляем класс active следующему слайду
+    //     slides[currentSlide].classList.add('active');
+    // }
+
+    // // Меняем слайд каждые 7 секунд
+    // setInterval(updateSlide, 7000);
+
 
 }
 
@@ -542,7 +560,7 @@ const init = () => {
     searchBanner()
     changeLanguage()
     accordionIndex()
-    swiperNews()
+    // swiperNews()
     sliderPhoto()
     fadeInSection()
     burgerFadeIn()

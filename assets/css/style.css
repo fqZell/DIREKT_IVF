@@ -994,6 +994,8 @@ header {
     margin-top: 32px;
 
     cursor: pointer;
+
+    display: none;
 }
 
 .number-wrapper__left button:hover {
@@ -1026,7 +1028,8 @@ header {
 }
 
 .accordion-layout {
-    padding-top: 105px;
+    /* padding-top: 105px; */
+    padding: 105px 24px !important;
 
     display: flex;
     flex-direction: row;
@@ -1071,7 +1074,7 @@ header {
 
 .accordion-img {
     position: relative;
-    height: 700px; 
+    height: 560px; 
     overflow: hidden;
 }
 
@@ -1379,7 +1382,10 @@ header {
 }
 
 .news-footer {
-    position: relative;
+    /* position: relative;
+    display: flex;
+    justify-content: center; */
+    width: 100%;
 }
 
 .news-footer__line {
@@ -1466,8 +1472,20 @@ header {
     bottom: -16px !important;
 }
 
+.project-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+}
+
 .news-project {
     position: relative;
+    flex: 1;
+}
+
+.news-project img {
+    border-radius: 4px;
 }
 
 .news-project .news-project__content h2 {
@@ -1481,8 +1499,10 @@ header {
 
 .news-project .news-project__content {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    /* top: 20px; */
+    right: 20px;
+    bottom: 30px;
+    left: 30px;
 }
 
 .news-project .news-project__logo {
@@ -1492,18 +1512,14 @@ header {
 
     border-radius: 5px;
     background: #FFF;
-    padding: 28px 9px;
+    padding: 8px;
+
+    width: 120px;
+    height: 120px;
 }
 
-.news-project .news-project__logo span {
-    color: #272727;
-    font-family: 'TTFirsNeue-Bold'; 
-    font-size: 19.84px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%; /* 23.808px */
-    letter-spacing: 0.031px;
-    text-transform: uppercase;
+.news-project .news-project__logo img {
+    object-fit: contain;
 }
 
 .news-project .news-project__content h2 {
@@ -1790,6 +1806,38 @@ header {
     left: 110%; /* Прижимаем линию к левому краю */  
 } 
 
+.photo-wrapper .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.photo-wrapper .slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.photo-content {
+    position: absolute;
+    top: 25%;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateX(100%);
+}
+
+.photo-content.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 .subcription-wrapper {
     position: absolute;
     /* top: 0; */
@@ -1803,6 +1851,10 @@ header {
 
     padding: 59px 70px;
     z-index: 2;
+    /* margin-bottom: 86px; */
+}
+
+.subcription-wrapper.index2 {
     margin-bottom: 86px;
 }
 
@@ -2039,7 +2091,7 @@ footer hr {
 }
 
 .team-title {
-    margin-top: 32px;
+    margin-top: 96px;
 }
 
 .team-title h2 {
@@ -2074,8 +2126,54 @@ footer hr {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     gap: 64px;
+}
+
+.team-card__content {
+    max-width: 553px;
+
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.team-card__img img {
+    border-radius: 5px;
+}
+
+.team-cards.pages {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 64px;
+}
+
+.team-cards__row.one {
+    width: 100%;
+    max-height: 100%;
+}
+
+.team-cards__row.two {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 24px;
+}
+
+.team-cards__row.two .team-card {
+    flex: 1;
+}
+
+.team-cards__row.one .team-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    gap: 32px;
+
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .team-card {
@@ -2087,13 +2185,15 @@ footer hr {
 }
 
 .team-card__description p {
-    color: #272727; 
-    font-size: 20px; 
-    font-family: 'TTFirsNeue-ExtraLight';
-    font-weight: 265; 
-    letter-spacing: 0.10px;
+    color: #272727;
+    font-family: "TTFirsNeue-ExtraLight";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: normal;
+    letter-spacing: 0.1px;
 
-    margin-top: 32px;
+    margin-top: 16px;
 }
 
 .team-card hr {
@@ -2105,13 +2205,15 @@ footer hr {
 }
 
 .team-card__title h3 {
-    margin-top: 8px;
+    margin-top: 32px;
 
-    color: #272727; 
-    font-size: 28px; 
-    font-family: 'TTFirsNeue-ExtraLight';
-    font-weight: 265; 
-    letter-spacing: 0.10px;
+    color: #272727;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.1px;
 }
 
 .team-title:last-child h2{
@@ -2121,7 +2223,7 @@ footer hr {
 .team-structure {
     margin-top: 60px;
 
-    margin-bottom: 208px;
+    margin-bottom: 0;
 
     display: flex;
     flex-direction: row;
@@ -3565,6 +3667,8 @@ footer .team {
     align-items: center;
 
     margin-top: 16px;
+
+    cursor: pointer;
 }
 
 .documnt-wrapper__header span {
@@ -4636,6 +4740,10 @@ footer .team {
         width: 100%;
         height: 100%;
     }
+
+    .freedback-wrapper {
+        justify-content: flex-start;
+    }
 }
 
 @media (max-width: 1400px) {
@@ -4654,7 +4762,7 @@ footer .team {
     }
 
     .team-structure {
-        justify-content: center;
+        justify-content: space-between;
     }
 
     .portfolio-wrapper {
@@ -4673,6 +4781,10 @@ footer .team {
 
     .portfolio-wrapper.portfolio .portfolio-card:last-child {
         display: none;
+    }
+
+    .team-structure__card {
+        width: 450px;
     }
 }
 
@@ -4785,11 +4897,6 @@ footer .team {
 
     .news-footer__line {
         margin-top: 0;
-    }
-
-    .news-footer button {
-        display: block;
-        margin-top: 33px;
     }
 
     .freedback-wrapper {
@@ -4934,7 +5041,7 @@ footer .team {
     }
 
     .team-title {
-        margin-top: 24px;
+        margin-top: 96px;
     }
 
     .news-wrapper__pages {
@@ -4947,7 +5054,7 @@ footer .team {
 
     .freedback-wrapper__col p {
         max-width: 100%;
-        text-align: center;
+        text-align: left;
     }
 
     .programs-test__content {
@@ -5016,12 +5123,32 @@ footer .team {
     .events-contents__price.event {
         font-size: 16px;
     }
+
+    .team-cards__row.one .team-card {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 910px) {
     .burger-menu__column ul li {
         font-size: 28px;
         line-height: 40px;
+    }
+
+    .news-footer button {
+        display: block;
+        margin-top: 33px;
+        width: 100%;
+    }
+
+    .project-wrapper {
+        flex-direction: column;
+    }
+
+    .news-project {
+        flex: none;
+        height: 350px;
+        margin-bottom: 16px;
     }
 }
 
@@ -5211,6 +5338,42 @@ footer .team {
     .portfolio-subtitle span {
         font-size: 20px;
     }
+
+    .accordion-content h2 {
+        font-size: 18px;
+        line-height: 32px;
+    }
+
+    .accordion-content__ro.first h2 {
+        font-size: 32px;
+    }
+
+    .news-project .news-project__logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .accordion-layout {
+        gap: 32px;
+    }
+
+    .news img {
+        margin-bottom: 16px;
+        height: 300px;
+    }
+
+    .freedback-wrapper__col p {
+        text-align: left;
+    }
+
+    .team-cards__row.two {
+        flex-direction: column;
+    }
+
+    .team-cards__row.one .team-card {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
 }
 
 @media (max-width: 550px) {
@@ -5256,7 +5419,6 @@ footer .team {
     }
 
     .freedback-wrapper__col p {
-        text-align: left;
         font-size: 18px;
     }
 
@@ -5276,6 +5438,14 @@ footer .team {
     .honors-select {
         justify-content: flex-start;
         align-items: flex-start;
+    }
+
+    .accordion-content__ro.first h2 {
+        font-size: 24px;
+    }
+
+    .about-banner__content .events-title {
+        font-size: 24px;
     }
 }
 

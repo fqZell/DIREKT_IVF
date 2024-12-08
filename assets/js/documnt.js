@@ -212,7 +212,7 @@ const burgerFadeIn = () => {
 };
 
 const accordionDocumnt = () => {
-    const accordionLink = document.querySelectorAll(".documnt-wrapper__header span")
+    const accordionLink = document.querySelectorAll(".documnt-wrapper__header")
     if (!accordionLink) return
 
     const accordionImg = document.querySelectorAll(".documnt-wrapper__header img")
