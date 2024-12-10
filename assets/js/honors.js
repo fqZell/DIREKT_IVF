@@ -314,6 +314,7 @@ const popup = () => {
 
             // Показ popup
             popupOverlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         });
     });
 
@@ -323,6 +324,7 @@ const popup = () => {
             popupOverlay.classList.add('hidden');
             setTimeout(() => {
                 popupOverlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
                 popupOverlay.classList.remove('hidden');
             }, 500);
         }

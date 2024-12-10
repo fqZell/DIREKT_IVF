@@ -401,12 +401,12 @@ const sliderPhoto = () => {
             text: 'ВСЕРОССИЙСКИЙ ФОРУМ ТЕХНОЛОГИЧЕСКОГО ПРЕДПРИНИМАТЕЛЬСТВА'
         },
         {
-            img: './assets/img/content/photo.jpg',
+            img: './assets/img/banner1.jpg',
             year: '2025',
             text: 'МЕЖДУНАРОДНЫЙ ФОРУМ ИННОВАЦИЙ'
         },
         {
-            img: './assets/img/content/photo.jpg',
+            img: './assets/img/content/image1.jpg',
             year: '2026',
             text: 'ВЫСТАВКА ТЕХНОЛОГИЙ И БУДУЩЕГО'
         }

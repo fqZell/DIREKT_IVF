@@ -4,8 +4,8 @@ const init = () => {
     changeLanguage()
     fadeInSection()
     burgerFadeIn()
-    tebsHonors()
-    popup()
+    sliderProgram()
+    programAccordion()
 }
 
 document.addEventListener('DOMContentLoaded', init);
@@ -212,97 +212,46 @@ const burgerFadeIn = () => {
     });
 };
 
-const tebsHonors = () => {
-    const honorsWrapper = document.querySelectorAll('.portfolio-wrapper');
-    if (!honorsWrapper.length) return;
-    const honorsNumbers = document.querySelectorAll('.honors-bottom__numbers span');
-    if (!honorsNumbers.length) return;
-    const prevButton = document.querySelector('.honors-bottom__prev span');
-    const nextButton = document.querySelector('.honors-bottom__next span');
-    const fullPrevButton = document.querySelector('.honor-full__prev');
-    const fullNextButton = document.querySelector('.honor-full__next');
-
-    if (!prevButton || !nextButton || !fullPrevButton || !fullNextButton) return;
-
-    honorsNumbers.forEach((numbers, index) => {
-        numbers.addEventListener('click', () => {
-            updateActiveSlide(index);
-        });
-    });
-
-    let currentIndex = Array.from(honorsWrapper).findIndex(wrapper => wrapper.classList.contains('active'));
-
-    // Функция для обновления активного слайда и номера
-    function updateActiveSlide(newIndex) {
-        honorsWrapper[currentIndex].classList.remove('active');
-        honorsNumbers[currentIndex].classList.remove('active');
-
-        currentIndex = newIndex;
-
-        honorsWrapper[currentIndex].classList.add('active');
-        honorsNumbers[currentIndex].classList.add('active');
-    }
-
-    // Функция переключения слайдов с зацикливанием
-    function switchSlide(newIndex) {
-        updateActiveSlide((newIndex + honorsWrapper.length) % honorsWrapper.length);
-    }
-
-    // Обработчики событий для стандартных кнопок переключения
-    prevButton.addEventListener('click', () => switchSlide(currentIndex - 1));
-    nextButton.addEventListener('click', () => switchSlide(currentIndex + 1));
-
-    // Обработчики событий для кнопок полного переключения
-    fullPrevButton.addEventListener('click', () => updateActiveSlide(0)); // В начало
-    fullNextButton.addEventListener('click', () => updateActiveSlide(honorsWrapper.length - 1)); // В конец
-};
-
-const popup = () => {
-
-    const cards = document.querySelectorAll('.portfolio-card');
-    const popupOverlay = document.querySelector('.popup-overlay');
-    // const popupImage = document.querySelector('.popup-image');
-    const popupTitle = document.querySelector('.popup-title__portfolio');
-    const popupButton = document.querySelector('.popup-content__button');
-    const popupClose = document.querySelector('.popup-close')
-
-    cards.forEach(card => {
-        card.addEventListener('click', () => {
-            // const imgSrc = card.querySelector('img').src;
-            const titleText = card.querySelector('.portfolio-card__title').innerText;
-            const buttonText = card.querySelector('.portfolio-card__button button').innerText
-
-            // Установка картинки и заголовка в popup
-            // popupImage.src = imgSrc;
-            popupTitle.innerText = titleText;
-            popupButton.innerText = buttonText;
-
-            // Показ popup
-            popupOverlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        });
-    });
-
-    popupClose.addEventListener('click', () => {
-        popupOverlay.classList.add('hidden');
-        setTimeout(() => {
-            popupOverlay.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            popupOverlay.classList.remove('hidden');
-        }, 500);
-    })
-
-    // Закрытие popup по клику на overlay
-    popupOverlay.addEventListener('click', (e) => {
-        if (e.target === popupOverlay) {
-            popupOverlay.classList.add('hidden');
-            setTimeout(() => {
-                popupOverlay.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                popupOverlay.classList.remove('hidden');
-            }, 500);
+const sliderProgram = () => {
+    var swiper = new Swiper(".program", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            1920: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+            1025: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            500: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+            },
+            300: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+            },
         }
     });
+}
 
+const programAccordion = () => {
+
+    const headerClick = document.querySelector('.documnt-wrapper__header')
+    const wrapperEl = document.querySelector('.requisites-bottom__wrapper')
+
+    headerClick.addEventListener('click', () => {
+        wrapperEl.classList.toggle('active')
+    })
 
 }

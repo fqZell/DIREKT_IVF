@@ -1431,7 +1431,7 @@ header {
     color: #0061FC;
 }
 
-.mySwiper:hover {
+/* .mySwiper:hover {
     cursor: url('../img/icons/cursorNew.svg'), auto;
     z-index: 1;
 }
@@ -1443,22 +1443,22 @@ header {
 
 .swiper-horizontal>.swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-horizontal, .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite, .swiper-vertical>.swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {
     top: -100% !important;
-}
+} */
 
 /* Изначальное состояние слайда - невидимость и ниже позиции */
-.swiper-slide {
+/* .swiper-slide {
     opacity: 0;
     transform: translateY(50px);
     padding-top: 90px;
     transition: all 0.5s ease-out;
-}
+} */
 
 /* Класс для анимации появления */
-.swiper-slide.slide-in {
+/* .swiper-slide.slide-in {
     opacity: 1;
     padding-top: 0;
     transform: translateY(0);
-}
+} */
 
 #news-first .swiper-scrollbar {
     opacity: 1 !important;
@@ -1482,6 +1482,12 @@ header {
 .news-project {
     position: relative;
     flex: 1;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.news-project:hover {
+    transform: scale(1.05);
 }
 
 .news-project img {
@@ -1491,10 +1497,6 @@ header {
 .news-project .news-project__content h2 {
     cursor: pointer;
     z-index: 999;
-}
-
-.news-project .news-project__content h2:hover {
-    text-decoration: underline;
 }
 
 .news-project .news-project__content {
@@ -1666,7 +1668,7 @@ header {
     position: absolute;
     top: 70%;
     bottom: 0;
-    left: -100px;
+    left: -125px;
 
     transform: rotate(270deg);
 }
@@ -1783,7 +1785,7 @@ header {
     position: absolute;
     top: 300px;
     bottom: 0;
-    left: -90px;
+    left: -100px;
     right: 0;
 
     transform: rotate(270deg);
@@ -3033,21 +3035,15 @@ footer .team {
     margin-right: 1px !important;
 }
 
-.swiper-wrapper {
-    /* max-width: 1000px; */
-    /* align-items: center;
-    justify-content: center; */
-}
-
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
     background: #00246A !important;
 }
 
-.tabs-header .swiper-button-next, .swiper-button-prev {
+/* .tabs-header .swiper-button-next, .swiper-button-prev {
     position: relative;
     margin-top: 0;
     content: '';
-}
+} */
 
 .tabs-header .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
     content: '';
@@ -3196,6 +3192,10 @@ footer .team {
     letter-spacing: 0.1px;
 }
 
+.requisites-bottom__links a:hover {
+    text-decoration: underline;
+}
+
 .requisites-bottom__links span {
     color: #5B5B5B;
     font-family: 'TTFirsNeue-Light';
@@ -3217,6 +3217,10 @@ footer .team {
 
     margin-top: -200px;
     margin-bottom: 200px;
+}
+
+.events-layout.programs {
+    gap: 0 !important;
 }
 
 .about-banner__content .events-title {
@@ -4666,6 +4670,7 @@ footer .team {
     font-weight: 265;
     line-height: 120%; /* 19.2px */
     letter-spacing: 0.1px;
+    height: 114px;
 }
 
 .portfolio-card__categories span {
@@ -4697,7 +4702,7 @@ footer .team {
     border: 1px solid transparent;
     border-radius: 50px;
     background: #00246A;
-    padding: 16px 32px;
+    padding: 0 32px;
 
     color: #FFF;
     font-family: "TTFirsNeue-ExtraLight";
@@ -4707,12 +4712,139 @@ footer .team {
     line-height: normal;
     letter-spacing: 0.1px;
     cursor: pointer;
+
+    height: 34px;
 }
 
 .portfolio-card__btn:hover {
     background: none;
     border: 1px solid #00246A;
     color:  #00246A;
+}
+
+.popup-content__portfolio {
+    max-width: 1130px;
+    max-height: 545px;
+
+    border-radius: 5px;
+    background: #FFF;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+
+    padding: 32px;
+}
+
+.popup-content__header {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 16px;
+}
+
+.popup-content__header img {
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.popup-content__header .popup-content__button {
+    border-radius: 20px;
+    background: rgba(0, 36, 106, 0.10);
+    padding: 4px 16px;
+
+    color: #000;
+    font-family: "TTFirsNeue-ExtraLight";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: normal;
+    letter-spacing: 0.1px;
+}
+
+.popup-content__layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 24px;
+}
+
+.popup-content__content {
+    max-width: 752px;
+}
+
+.popup-content__content hr {
+    border: 1px solide #00246A;
+    width: 100%;
+}
+
+.popup-content__content p {
+    color: #272727;
+    font-family: "TTFirsNeue-ExtraLight";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: 120%; /* 19.2px */
+    letter-spacing: 0.1px;
+
+    margin: 10px 0;
+}
+
+.popup-title__portfolio {
+    color: #272727;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 38.4px */
+    letter-spacing: 0.1px;
+    text-transform: uppercase;
+
+    margin-bottom: 16px;
+}
+
+.popup-content__content span {
+    color: #272727;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 28.8px */
+    letter-spacing: 0.1px;
+}
+
+.popup-content__bottom {
+    margin: 16px 0;
+}
+
+.popup-content__contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 4px;
+    margin-bottom: 16px;
+}
+
+.popup-content__contact img {
+    width: 16px;
+    height: 16px;
+    object-fit: fill;
+}
+
+.popup-content__contact a {
+    color: #5B5B5B;
+    font-family: "TTFirsNeue-ExtraLight";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: 120%; /* 19.2px */
+}
+
+.popup-content__img img {
+    max-width: 287px;
+    max-height: 431px;
 }
 
 /* portfolio */
@@ -4758,6 +4890,553 @@ footer .team {
 
 /* partners */
 
+/* program */
+
+.program-banner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.program-banner__left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 32px;
+
+    max-width: 750px;
+}
+
+.program-description {
+    color: #272727;
+    font-family: "TTFirsNeue-ExtraLight";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: 120%; /* 24px */
+    letter-spacing: 0.1px;
+}
+
+.program-ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.program-li {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.program-li img {
+    width: 16px;
+    height: 16px;
+}
+
+.program-li span {
+    color: #272727;
+    font-family: "TTFirsNeue-ExtraLight";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: 120%; /* 24px */
+    letter-spacing: 0.1px;
+
+    cursor: pointer;
+}
+
+.program-li span:hover {
+    text-decoration: underline;
+}
+
+.program-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.program-buttons a:first-child .program-button:first-child {
+    outline: none;
+    border-radius: 40px;
+    background: #00328A;
+    padding: 10px 20px;
+    border: none;
+
+    color: #FFF;
+    font-family: "TTFirsNeue-Regular";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+    letter-spacing: 0.1px;
+
+    cursor: pointer;
+}
+
+.program-buttons .program-button {
+    border-radius: 40px;
+    border: 1px solid #00328A;
+    padding: 10px 20px;
+    outline: none;
+
+    color: #00246A;
+    font-family: "TTFirsNeue-Regular";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 24px */
+    letter-spacing: 0.1px;
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.program-buttons .program-button:hover {
+    background: #00328A;
+    border: 1px solid transparent;
+    color: #fff;
+}
+
+.program-banner__right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.program-banner__right img {
+    /* max-width: 322px;
+    max-height: 280px; */
+
+    margin-bottom: 48px;
+}
+
+.program-right__txt {
+    color: #000;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%; /* 52.8px */
+    letter-spacing: 0.1px;
+}
+
+.program-right__txt.regular {
+    font-family: "TTFirsNeue-Regular";
+    font-weight: 500;
+    color: #000;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 52.8px */
+    letter-spacing: 0.1px;
+}
+
+.program-right__txt.light {
+    color: #272727;
+    font-family: "TTFirsNeue-Light";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: 120%; /* 21.6px */
+    letter-spacing: 0.1px;
+
+    margin-top: 32px;
+}
+
+.program-title h3 {
+    color: #272727;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 57.6px */
+    letter-spacing: 0.1px;
+    text-transform: uppercase;
+
+    margin-top: 120px;
+}
+
+.program-title hr {
+    border: 1px solid #00246A;
+    width: 180px;
+    border-radius: 3px;
+
+    margin-top: 32px;
+}
+
+.program-subtitle {
+    color: #272727;
+    font-family: "TTFirsNeue-ExtraLight";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: 120%; /* 24px */
+    letter-spacing: 0.1px;
+
+    margin-top: 32px;
+}
+
+.program-section__2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 30px;
+
+    margin-top: 32px;
+}
+
+.program-section__2 .program-ul .program-ul__title {
+    color: #000;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.1px;
+}
+
+.program-img {
+    position: relative;
+    margin-top: 120px;
+}
+
+.program-img img {
+    border-radius: 5px;
+}
+
+.program-img__contact {
+    position: absolute;
+    left: 40px;
+    bottom: 40px;
+    right: 40px;
+}
+
+.program-img__contact h3 {
+    color: #FFF;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%; /* 70.4px */
+    letter-spacing: 0.1px;
+}
+
+.program-img__contact p {
+    color: #FFF;
+    font-family: "TTFirsNeue-Regular";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 21.6px */
+    letter-spacing: 0.1px;
+
+    margin-top: 32px;
+}
+
+.swiper.program {
+    margin-top: 32px;
+}
+
+.swiper.program .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0 48px;
+}
+
+.swiper.program .swiper-slide .program-slider__title {
+    color: #000;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -1px;
+}
+
+.swiper.program .swiper-slide hr {
+    border: 1px solid #00328A;
+    width: 100%;
+    margin-top: 16px;
+}
+
+.swiper.program .swiper-slide .program-ul__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+
+    color: #00246A;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 21.6px */
+    letter-spacing: 0.1px;
+
+    margin-top: 10px;
+}
+
+.swiper.program .swiper-slide .program-ul__title img {
+    width: 16px;
+    height: 16px;
+}
+
+.swiper.program .swiper-slide .program-slider__ul {
+    margin-top: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    color: #000;
+    font-family: "TTFirsNeue-ExtraLight";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: 130%; /* 18.2px */
+    letter-spacing: 0.1px;
+}
+
+.swiper.program .swiper-button-next, .swiper-rtl .swiper-button-prev {
+    top: 8%;
+    right: -1px;
+}
+
+.swiper.program .swiper-button-prev, .swiper-rtl .swiper-button-next {
+    top: 8%;
+    left: -1px;
+}
+
+.swiper.program .swiper-button-next, .swiper-button-prev {
+    color: #00246A;
+}
+
+.swiper.program .swiper-slide a {
+    width: 100%;
+}
+
+.swiper.program .swiper-slide a .program-slider__btn.background {
+    width: 100%;
+
+    outline: none;
+    cursor: pointer;
+    border-radius: 50px;
+    border: 1px solid #00328A;
+    background: transparent;
+    padding: 8px 20px;
+
+    color: #00328A;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.1px;
+
+    margin-top: 60px;
+}
+
+.swiper.program .swiper-slide a .program-slider__btn {
+    width: 100%;
+
+    outline: none;
+    cursor: pointer;
+    border-radius: 50px;
+    border: 1px solid transparent;
+    background: #00328A;
+    padding: 8px 20px;
+
+    color: #fff;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.1px;
+
+    margin-top: 8px;
+}
+
+.swiper.program .swiper-slide a .program-slider__btn:hover {
+    border: 1px solid #00328A;
+    background: transparent;
+    color: #00328A;
+}
+
+.program-partners__title {
+    margin-top: 32px;
+
+    color: #000;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -1px;
+}
+
+.partners-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 32px;
+
+    margin-top: 32px;
+}
+
+.partners-main .partners-header__el {
+    max-width: 161px;
+    max-height: 180px;
+}
+
+.program-information {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+
+    margin-top: 120px;
+}
+
+.program-information .documnt-wrapper__header {
+    margin-top: 0;
+}
+
+.program-information .documnt-wrapper__header span {
+    color: #272727;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 38.4px */
+    letter-spacing: 0.1px;
+}
+
+.program-information .documnt-wrapper__header img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.program-information .requisites-bottom__content {
+    margin-top: 24px;
+}
+
+.program-contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.program-contact .program-contact__title {
+    color: #272727;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 38.4px */
+    letter-spacing: 0.1px;
+}
+
+.program-contact .program-contact__link {
+    color: #00328A;
+    font-family: "TTFirsNeue-Regular";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.1px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font; 
+    
+    margin-top: 24px;
+}
+
+.program-contact .program-contact__link:hover {
+    color: #000;
+}
+
+.program-contact .program-contact__txt {
+    margin-top: 24px;
+
+    color: #061421;
+    font-family: "TTFirsNeue-Regular";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.1px;
+}
+
+.program-contact .program-contact__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 24px;
+}
+
+.program-contact .program-contact__row img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.program-contact .program-contact__row a{
+    color: #061421;
+    font-family: "TTFirsNeue-Regular";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.1px;
+}
+
+.program-contact .program-contact__row a:hover {
+    text-decoration: underline;
+}
+
+.requisites-bottom__wrapper {
+    display: none;
+    animation: fadeInProg 0.5s ease-in-out;
+}
+
+@keyframes fadeInProg {
+    0% {
+        margin-top: -50px;
+        opacity: 0;
+    }
+    100% {
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+
+.requisites-bottom__wrapper.active {
+    display: block;
+}
+
+/* program */
+
 @media (min-width: 2200px) {
     .info-layout {
         max-width: auto;
@@ -4784,6 +5463,11 @@ footer .team {
 
     .freedback-wrapper {
         justify-content: flex-start;
+    }
+
+    .program-banner {
+        justify-content: flex-start;
+        gap: 96px;
     }
 }
 
@@ -4816,7 +5500,7 @@ footer .team {
     }
 
     .portfolio-wrapper.portfolio {
-        justify-content: center;
+        justify-content: flex-start;
         gap: 64px;
     }
 
@@ -4826,6 +5510,19 @@ footer .team {
 
     .team-structure__card {
         width: 450px;
+    }
+
+    .partners-main {
+        justify-content: flex-start;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 1140px) {
+    .program-banner {
+        margin-top: 80px;
+        flex-direction: column-reverse;
+        gap: 32px;
     }
 }
 
@@ -5011,7 +5708,7 @@ footer .team {
 
     .about-direction__cards {
         gap: 24px;
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .tabs-header {
@@ -5164,6 +5861,22 @@ footer .team {
     .team-cards__row.one .team-card {
         flex-direction: column;
     }
+
+    .program-img__contact h3 {
+        font-size: 32px;
+    }
+
+    .program-img__contact span {
+        font-size: 16px;
+    }
+
+    .program-img img {
+        height: 400px;
+    }
+
+    .popup-content__img img {
+        display: none;
+    }
 }
 
 @media (max-width: 910px) {
@@ -5190,6 +5903,11 @@ footer .team {
 
     .partners-wrapper {
         justify-content: center;
+    }
+
+    .program-information {
+        flex-direction: column-reverse;
+        gap: 64px;
     }
 }
 
@@ -5420,6 +6138,35 @@ footer .team {
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
+    }
+
+    .program-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .program-buttons a {
+        width: 100%;
+    }
+
+    .program-button {
+        width: 100%;
+    }
+
+    .program-section__2 {
+        flex-direction: column;
+    }
+
+    .program-title h3 {
+        font-size: 36px;
+    }
+
+    .program-img img {
+        height: 600px;
+    }
+
+    .popup-content__portfolio {
+        max-height: 900px;
     }
 }
 
