@@ -5502,6 +5502,26 @@ footer .team {
         justify-content: flex-start;
         gap: 120px;
     }
+
+    .about-direction__cards {
+        flex-wrap: nowrap;
+    }
+
+    .about-direction__card p {
+        padding: 14px 24px;
+    }
+
+    .about-direction__card {
+        height: 350px;
+    }
+
+    .tabs-header .swiper-button-next, .swiper-button-prev {
+        top: 1%;
+    }
+
+    .tabs-header .swiper-wrapper {
+        width: 90%;
+    }
 }
 
 @media (max-width: 1400px) {
