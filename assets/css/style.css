@@ -5486,6 +5486,21 @@ footer .team {
         padding-left: 40px;
         margin-top: 100px;
     }
+
+    .team-cards__row.two {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .team-card__img img {
+        width: 553px;
+    }
+
+    .team-structure {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 120px;
+    }
 }
 
 @media (max-width: 1400px) {
