@@ -264,6 +264,7 @@ const popup = () => {
     // const popupImage = document.querySelector('.popup-image');
     const popupTitle = document.querySelector('.popup-title__portfolio');
     const popupButton = document.querySelector('.popup-content__button');
+    const popupSubtitle = document.querySelector('.popup-subtitle__portfolio')
     const popupClose = document.querySelector('.popup-close')
 
     cards.forEach(card => {
@@ -271,11 +272,13 @@ const popup = () => {
             // const imgSrc = card.querySelector('img').src;
             const titleText = card.querySelector('.portfolio-card__title').innerText;
             const buttonText = card.querySelector('.portfolio-card__button button').innerText
+            const subtitle = card.querySelector('.portfolio-card__description p').innerText
 
             // Установка картинки и заголовка в popup
             // popupImage.src = imgSrc;
             popupTitle.innerText = titleText;
             popupButton.innerText = buttonText;
+            popupSubtitle.innerText = subtitle
 
             // Показ popup
             popupOverlay.style.display = 'flex';

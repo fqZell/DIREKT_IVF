@@ -4725,7 +4725,7 @@ footer .team {
 
 .popup-content__portfolio {
     max-width: 1130px;
-    max-height: 545px;
+    /* max-height: 545px; */
 
     border-radius: 5px;
     background: #FFF;
@@ -6214,9 +6214,9 @@ footer .team {
         height: 600px;
     }
 
-    .popup-content__portfolio {
+    /* .popup-content__portfolio {
         max-height: 900px;
-    }
+    } */
 }
 
 @media (max-width: 550px) {
