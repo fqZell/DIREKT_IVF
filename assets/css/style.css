@@ -5475,6 +5475,17 @@ footer .team {
         justify-content: flex-start;
         gap: 96px;
     }
+
+    .container.events {
+        max-width: 1500px;
+    }
+
+    .events-wrapper.event {
+        top: 10%;
+        padding-top: none;
+        outline: none;
+        margin-top: none;
+    }
 }
 
 @media (max-width: 1400px) {
