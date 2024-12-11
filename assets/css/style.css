@@ -3253,6 +3253,7 @@ footer .team {
 
 .events-background img {
     border-radius: 5px;
+    object-fit: contain;
 }
 
 .events-wrapper.event {
@@ -3327,10 +3328,10 @@ footer .team {
     background: linear-gradient(0deg, #FFF 0%, #FFF 100%), url(<path-to-image>) lightgray -1px -1px / 100.699% 100.699% no-repeat;
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.15);
 
-    max-width: 286px;
-    max-height: 286px;
+    width: 286px;
+    height: 286px;
 
-    padding: 110px 30px;
+    padding: 30px;
 }
 
 .events-img.programs img {
@@ -5437,6 +5438,11 @@ footer .team {
 
 /* program */
 
+
+.mobile-burger {
+    display: none;
+}
+
 @media (min-width: 2200px) {
     .info-layout {
         max-width: auto;
@@ -5852,6 +5858,7 @@ footer .team {
 
     .events-background img {
         height: 600px;
+        object-fit: cover;
     }
 
     .events-contents__price.event {
@@ -5876,6 +5883,18 @@ footer .team {
 
     .popup-content__img img {
         display: none;
+    }
+
+    .mobile-burger {
+        display: block;
+    }
+    
+    .desktop-burger {
+        display: none;
+    }
+
+    .banner-wrapper {
+        top: 15%;
     }
 }
 
@@ -5908,6 +5927,10 @@ footer .team {
     .program-information {
         flex-direction: column-reverse;
         gap: 64px;
+    }
+
+    .events-wrapper.event {
+        top: 32px;
     }
 }
 
@@ -6222,7 +6245,7 @@ footer .team {
     }
 
     .events-background img {
-        height: 750px;
+        height: 950px;
     }
 
     .honors-title {
@@ -6240,6 +6263,10 @@ footer .team {
 
     .about-banner__content .events-title {
         font-size: 24px;
+    }
+
+    .banner-wrapper {
+        top: 0;
     }
 }
 
