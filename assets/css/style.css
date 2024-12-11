@@ -5482,9 +5482,9 @@ footer .team {
 
     .events-wrapper.event {
         top: 10%;
-        padding-top: none;
-        outline: none;
-        margin-top: none;
+        padding-top: 18px;
+        padding-left: 40px;
+        margin-top: 100px;
     }
 }
 
