@@ -266,6 +266,10 @@ const popup = () => {
     const popupButton = document.querySelector('.popup-content__button');
     const popupSubtitle = document.querySelector('.popup-subtitle__portfolio')
     const popupClose = document.querySelector('.popup-close')
+    const popupDescription = document.querySelector('.popup-description__portfolio')
+    const popupAdress = document.querySelector('.popup-description__adress')
+    const popupMobile = document.querySelector('.popup-description__mobile')
+    const popupWeb = document.querySelector('.popup-description__web')
 
     cards.forEach(card => {
         card.addEventListener('click', () => {
@@ -273,12 +277,20 @@ const popup = () => {
             const titleText = card.querySelector('.portfolio-card__title').innerText;
             const buttonText = card.querySelector('.portfolio-card__button button').innerText
             const subtitle = card.querySelector('.portfolio-card__description p').innerText
+            const description = card.querySelector('.portfolio-cardJs__description').innerText
+            const adress = card.querySelector('.portfolio-cardJs__adress').innerText
+            const mobile = card.querySelector('.portfolio-cardJs__mobile').innerText
+            const web = card.querySelector('.portfolio-cardJs__web').innerText
 
             // Установка картинки и заголовка в popup
             // popupImage.src = imgSrc;
             popupTitle.innerText = titleText;
             popupButton.innerText = buttonText;
             popupSubtitle.innerText = subtitle
+            popupDescription.innerText = description
+            popupAdress.innerText = adress
+            popupMobile.innerText = mobile
+            popupWeb.innerText = web
 
             // Показ popup
             popupOverlay.style.display = 'flex';

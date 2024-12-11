@@ -4584,9 +4584,10 @@ footer .team {
 
     display: none;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
+    
     flex-wrap: wrap;
-    gap: 32px;
+    gap: 114px;
 }
 
 .portfolio-wrapper.portfolio.active {
@@ -5422,6 +5423,22 @@ footer .team {
     animation: fadeInProg 0.5s ease-in-out;
 }
 
+.portfolio-cardJs__description {
+    display: none;
+}
+
+.portfolio-cardJs__adress {
+    display: none;
+}
+
+.portfolio-cardJs__mobile {
+    display: none;
+}
+
+.portfolio-cardJs__web {
+    display: none;
+}
+
 @keyframes fadeInProg {
     0% {
         margin-top: -50px;
@@ -5553,8 +5570,8 @@ footer .team {
     }
 
     .portfolio-wrapper.portfolio {
-        justify-content: flex-start;
-        gap: 64px;
+        justify-content: space-between;
+        gap: 6px;
     }
 
     .portfolio-wrapper.portfolio .portfolio-card:last-child {
@@ -5943,18 +5960,18 @@ footer .team {
     .banner-wrapper {
         top: 15%;
     }
+
+    .news-footer button {
+        display: block;
+        margin-top: 33px;
+        width: 100%;
+    }
 }
 
 @media (max-width: 910px) {
     .burger-menu__column ul li {
         font-size: 28px;
         line-height: 40px;
-    }
-
-    .news-footer button {
-        display: block;
-        margin-top: 33px;
-        width: 100%;
     }
 
     .project-wrapper {
