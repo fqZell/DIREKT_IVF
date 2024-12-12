@@ -48,7 +48,7 @@ sliderBanner = () => {
         }
     }
 
-    window.addEventListener('resize', updateSlider);
+    // window.addEventListener('resize', updateSlider);
         
 
     prevButton.addEventListener('click', () => {
@@ -516,8 +516,7 @@ const burgerFadeIn = () => {
 
             item.addEventListener('mouseleave', () => {
                 setTimeout(() => {
-                    if (!(list.matches || list.webkitMatchesSelector)(':hover') &&
-                    !(item.matches || item.webkitMatchesSelector)(':hover')) {
+                    if (!list.matches(':hover') && !item.matches(':hover')) {
                         list.classList.add('hidden');
                         cross.classList.remove('active');
                     }
@@ -531,8 +530,7 @@ const burgerFadeIn = () => {
 
             list.addEventListener('mouseleave', () => {
                 setTimeout(() => {
-                    if (!(list.matches || list.webkitMatchesSelector)(':hover') &&
-                    !(item.matches || item.webkitMatchesSelector)(':hover')) {
+                    if (!list.matches(':hover') && !item.matches(':hover')) {
                         list.classList.add('hidden');
                         cross.classList.remove('active');
                     }
