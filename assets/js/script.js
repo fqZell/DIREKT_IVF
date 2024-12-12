@@ -495,6 +495,51 @@ const fadeInSection = () => {
     });
 }
 
+// const burgerFadeIn = () => {
+//     const menuItems = document.querySelectorAll('.burger-menu__column ul li');
+
+//     menuItems.forEach(item => {
+//         const index = item.getAttribute('data-index');
+//         const list = document.querySelector(`.burger-menu__column.center ul[data-index="${index}"]`);
+//         const cross = document.querySelector(`.burger-mobile__lines[data-index="${index}"]`);
+
+//         if (list && cross) {
+//             item.addEventListener('mouseenter', () => {
+//                 // Скрываем все списки и удаляем класс active у всех крестиков
+//                 document.querySelectorAll('.burger-menu__column.center ul').forEach(ul => ul.classList.add('hidden'));
+//                 document.querySelectorAll('.burger-mobile__lines').forEach(crossEl => crossEl.classList.remove('active'));
+
+//                 // Показываем соответствующий список и добавляем класс active к конкретному крестику
+//                 list.classList.remove('hidden');
+//                 cross.classList.add('active');
+//             });
+
+//             item.addEventListener('mouseleave', () => {
+//                 setTimeout(() => {
+//                     if (!list.matches(':hover') && !item.matches(':hover')) {
+//                         list.classList.add('hidden');
+//                         cross.classList.remove('active');
+//                     }
+//                 }, 30000000); // Добавляем небольшую задержку
+//             });
+
+//             // Обрабатываем наведение на список ul
+//             list.addEventListener('mouseenter', () => {
+//                 list.classList.remove('hidden'); // Оставляем список видимым
+//             });
+
+//             list.addEventListener('mouseleave', () => {
+//                 setTimeout(() => {
+//                     if (!list.matches(':hover') && !item.matches(':hover')) {
+//                         list.classList.add('hidden');
+//                         cross.classList.remove('active');
+//                     }
+//                 }, 3000000); // Добавляем небольшую задержку
+//             });
+//         }
+//     });
+// };
+
 const burgerFadeIn = () => {
     const menuItems = document.querySelectorAll('.burger-menu__column ul li');
 
@@ -504,41 +549,42 @@ const burgerFadeIn = () => {
         const cross = document.querySelector(`.burger-mobile__lines[data-index="${index}"]`);
 
         if (list && cross) {
-            item.addEventListener('mouseenter', () => {
-                // Скрываем все списки и удаляем класс active у всех крестиков
+            item.addEventListener('mouseover', () => {
                 document.querySelectorAll('.burger-menu__column.center ul').forEach(ul => ul.classList.add('hidden'));
                 document.querySelectorAll('.burger-mobile__lines').forEach(crossEl => crossEl.classList.remove('active'));
 
-                // Показываем соответствующий список и добавляем класс active к конкретному крестику
                 list.classList.remove('hidden');
                 cross.classList.add('active');
             });
 
-            item.addEventListener('mouseleave', () => {
+            item.addEventListener('mouseout', () => {
                 setTimeout(() => {
                     if (!list.matches(':hover') && !item.matches(':hover')) {
                         list.classList.add('hidden');
                         cross.classList.remove('active');
                     }
-                }, 30000000); // Добавляем небольшую задержку
+                }, 300); // Уменьшенная задержка
             });
 
-            // Обрабатываем наведение на список ul
-            list.addEventListener('mouseenter', () => {
-                list.classList.remove('hidden'); // Оставляем список видимым
+            list.addEventListener('mouseover', () => {
+                list.classList.remove('hidden');
             });
 
-            list.addEventListener('mouseleave', () => {
+            list.addEventListener('mouseout', () => {
                 setTimeout(() => {
                     if (!list.matches(':hover') && !item.matches(':hover')) {
                         list.classList.add('hidden');
                         cross.classList.remove('active');
                     }
-                }, 3000000); // Добавляем небольшую задержку
+                }, 300);
             });
+        } else {
+            console.error('Missing elements for item:', item, list, cross);
         }
     });
 };
+
+document.addEventListener('DOMContentLoaded', burgerFadeIn);
 
 const startAnimation = () => {
     // Блокируем прокрутку
@@ -561,7 +607,6 @@ const startAnimation = () => {
         }, 500); // Задержка в 500 мс для завершения плавного исчезновения
     }, 3000); // Анимация длится 3 секунды
 }
-
 
 const init = () => {
     sliderBanner()
