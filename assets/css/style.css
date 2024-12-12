@@ -5485,8 +5485,8 @@ footer .team {
         height: 100%;
     }
 
-    .freedback-wrapper {
-        justify-content: flex-start;
+    .freedback-wrapper__col p {
+        max-width: 1200px;
     }
 
     .program-banner {
