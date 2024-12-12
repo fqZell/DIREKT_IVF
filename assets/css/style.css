@@ -5439,6 +5439,22 @@ footer .team {
     display: none;
 }
 
+.portfolio-cardJs__img {
+    display: none;
+}
+
+.popup-layout__subtitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.popup-layout__subtitle img {
+    height: 80px;
+    max-width: 160px;
+    object-fit: contain;
+}
+
 @keyframes fadeInProg {
     0% {
         margin-top: -50px;

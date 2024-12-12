@@ -261,7 +261,7 @@ const popup = () => {
 
     const cards = document.querySelectorAll('.portfolio-card');
     const popupOverlay = document.querySelector('.popup-overlay');
-    // const popupImage = document.querySelector('.popup-image');
+    const popupImage = document.querySelector('.popup-img__portfolio');
     const popupTitle = document.querySelector('.popup-title__portfolio');
     const popupButton = document.querySelector('.popup-content__button');
     const popupSubtitle = document.querySelector('.popup-subtitle__portfolio')
@@ -273,7 +273,7 @@ const popup = () => {
 
     cards.forEach(card => {
         card.addEventListener('click', () => {
-            // const imgSrc = card.querySelector('img').src;
+            const imgSrc = card.querySelector('.portfolio-cardJs__img').src;
             const titleText = card.querySelector('.portfolio-card__title').innerText;
             const buttonText = card.querySelector('.portfolio-card__button button').innerText
             const subtitle = card.querySelector('.portfolio-card__description p').innerText
@@ -283,7 +283,7 @@ const popup = () => {
             const web = card.querySelector('.portfolio-cardJs__web').innerText
 
             // Установка картинки и заголовка в popup
-            // popupImage.src = imgSrc;
+            popupImage.src = imgSrc;
             popupTitle.innerText = titleText;
             popupButton.innerText = buttonText;
             popupSubtitle.innerText = subtitle
