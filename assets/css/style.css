@@ -1727,11 +1727,6 @@ header {
     transform: translateX(0);
 }
 
-/* .photo-wrapper img.fade {
-    opacity: 1;
-    transform: translateX(0);
-} */
-
 .photo-wrapper img,
 .photo-content h2,
 .photo-content p {
@@ -1830,7 +1825,7 @@ header {
     top: 25%;
     left: 0;
     right: 0;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.8s ease, transform 0.8s ease;
     transform: translateX(100%);
 }

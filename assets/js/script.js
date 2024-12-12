@@ -392,78 +392,87 @@ const accordionIndex = () => {
 //     slides.forEach(slide => observer.observe(slide));
 // };
 
-const sliderPhoto = () => {
+// const sliderPhoto = () => {
 
-    const slides = [
-        {
-            img: './assets/img/content/photo.jpg',
-            year: '2024',
-            text: 'ВСЕРОССИЙСКИЙ ФОРУМ ТЕХНОЛОГИЧЕСКОГО ПРЕДПРИНИМАТЕЛЬСТВА'
-        },
-        {
-            img: './assets/img/banner1.jpg',
-            year: '2025',
-            text: 'МЕЖДУНАРОДНЫЙ ФОРУМ ИННОВАЦИЙ'
-        },
-        {
-            img: './assets/img/content/image1.jpg',
-            year: '2026',
-            text: 'ВЫСТАВКА ТЕХНОЛОГИЙ И БУДУЩЕГО'
-        }
-    ];
+//     const slides = [
+//         {
+//             img: './assets/img/content/photo.jpg',
+//             year: '2024',
+//             text: 'ВСЕРОССИЙСКИЙ ФОРУМ ТЕХНОЛОГИЧЕСКОГО ПРЕДПРИНИМАТЕЛЬСТВА'
+//         },
+//         {
+//             img: './assets/img/banner1.jpg',
+//             year: '2025',
+//             text: 'МЕЖДУНАРОДНЫЙ ФОРУМ ИННОВАЦИЙ'
+//         },
+//         {
+//             img: './assets/img/content/image1.jpg',
+//             year: '2026',
+//             text: 'ВЫСТАВКА ТЕХНОЛОГИЙ И БУДУЩЕГО'
+//         }
+//     ];
     
     
+//     let currentSlide = 0;
+//     const imageElement = document.querySelector('.photo-wrapper img');
+//     const yearElement = document.querySelector('.photo-content h2');
+//     const textElement = document.querySelector('.photo-content p');
+//     const photoContent = document.querySelector('.photo-content');
+
+//     function updateSlide() {
+//         // Убираем класс active для плавного исчезновения
+//         photoContent.classList.remove('active');
+//         imageElement.classList.remove('fade');
+
+//         // Задержка перед обновлением слайда для анимации
+//         setTimeout(() => {
+//             const slide = slides[currentSlide];
+//             imageElement.src = slide.img;
+//             yearElement.textContent = slide.year;
+//             textElement.textContent = slide.text;
+
+//             // Добавляем класс active для плавного появления
+//             photoContent.classList.add('active');
+//             imageElement.classList.add('fade');
+
+//             // Обновляем индекс слайда
+//             currentSlide = (currentSlide + 1) % slides.length;
+//         }, 800); // Время задержки соответствует времени плавного исчезновения
+//     }
+
+//     updateSlide();
+    
+//     // Меняем слайд каждые 20 секунды
+//     setInterval(updateSlide, 7000);
+
+// }
+
+const sliderPhoto = () => {
+    const slides = document.querySelectorAll('.photo-wrapper .slide');
     let currentSlide = 0;
-    const imageElement = document.querySelector('.photo-wrapper img');
-    const yearElement = document.querySelector('.photo-content h2');
-    const textElement = document.querySelector('.photo-content p');
-    const photoContent = document.querySelector('.photo-content');
 
     function updateSlide() {
-        // Убираем класс active для плавного исчезновения
-        photoContent.classList.remove('active');
-        imageElement.classList.remove('fade');
+        // Убираем класс active с текущего слайда и его контента
+        slides[currentSlide].classList.remove('active');
+        const currentContent = slides[currentSlide].querySelector('.photo-content');
+        if (currentContent) {
+            currentContent.classList.remove('active');
+        }
 
-        // Задержка перед обновлением слайда для анимации
-        setTimeout(() => {
-            const slide = slides[currentSlide];
-            imageElement.src = slide.img;
-            yearElement.textContent = slide.year;
-            textElement.textContent = slide.text;
+        // Обновляем индекс на следующий слайд
+        currentSlide = (currentSlide + 1) % slides.length;
 
-            // Добавляем класс active для плавного появления
-            photoContent.classList.add('active');
-            imageElement.classList.add('fade');
-
-            // Обновляем индекс слайда
-            currentSlide = (currentSlide + 1) % slides.length;
-        }, 800); // Время задержки соответствует времени плавного исчезновения
+        // Добавляем класс active для нового слайда и его контента
+        slides[currentSlide].classList.add('active');
+        const nextContent = slides[currentSlide].querySelector('.photo-content');
+        if (nextContent) {
+            nextContent.classList.add('active');
+        }
     }
 
-    updateSlide();
-    
-    // Меняем слайд каждые 20 секунды
+    // Меняем слайд каждые 7 секунд
     setInterval(updateSlide, 7000);
-
-    // const slides = document.querySelectorAll('.slide');
-    // let currentSlide = 0;
-
-    // function updateSlide() {
-    //     // Убираем класс active у текущего слайда
-    //     slides[currentSlide].classList.remove('active');
-
-    //     // Переход к следующему слайду
-    //     currentSlide = (currentSlide + 1) % slides.length;
-
-    //     // Добавляем класс active следующему слайду
-    //     slides[currentSlide].classList.add('active');
-    // }
-
-    // // Меняем слайд каждые 7 секунд
-    // setInterval(updateSlide, 7000);
-
-
-}
+};
 
 const fadeInSection = () => {
     // Настройка IntersectionObserver
