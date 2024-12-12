@@ -47,8 +47,6 @@ sliderBanner = () => {
             prevButton.style.opacity = '0'; // Скрывает на первом слайде
         }
     }
-
-    // window.addEventListener('resize', updateSlider);
         
 
     prevButton.addEventListener('click', () => {
@@ -61,7 +59,7 @@ sliderBanner = () => {
         updateSlider();
     });
 
-    updateSlider(); 
+    window.addEventListener('resize', updateSlider());
 }
 
 burgerBanner = () => {
