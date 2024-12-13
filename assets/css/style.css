@@ -255,6 +255,11 @@ header {
 
 .header-search img {
     cursor: pointer;
+    display: block;
+}
+
+.header-search img.noneAct {
+    display: none;
 }
 
 .header-burger {
