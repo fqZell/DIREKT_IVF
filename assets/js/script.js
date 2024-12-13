@@ -525,7 +525,7 @@ const burgerFadeIn = () => {
                     if (!list.matches(':hover') && !item.matches(':hover')) {
                         hideList();
                     }
-                }, 300);
+                }, 30000);
             });
 
             list.addEventListener('mouseenter', () => list.classList.remove('hidden'));
@@ -534,7 +534,7 @@ const burgerFadeIn = () => {
                     if (!list.matches(':hover') && !item.matches(':hover')) {
                         hideList();
                     }
-                }, 300);
+                }, 30000);
             });
 
             // Сенсорные события

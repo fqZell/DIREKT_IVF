@@ -571,6 +571,7 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    transition: all 0s ease-in-out;
 }
 
 .burger-menu__column ul li:hover {
