@@ -497,7 +497,6 @@ const fadeInSection = () => {
 
 const burgerFadeIn = () => {
     const menuItems = document.querySelectorAll('.burger-menu__column ul li');
-    const isMobile = window.innerWidth < 1024; // Проверяем ширину экрана
 
     menuItems.forEach(item => {
         const index = item.getAttribute('data-index');
@@ -505,85 +504,54 @@ const burgerFadeIn = () => {
         const cross = document.querySelector(`.burger-mobile__lines[data-index="${index}"]`);
 
         if (list && cross) {
-            if (isMobile) {
-                // Удаляем старые обработчики, чтобы избежать дублирования
-                item.removeEventListener('click', handleClick);
-                item.addEventListener('click', handleClick);
-            } else {
-                // Удаляем старые обработчики, чтобы избежать дублирования
-                item.removeEventListener('mouseenter', handleMouseEnter);
-                item.removeEventListener('mouseleave', handleMouseLeave);
-                list.removeEventListener('mouseenter', handleListMouseEnter);
-                list.removeEventListener('mouseleave', handleListMouseLeave);
-
-                item.addEventListener('mouseenter', handleMouseEnter);
-                item.addEventListener('mouseleave', handleMouseLeave);
-                list.addEventListener('mouseenter', handleListMouseEnter);
-                list.addEventListener('mouseleave', handleListMouseLeave);
-            }
-        }
-
-        function handleClick() {
-            const isActive = list.classList.contains('hidden');
-
-            // Скрываем все списки и сбрасываем крестики
-            document.querySelectorAll('.burger-menu__column.center ul').forEach(ul => ul.classList.add('hidden'));
-            document.querySelectorAll('.burger-mobile__lines').forEach(crossEl => crossEl.classList.remove('active'));
-
-            // Переключаем состояние текущего списка
-            if (isActive) {
+            // Общая функция для показа
+            const showList = () => {
+                document.querySelectorAll('.burger-menu__column.center ul').forEach(ul => ul.classList.add('hidden'));
+                document.querySelectorAll('.burger-mobile__lines').forEach(crossEl => crossEl.classList.remove('active'));
                 list.classList.remove('hidden');
                 cross.classList.add('active');
-            }
-        }
+            };
 
-        function handleMouseEnter() {
-            // Скрываем все списки и сбрасываем крестики
-            document.querySelectorAll('.burger-menu__column.center ul').forEach(ul => ul.classList.add('hidden'));
-            document.querySelectorAll('.burger-mobile__lines').forEach(crossEl => crossEl.classList.remove('active'));
+            // Общая функция для скрытия
+            const hideList = () => {
+                list.classList.add('hidden');
+                cross.classList.remove('active');
+            };
 
-            // Показываем текущий список и активируем крестик
-            list.classList.remove('hidden');
-            cross.classList.add('active');
-        }
+            // Настольные события
+            item.addEventListener('mouseenter', showList);
+            item.addEventListener('mouseleave', () => {
+                setTimeout(() => {
+                    if (!list.matches(':hover') && !item.matches(':hover')) {
+                        hideList();
+                    }
+                }, 300);
+            });
 
-        function handleMouseLeave() {
-            setTimeout(() => {
-                if (!list.matches(':hover') && !item.matches(':hover')) {
-                    list.classList.add('hidden');
-                    cross.classList.remove('active');
+            list.addEventListener('mouseenter', () => list.classList.remove('hidden'));
+            list.addEventListener('mouseleave', () => {
+                setTimeout(() => {
+                    if (!list.matches(':hover') && !item.matches(':hover')) {
+                        hideList();
+                    }
+                }, 300);
+            });
+
+            // Сенсорные события
+            item.addEventListener('touchstart', (e) => {
+                e.preventDefault(); // Предотвращаем "залипание" тапа
+                showList();
+            });
+
+            document.addEventListener('touchstart', (e) => {
+                // Закрываем меню, если пользователь тапнул вне элемента
+                if (!item.contains(e.target) && !list.contains(e.target)) {
+                    hideList();
                 }
-            }, 300);
-        }
-
-        function handleListMouseEnter() {
-            list.classList.remove('hidden'); // Список остается видимым
-        }
-
-        function handleListMouseLeave() {
-            setTimeout(() => {
-                if (!list.matches(':hover') && !item.matches(':hover')) {
-                    list.classList.add('hidden');
-                    cross.classList.remove('active');
-                }
-            }, 300);
+            });
         }
     });
 };
-
-// Вызываем функцию при загрузке
-burgerFadeIn();
-
-// Добавляем обработчик для изменения поведения при ресайзе
-window.addEventListener('resize', burgerFadeIn);
-
-
-// Вызываем функцию при загрузке
-burgerFadeIn();
-
-// Добавляем обработчик для изменения поведения при ресайзе
-window.addEventListener('resize', burgerFadeIn);
-
 
 const startAnimation = () => {
     // Блокируем прокрутку
