@@ -5562,9 +5562,9 @@ footer .team {
         padding: 24px;
     }
 
-    .honors-title {
+    /* .honors-title {
         width: max-content !important;
-    }
+    } */
 }
 
 @media (max-width: 1191px) {
