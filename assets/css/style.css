@@ -3408,6 +3408,39 @@ footer .team {
     letter-spacing: 0.1px;
 }
 
+.events-contents__priceRow {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.events-contents__rowEl {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+
+    margin-top: 8px;
+    color: #FFF;
+    font-family: "TTFirsNeue-Regular";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 21.6px */
+    letter-spacing: 0.1px;
+}
+
+.events-contents__rowEl img {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.events-contents__col {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
 .events-contents__price.event {
     color: #FFF;
     font-family: "TTFirsNeue-Medium";
@@ -5938,7 +5971,7 @@ footer .team {
     }
 
     .events-background img {
-        height: 600px;
+        height: 700px;
         object-fit: cover;
     }
 
@@ -6012,6 +6045,17 @@ footer .team {
 
     .events-wrapper.event {
         top: 32px;
+    }
+
+    .news-project.news {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .news-project.news img {
+        width: 360px;
     }
 }
 
@@ -6272,6 +6316,10 @@ footer .team {
     /* .popup-content__portfolio {
         max-height: 900px;
     } */
+
+    .events-contents__priceRow {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 550px) {
@@ -6348,6 +6396,10 @@ footer .team {
 
     .banner-wrapper {
         top: 0;
+    }
+
+    .events-contents__rowEl {
+        font-size: 16px;
     }
 }
 
