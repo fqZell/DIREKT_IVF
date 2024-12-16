@@ -6059,7 +6059,7 @@ footer .team {
     }
 }
 
-@media (max-width: 769px) {
+@media (max-width: 820px) {
     .slider-controls {
         top: auto;
         bottom: 20%;
