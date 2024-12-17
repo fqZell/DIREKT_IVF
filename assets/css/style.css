@@ -4813,7 +4813,11 @@ footer .team {
 }
 
 .popup-content__content hr {
-    border: 1px solide #00246A;
+    border: 1px solid #00246A;
+    width: 100%;
+}
+
+.popup-layout2__subtitle {
     width: 100%;
 }
 
@@ -5200,6 +5204,8 @@ footer .team {
     font-weight: 500;
     line-height: normal;
     letter-spacing: -1px;
+
+    height: 93px;
 }
 
 .swiper.program .swiper-slide hr {
@@ -5276,7 +5282,7 @@ footer .team {
 
     color: #00328A;
     font-family: "TTFirsNeue-Medium";
-    font-size: 16px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -5480,13 +5486,48 @@ footer .team {
 .popup-layout__subtitle {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .popup-layout__subtitle img {
     height: 80px;
     max-width: 160px;
     object-fit: contain;
+}
+
+.popup-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.popup-header img {
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.popup-program__content {
+    margin-top: 12px;
+}
+
+.popup-program__title {
+    color: #272727;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 36px */
+    letter-spacing: 0.1px;
+}
+
+.popup-content__program {
+    width: 900px;
+    overflow-y: scroll;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
 }
 
 @keyframes fadeInProg {
