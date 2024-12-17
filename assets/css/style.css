@@ -5520,14 +5520,49 @@ footer .team {
     font-weight: 500;
     line-height: 120%; /* 36px */
     letter-spacing: 0.1px;
+    margin-bottom: 32px;
 }
 
 .popup-content__program {
-    width: 900px;
+    max-width: 900px;
+    max-height: 800px;
     overflow-y: scroll;
     background-color: #fff;
     padding: 30px;
     border-radius: 20px;
+}
+
+.popup-program__subtitle {
+    color: #272727;
+    font-family: "TTFirsNeue-Medium";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 28.8px */
+    letter-spacing: 0.1px;
+    margin: 16px 0;
+}
+
+.popup-program__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+
+    color: #272727;
+    font-family: "TTFirsNeue-ExtraLight";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 265;
+    line-height: 120%; /* 21.6px */
+    letter-spacing: 0.1px;
+}
+
+.popup-program__wrapper img {
+    padding: 4px;
+    width: 16px;
+    height: 16px;
 }
 
 @keyframes fadeInProg {
