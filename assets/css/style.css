@@ -6092,6 +6092,22 @@ footer .team {
         margin-top: 33px;
         width: 100%;
     }
+
+    .popup-content__program {
+        max-height: 400px;
+    }
+
+    .popup-program__title {
+        font-size: 24px;
+    }
+
+    .popup-program__subtitle {
+        font-size: 18px;
+    }
+
+    .popup-program__wrapper {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 910px) {
