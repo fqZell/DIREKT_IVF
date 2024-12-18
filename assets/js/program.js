@@ -151,7 +151,7 @@ changeLanguage = () => {
 const fadeInSection = () => {
     // Настройка IntersectionObserver
     const observerOptions = {
-        threshold: 0.9 // Секция считается видимой, когда 10% её высоты появляются в области видимости
+        threshold: 0 // Секция считается видимой, когда 10% её высоты появляются в области видимости
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
