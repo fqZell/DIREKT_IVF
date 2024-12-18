@@ -7,6 +7,7 @@ const init = () => {
     sliderProgram()
     programAccordion()
     popup()
+    popup2()
 }
 
 document.addEventListener('DOMContentLoaded', init);
@@ -259,7 +260,7 @@ const programAccordion = () => {
 
 const popup = () => {
     const cards = document.querySelectorAll('.swiper-slide'); // Все карточки
-    const popupOverlay = document.querySelector('.popup-overlay'); // Модальное окно
+    const popupOverlay = document.querySelector('.popup-program'); // Модальное окно
     const popupTitle = document.querySelector('.popup-program__title'); // Текст в модальном окне
     const popupClose = document.querySelector('.popup-header img');
 
@@ -296,3 +297,68 @@ const popup = () => {
         document.body.style.overflow = 'auto';
     });
 };
+
+const popup2 = () => {
+
+    const cards = document.querySelectorAll('.portfolio-card');
+    const popupOverlay = document.querySelector('.popup-portfolio');
+    const popupImage = document.querySelector('.popup-img__portfolio');
+    const popupTitle = document.querySelector('.popup-title__portfolio');
+    const popupButton = document.querySelector('.popup-content__button');
+    const popupSubtitle = document.querySelector('.popup-subtitle__portfolio')
+    const popupClose = document.querySelector('.popup-close')
+    const popupDescription = document.querySelector('.popup-description__portfolio')
+    const popupAdress = document.querySelector('.popup-description__adress')
+    const popupMobile = document.querySelector('.popup-description__mobile')
+    const popupWeb = document.querySelector('.popup-description__web')
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const imgSrc = card.querySelector('.portfolio-cardJs__img').src;
+            const titleText = card.querySelector('.portfolio-card__title').innerText;
+            const buttonText = card.querySelector('.portfolio-card__button button').innerText
+            const subtitle = card.querySelector('.portfolio-card__description p').innerText
+            const description = card.querySelector('.portfolio-cardJs__description').innerText
+            const adress = card.querySelector('.portfolio-cardJs__adress').innerText
+            const mobile = card.querySelector('.portfolio-cardJs__mobile').innerText
+            const web = card.querySelector('.portfolio-cardJs__web').innerText
+
+            // Установка картинки и заголовка в popup
+            popupImage.src = imgSrc;
+            popupTitle.innerText = titleText;
+            popupButton.innerText = buttonText;
+            popupSubtitle.innerText = subtitle
+            popupDescription.innerText = description
+            popupAdress.innerText = adress
+            popupMobile.innerText = mobile
+            popupWeb.innerText = web
+
+            // Показ popup
+            popupOverlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    popupClose.addEventListener('click', () => {
+        popupOverlay.classList.add('hidden');
+        setTimeout(() => {
+            popupOverlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            popupOverlay.classList.remove('hidden');
+        }, 500);
+    })
+
+    // Закрытие popup по клику на overlay
+    popupOverlay.addEventListener('click', (e) => {
+        if (e.target === popupOverlay) {
+            popupOverlay.classList.add('hidden');
+            setTimeout(() => {
+                popupOverlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                popupOverlay.classList.remove('hidden');
+            }, 500);
+        }
+    });
+
+
+}
