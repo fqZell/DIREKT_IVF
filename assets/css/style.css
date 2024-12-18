@@ -4915,7 +4915,7 @@ footer .team {
     flex-wrap: wrap;
     gap: 32px;
 
-    margin-top: 32px;
+    margin-top: 64px;
 }
 
 .partners-wrapper.active {
@@ -5349,6 +5349,15 @@ footer .team {
 .partners-main .partners-header__el {
     max-width: 161px;
     max-height: 180px;
+}
+
+.partners-header__el p {
+    color: #00246A;
+font-family: "TTFirsNeue-Regular";
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: 120%; /* 28.8px */
 }
 
 .program-information {
@@ -6255,6 +6264,10 @@ text-underline-position: from-font;
     .popup-program__wrapper {
         font-size: 16px;
     }
+
+    .header-wrapper.active {
+        padding: 0;
+    }
 }
 
 @media (max-width: 910px) {
@@ -6274,7 +6287,8 @@ text-underline-position: from-font;
     }
 
     .partners-wrapper {
-        justify-content: center;
+        justify-content: flex-start;
+        gap: 80px;
     }
 
     .program-information {
