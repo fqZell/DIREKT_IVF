@@ -5715,6 +5715,18 @@ text-underline-offset: auto;
 text-underline-position: from-font;
 }
 
+.popup-program__content1 {
+    display: none;
+}
+
+.popup-program__content2 {
+    display: none;
+}
+
+.popup-program__content3 {
+    display: none;
+}
+
 /* program */
 
 

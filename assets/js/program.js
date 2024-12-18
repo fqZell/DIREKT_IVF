@@ -264,6 +264,9 @@ const popup = () => {
     const popupOverlay = document.querySelector('.popup-program'); // Модальное окно
     const popupTitle = document.querySelector('.popup-program__title'); // Текст в модальном окне
     const popupClose = document.querySelector('.popup-header img');
+    const popupContent = document.querySelector('.popup-program__txt1');
+    const popupContent2 = document.querySelector('.popup-program__txt2');
+    const popupContent3 = document.querySelector('.popup-program__txt3');
 
     // Для каждой карточки
     cards.forEach(card => {
@@ -274,9 +277,15 @@ const popup = () => {
         showPopupBtn.addEventListener('click', () => {
             // Получаем текст из текущей карточки
             const titleText = card.querySelector('.program-slider__title span').innerText;
+            const popupTxt = card.querySelector('.popup-program__content1').innerText
+            const popupTxt2 = card.querySelector('.popup-program__content2').innerText
+            const popupTxt3 = card.querySelector('.popup-program__content3').innerText
 
             // Устанавливаем текст в модальное окно
             popupTitle.innerText = titleText;
+            popupContent.innerText = popupTxt
+            popupContent2.innerText = popupTxt2
+            popupContent3.innerText = popupTxt3
 
             // Показываем модальное окно
             popupOverlay.style.display = 'flex';
