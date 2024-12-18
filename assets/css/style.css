@@ -5153,6 +5153,7 @@ footer .team {
 
 .program-img img {
     border-radius: 5px;
+    max-height: 450px;
 }
 
 .program-img__contact {
@@ -5250,6 +5251,10 @@ footer .team {
     font-weight: 265;
     line-height: 130%; /* 18.2px */
     letter-spacing: 0.1px;
+}
+
+.program-slider__content {
+    height: 400px;
 }
 
 .swiper.program .swiper-button-next, .swiper-rtl .swiper-button-prev {
@@ -5578,6 +5583,136 @@ footer .team {
 
 .requisites-bottom__wrapper.active {
     display: block;
+}
+
+.popup-form__title {
+    color: #272727;
+font-family: "TTFirsNeue-Medium";
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 24px */
+letter-spacing: 0.1px;
+}
+
+.popup-program__content form {
+    margin-top: 32px;
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.popup-program__content label {
+    color: #272727;
+font-family: "TTFirsNeue-Medium";
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 120%; /* 16.8px */
+letter-spacing: 0.1px;
+}
+
+.popup-program__content input {
+    border-radius: 60px;
+    border: 1px solid #909090;
+    padding: 8px 16px;
+    width: 100%;
+    margin: 16px 0;
+    outline: none;
+
+    color: #000;
+font-family: "TTFirsNeue-ExtraLight";
+font-size: 14px;
+font-style: normal;
+font-weight: 265;
+line-height: 150%; /* 21px */
+letter-spacing: 0.1px;
+}
+
+.popup-program__content input::placeholder {
+    color: #909090;
+    font-family: "TTFirsNeue-ExtraLight";
+font-size: 14px;
+font-style: normal;
+font-weight: 265;
+line-height: 150%; /* 21px */
+letter-spacing: 0.1px;
+}
+
+.popup-captcha {
+    border: 1px solid #D3D3D3;
+background: #F9F9F9;
+
+color: #000;
+font-family: "TTFirsNeue-ExtraLight";
+font-size: 14px;
+font-style: normal;
+font-weight: 265;
+line-height: 150%; /* 21px */
+letter-spacing: 0.1px;
+
+width: 303px;
+height: 77px;
+
+text-align: center;
+
+margin: 32px 0;
+}
+
+.popup-program__content button {
+    outline: none;
+    border-radius: 60px;
+background: #00246A;
+padding: 8px 16px;
+border: 1px solid transparent;
+
+color: #FFF;
+font-family: "TTFirsNeue-Medium";
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 150%; /* 21px */
+letter-spacing: 0.1px;
+
+width: 100%;
+cursor: pointer;
+}
+
+.popup-program__content button:hover {
+    background-color: transparent;
+    border: 1px solid #000;
+    color: #00246A;
+}
+
+.popup-agreement {
+    color: #909090;
+text-align: center;
+font-family: "TTFirsNeue-ExtraLight";
+font-size: 12px;
+font-style: normal;
+font-weight: 265;
+line-height: 150%; /* 18px */
+letter-spacing: 0.1px;
+
+margin-top: 8px;
+}
+
+.popup-agreement a {
+    color: #909090;
+    font-family: "TTFirsNeue-ExtraLight";
+font-size: 12px;
+font-style: normal;
+font-weight: 265;
+line-height: 150%;
+letter-spacing: 0.1px;
+text-decoration-line: underline;
+text-decoration-style: solid;
+text-decoration-skip-ink: none;
+text-decoration-thickness: auto;
+text-underline-offset: auto;
+text-underline-position: from-font;
 }
 
 /* program */

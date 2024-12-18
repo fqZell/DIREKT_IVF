@@ -8,6 +8,7 @@ const init = () => {
     programAccordion()
     popup()
     popup2()
+    popup3()
 }
 
 document.addEventListener('DOMContentLoaded', init);
@@ -361,4 +362,44 @@ const popup2 = () => {
     });
 
 
+}
+
+const popup3 = () => {
+    const cards = document.querySelectorAll('.swiper-slide'); // Все карточки
+    const popupOverlay = document.querySelector('.popup-form'); // Модальное окно
+    const popupTitle = document.querySelector('.popup-form__title'); // Текст в модальном окне
+    const popupClose = document.querySelector('.popup-header img');
+
+    // Для каждой карточки
+    cards.forEach(card => {
+        // Находим кнопку для открытия модального окна
+        const showPopupBtn = card.querySelector('.form');
+
+        // Добавляем событие клика на кнопку
+        showPopupBtn.addEventListener('click', () => {
+            // Получаем текст из текущей карточки
+            const titleText = card.querySelector('.program-slider__title span').innerText;
+
+            // Устанавливаем текст в модальное окно
+            popupTitle.innerText = titleText;
+
+            // Показываем модальное окно
+            popupOverlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Закрытие popup по клику на overlay
+    popupOverlay.addEventListener('click', (e) => {
+        if (e.target === popupOverlay) {
+            popupOverlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Закрытие popup по клику на кнопку закрытия
+    popupClose.addEventListener('click', () => {
+        popupOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
 }
