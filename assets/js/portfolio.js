@@ -273,30 +273,33 @@ const popup = () => {
 
     cards.forEach(card => {
         card.addEventListener('click', () => {
-            const imgSrc = card.querySelector('.portfolio-cardJs__img').src;
-            const titleText = card.querySelector('.portfolio-card__title').innerText;
-            const buttonText = card.querySelector('.portfolio-card__button button').innerText
-            const subtitle = card.querySelector('.portfolio-card__description p').innerText
-            const description = card.querySelector('.portfolio-cardJs__description').innerText
-            const adress = card.querySelector('.portfolio-cardJs__adress').innerText
-            const mobile = card.querySelector('.portfolio-cardJs__mobile').innerText
-            const web = card.querySelector('.portfolio-cardJs__web').innerText
-
-            // Установка картинки и заголовка в popup
-            popupImage.src = imgSrc;
-            popupTitle.innerText = titleText;
-            popupButton.innerText = buttonText;
-            popupSubtitle.innerText = subtitle
-            popupDescription.innerText = description
-            popupAdress.innerText = adress
-            popupMobile.innerText = mobile
-            popupWeb.innerText = web
-
+            // Получаем значения элементов, если они существуют, или задаём пустую строку
+            const imgSrc = card.querySelector('.portfolio-cardJs__img')?.src || '';
+            const titleText = card.querySelector('.portfolio-card__title')?.innerText || '';
+            const buttonText = card.querySelector('.portfolio-card__button button')?.innerText || '';
+            const subtitle = card.querySelector('.portfolio-card__description p')?.innerText || '';
+            const description = card.querySelector('.portfolio-cardJs__description')?.innerText || '';
+            const adress = card.querySelector('.portfolio-cardJs__adress')?.innerText || '';
+            const mobile = card.querySelector('.portfolio-cardJs__mobile')?.innerText || '';
+            const web = card.querySelector('.portfolio-cardJs__web')?.innerText || '';
+    
+            // Установка значений в popup
+            if (popupImage) popupImage.src = imgSrc;
+            if (popupTitle) popupTitle.innerText = titleText;
+            if (popupButton) popupButton.innerText = buttonText;
+            if (popupSubtitle) popupSubtitle.innerText = subtitle;
+            if (popupDescription) popupDescription.innerText = description;
+            if (popupAdress) popupAdress.innerText = adress;
+            if (popupMobile) popupMobile.innerText = mobile;
+            if (popupWeb) popupWeb.innerText = web;
+    
             // Показ popup
-            popupOverlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+            if (popupOverlay) {
+                popupOverlay.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
         });
-    });
+    });    
 
     popupClose.addEventListener('click', () => {
         popupOverlay.classList.add('hidden');
