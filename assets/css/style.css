@@ -1351,6 +1351,15 @@ header {
     color: #0061FC;
 }
 
+.news-header__img {
+    margin-top: 32px;
+}
+
+.news-header__img video {
+    width: 100%;
+    height: 100%;
+}
+
 .news-content {
     margin-top: 65px;
 
@@ -3601,13 +3610,13 @@ footer .team {
 
 .news-header__content p {
     color: #272727;
-    font-family: 'TTFirsNeue-ExtraLight';
-    font-size: 21px;
-    font-style: normal;
-    font-weight: 265;
-    line-height: 130%; /* 27.3px */
-    letter-spacing: 0.1px;
     text-align: justify;
+    font-family: "TTFirsNeue-Regular";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 31.2px */
+    letter-spacing: 0.1px;
 }
 
 .news-row {
@@ -3618,10 +3627,10 @@ footer .team {
     align-items: stretch;
     flex-wrap: wrap;
 
-    margin-top: 32px;
+    margin: 32px 0;
 }
 
-.news-row__content p {
+.news-row p {
     color: #272727;
     text-align: justify;
     font-family: 'TTFirsNeue-ExtraLight';
@@ -3673,6 +3682,85 @@ footer .team {
     font-weight: 265;
     line-height: 120%; /* 19.2px */
     letter-spacing: 0.1px;
+}
+
+.newsIndex {
+    width: 100%;
+    height: 100%;
+
+    margin-top: 32px;
+
+    /* position: relative; */
+    /* overflow: visible; */
+}
+
+.newsIndex .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsIndex .swiper-slide img {
+    display: block;
+    max-width: 322px;
+    max-height: 240px;
+    object-fit: cover;
+}
+
+.swiper-title {
+    margin-top: 32px;
+
+    color: #272727;
+    text-align: justify;
+    font-family: "TTFirsNeue-Regular";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 31.2px */
+    letter-spacing: 0.1px;
+}
+
+.swiper-container__news .swiper-button-next {
+    color: #00246A;
+    pointer-events: all; /* Делает кнопки кликабельными */
+}
+
+.swiper-container__news .swiper-button-prev {
+    color: #00246A;
+    pointer-events: all; /* Делает кнопки кликабельными */
+}
+
+.swiper-container__news .swiper-button-prev,
+.swiper-container__news .swiper-button-next {
+  position: absolute;
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+  z-index: 10;
+  pointer-events: all; /* Делает кнопки кликабельными */
+}
+
+.swiper-container__news .swiper-button-prev {
+  left: -50px; /* Стрелка влево за пределы контейнера */
+}
+
+.swiper-container__news .swiper-button-next {
+  right: -50px; /* Стрелка вправо за пределы контейнера */
+}
+
+.swiper-container__news {
+    position: relative;
+    overflow: visible;
+}
+
+.swiper-controls__news {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    pointer-events: none;
+    z-index: 999;
 }
 
 /* news */
@@ -5868,6 +5956,14 @@ text-underline-position: from-font;
         justify-content: flex-start;
         gap: 32px;
     }
+
+    .swiper-container__news .swiper-button-prev {
+        left: 0; /* Стрелка влево за пределы контейнера */
+      }
+      
+      .swiper-container__news .swiper-button-next {
+        right: 0 /* Стрелка вправо за пределы контейнера */
+      }
 }
 
 @media (max-width: 1140px) {
@@ -6308,7 +6404,7 @@ text-underline-position: from-font;
     }
 
     .news-project.news img {
-        width: 360px;
+        max-width: 360px;
     }
 }
 
@@ -6572,6 +6668,26 @@ text-underline-position: from-font;
 
     .events-contents__priceRow {
         flex-direction: column;
+    }
+
+    .swiper-container__news .swiper-button-prev {
+        left: -20px; /* Стрелка влево за пределы контейнера */
+      }
+      
+      .swiper-container__news .swiper-button-next {
+        right: -20px /* Стрелка вправо за пределы контейнера */
+      }
+}
+
+@media (max-width: 600px) {
+    .news-project.news {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .news-project.news {
+        gap: 0;
     }
 }
 

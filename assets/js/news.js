@@ -212,53 +212,46 @@ const burgerFadeIn = () => {
 };
 
 const swiperNews = () => {
-    const swiper = new Swiper(".mySwiper", {
-        direction: "horizontal",
-        slidesPerView: 4,
-        mousewheel: true,
-        freeMode: true,
-        freeModeMomentum: true,
-        speed: 1000,
-        pagination: {
-            el: ".swiper-pagination-1",
-            type: "progressbar",
-        },
-        scrollbar: {
-            el: ".swiper-scrollbar",
-            hide: true,
+    var swiper = new Swiper(".newsIndex", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
         },
         breakpoints: {
-            2560: { slidesPerView: 4 },
-            1920: { slidesPerView: 4 },
-            1440: { slidesPerView: 4 },
-            1024: { slidesPerView: 2 },
-            768: { slidesPerView: 2 },
-            375: { slidesPerView: 1 },
-        },
-        on: {
-            reachEnd: () => {
-                document.body.style.overflow = "auto";
-                swiper.mousewheel.disable();
+            2560: {
+                slidesPerView: 4,
+                spaceBetween: 30,
             },
-            fromEdge: () => {
-                document.body.style.overflow = "hidden";
-                swiper.mousewheel.enable();
+            1920: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+            1440: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+            1025: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            1024: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            500: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+            },
+            300: {
+                slidesPerView: 1,
+                spaceBetween: 0,
             },
         },
     });
-
-    // // Add Intersection Observer for slide animation
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("slide-in");
-            } else {
-                entry.target.classList.remove("slide-in");
-            }
-        });
-    }, { threshold: 0 });
-
-    // // Apply Observer to all slides
-    const slides = document.querySelectorAll('.swiper-slide');
-    slides.forEach(slide => observer.observe(slide));
-};
+}
