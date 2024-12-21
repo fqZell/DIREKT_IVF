@@ -230,7 +230,7 @@ const burgerFadeIn = () => {
 const fadeInSection = () => {
     // Настройка IntersectionObserver
     const observerOptions = {
-        threshold: 0.7 // Секция считается видимой, когда 10% её высоты появляются в области видимости
+        threshold: 0.1 // Секция считается видимой, когда 10% её высоты появляются в области видимости
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
