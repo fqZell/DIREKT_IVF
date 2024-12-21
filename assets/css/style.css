@@ -6677,6 +6677,11 @@ text-underline-position: from-font;
       .swiper-container__news .swiper-button-next {
         right: -20px /* Стрелка вправо за пределы контейнера */
       }
+
+      .burger-menu__layout {
+        justify-content: center;
+        height: auto;
+      }
 }
 
 @media (max-width: 600px) {
