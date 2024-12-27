@@ -1501,7 +1501,7 @@ header {
     transition: transform 0.3s ease;
 }
 
-.news-project:hover {
+.news-project img:hover {
     transform: scale(1.05);
 }
 
