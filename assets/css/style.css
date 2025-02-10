@@ -4105,9 +4105,33 @@ footer .team {
     animation: scaleIn 0.5s ease;
 }
 
+.popup-content.news {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    width: 800px;
+    height: 500px;
+    border-radius: 10px;
+    animation: scaleIn 0.5s ease;
+}
+
+@media (max-width: 1025px) {
+    .popup-content.news {
+        width: 600px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 769px) {
+    .popup-content.news {
+        width: 400px;
+        height: 300px;
+    }
+}
+
 .popup-image {
     width: 100%;
-    height: 100%;
+    height: 100% !important;
     border-radius: 10px;
 }
 

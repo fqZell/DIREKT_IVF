@@ -4,22 +4,22 @@ sliderBanner = () => {
     const prevButton = document.querySelector('.prev');
     const nextButton = document.querySelector('.next');
     const slideNumber = document.querySelector('.banner-bottom p');
-    const logo = document.querySelector('.header-logo img'); // Логотип
+    const logo = document.querySelector('.header-logo img');
 
     let currentSlide = 0;
-    let rotationDegree = 0; // Стартовый угол поворота логотипа
+    let rotationDegree = 0;
 
     function updateSlider() {
-        const offset = -currentSlide * 100; 
+        const offset = -currentSlide * 100;
         sliderLayout.style.transform = `translateX(${offset}%)`;
-    
+
         banners.forEach((banner, index) => {
             const bannerContent = banner.querySelector('.banner-content');
             const img = banner.querySelector('img');
-    
+
             bannerContent.classList.remove('active');
             img.classList.remove('active');
-    
+
             if (index === currentSlide) {
                 setTimeout(() => {
                     bannerContent.classList.add('active');
@@ -27,27 +27,27 @@ sliderBanner = () => {
                 }, 2000);
             }
         });
-    
+
         const breakpoints = document.querySelectorAll('.banner-breakpoint');
         breakpoints.forEach((bp, index) => {
             bp.classList.toggle('active', index === currentSlide);
         });
-    
+
         slideNumber.textContent = (currentSlide + 1).toString().padStart(2, '0');
-    
+
         rotationDegree += 360;
-        logo.style.transform = `rotate(${rotationDegree}deg)`; 
-    
-        // Проверяем разрешение экрана
+        logo.style.transform = `rotate(${rotationDegree}deg)`;
+
+
         if (window.innerWidth < 769) {
-            prevButton.style.opacity = '1'; // Всегда показывать на маленьких экранах
+            prevButton.style.opacity = '1';
         } else if (currentSlide > 0) {
-            prevButton.style.opacity = '1'; // Показывает на всех слайдах, кроме первого
+            prevButton.style.opacity = '1';
         } else {
-            prevButton.style.opacity = '0'; // Скрывает на первом слайде
+            prevButton.style.opacity = '0';
         }
     }
-        
+
 
     prevButton.addEventListener('click', () => {
         currentSlide = (currentSlide === 0) ? banners.length - 1 : currentSlide - 1;
@@ -117,12 +117,10 @@ burgerBanner = () => {
             logoTxt.src = './assets/img/logo/logoTxtBlue.svg';
             searchIcon.src = './assets/img/icons/searchBlue.svg';
         } else if (!isInBanner) {
-            // Если находимся вне секции баннера, возвращаем изображения в "внешний" вид
             logo.src = './assets/img/logo/logoBlue.svg';
             logoTxt.src = './assets/img/logo/logoTxtBlue.svg';
             searchIcon.src = './assets/img/icons/searchBlue.svg';
         } else if(isInBanner) {
-            // Если внутри секции баннера, возвращаем изображения в "баннерный" вид
             logo.src = './assets/img/logo/logo.svg';
             logoTxt.src = './assets/img/logo/logoTxt.svg';
             searchIcon.src = './assets/img/icons/search.svg';
@@ -194,12 +192,10 @@ searchBanner = () => {
         logoTxt.src = './assets/img/logo/logoTxtBlue.svg';
         searchIcon.src = './assets/img/icons/cross.svg';
     } else if (!isInBanner) {
-        // Если находимся вне секции баннера, возвращаем изображения в "внешний" вид
         logo.src = './assets/img/logo/logoBlue.svg';
         logoTxt.src = './assets/img/logo/logoTxtBlue.svg';
         searchIcon.src = './assets/img/icons/searchBlue.svg';
     } else {
-        // Если внутри секции баннера, возвращаем изображения в "баннерный" вид
         logo.src = './assets/img/logo/logo.svg';
         logoTxt.src = './assets/img/logo/logoTxt.svg';
         searchIcon.src = './assets/img/icons/search.svg';
@@ -278,13 +274,11 @@ const accordionIndex = () => {
             if (!isActive) {
                 contents[index].classList.add("active");
 
-                // Установка активной иконки для текущего ряда
                 const icon = row.querySelector('img');
                 if (icon) {
                     icon.src = './assets/img/icons/cross.svg';
                 }
 
-                // Управление классами картинок для анимации
                 images.forEach((img, imgIndex) => {
                     img.classList.remove("active", "disabled");
                     if (imgIndex === index) {
@@ -452,17 +446,14 @@ const sliderPhoto = () => {
     let currentSlide = 0;
 
     function updateSlide() {
-        // Убираем класс active с текущего слайда и его контента
         slides[currentSlide].classList.remove('active');
         const currentContent = slides[currentSlide].querySelector('.photo-content');
         if (currentContent) {
             currentContent.classList.remove('active');
         }
 
-        // Обновляем индекс на следующий слайд
         currentSlide = (currentSlide + 1) % slides.length;
 
-        // Добавляем класс active для нового слайда и его контента
         slides[currentSlide].classList.add('active');
         const nextContent = slides[currentSlide].querySelector('.photo-content');
         if (nextContent) {
@@ -470,26 +461,23 @@ const sliderPhoto = () => {
         }
     }
 
-    // Меняем слайд каждые 7 секунд
     setInterval(updateSlide, 7000);
 };
 
 const fadeInSection = () => {
-    // Настройка IntersectionObserver
     const observerOptions = {
-        threshold: 0.1 // Секция считается видимой, когда 10% её высоты появляются в области видимости
+        threshold: 0.1
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible'); // Добавляем класс при видимости
-                observer.unobserve(entry.target); // Прекращаем отслеживание после появления
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Наблюдаем за всеми секциями
     document.querySelectorAll('section').forEach(section => {
         observer.observe(section);
     });
@@ -504,7 +492,6 @@ const burgerFadeIn = () => {
         const cross = document.querySelector(`.burger-mobile__lines[data-index="${index}"]`);
 
         if (list && cross) {
-            // Общая функция для показа
             const showList = () => {
                 document.querySelectorAll('.burger-menu__column.center ul').forEach(ul => ul.classList.add('hidden'));
                 document.querySelectorAll('.burger-mobile__lines').forEach(crossEl => crossEl.classList.remove('active'));
@@ -512,13 +499,11 @@ const burgerFadeIn = () => {
                 cross.classList.add('active');
             };
 
-            // Общая функция для скрытия
             const hideList = () => {
                 list.classList.add('hidden');
                 cross.classList.remove('active');
             };
 
-            // Настольные события
             item.addEventListener('mouseenter', showList);
             item.addEventListener('mouseleave', () => {
                 setTimeout(() => {
@@ -537,14 +522,12 @@ const burgerFadeIn = () => {
                 }, 30000);
             });
 
-            // Сенсорные события
             item.addEventListener('touchstart', (e) => {
-                e.preventDefault(); // Предотвращаем "залипание" тапа
+                e.preventDefault();
                 showList();
             });
 
             document.addEventListener('touchstart', (e) => {
-                // Закрываем меню, если пользователь тапнул вне элемента
                 if (!item.contains(e.target) && !list.contains(e.target)) {
                     hideList();
                 }
@@ -554,25 +537,21 @@ const burgerFadeIn = () => {
 };
 
 const startAnimation = () => {
-    // Блокируем прокрутку
     document.body.classList.add('no-scroll');
     const html = document.querySelector('html')
     html.style.overflow = 'hidden'
 
     // Таймер на 3 секунды
     setTimeout(() => {
-        // Плавно убираем анимационный блок
         const overlay = document.querySelector('.start-overlay');
         overlay.style.opacity = '0';
 
-        // Убираем блок из DOM после завершения анимации
         setTimeout(() => {
             overlay.remove();
-            // Включаем прокрутку
             document.body.classList.remove('no-scroll');
             html.style.overflow = 'scroll'
-        }, 500); // Задержка в 500 мс для завершения плавного исчезновения
-    }, 3000); // Анимация длится 3 секунды
+        }, 500);
+    }, 3000);
 }
 
 const init = () => {

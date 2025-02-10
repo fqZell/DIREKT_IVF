@@ -5,6 +5,7 @@ const init = () => {
     fadeInSection()
     burgerFadeIn()
     swiperNews()
+    popup()
 }
 
 document.addEventListener('DOMContentLoaded', init);
@@ -254,4 +255,38 @@ const swiperNews = () => {
             },
         },
     });
+}
+
+const popup = () => {
+
+    const cards = document.querySelectorAll('.swiper-slide');
+    const popupOverlay = document.querySelector('.popup-overlay');
+    const popupImage = document.querySelector('.popup-image');
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const imgSrc = card.querySelector('img').src;
+
+            // Установка картинки и заголовка в popup
+            popupImage.src = imgSrc;
+
+            // Показ popup
+            popupOverlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Закрытие popup по клику на overlay
+    popupOverlay.addEventListener('click', (e) => {
+        if (e.target === popupOverlay) {
+            popupOverlay.classList.add('hidden');
+            setTimeout(() => {
+                popupOverlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                popupOverlay.classList.remove('hidden');
+            }, 500);
+        }
+    });
+
+
 }

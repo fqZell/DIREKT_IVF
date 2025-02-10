@@ -272,6 +272,7 @@ const popup = () => {
     cards.forEach(card => {
         // Находим кнопку для открытия модального окна
         const showPopupBtn = card.querySelector('.background');
+    
 
         // Добавляем событие клика на кнопку
         showPopupBtn.addEventListener('click', () => {
